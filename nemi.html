@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>nOwOn Event Management Interface</title>
+</head>
+<body>
+<div class="col-lg-12 container-fluid nemiInterfaceDiv">
+	<div class="row">
+		<div class="col-lg-12 nemiInterfaceHeaderDiv">
+			<div class="row">
+				<div class="col-lg-12 logOutBtnDiv">
+					<button class="btn btn-success logOutBtn">LOGOUT</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 nemiTitleInterfaceDiv">
+					<img src="images/nowonlogotype.png" class="nemiTitle" alt="nowon title">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12 nemiInterfaceBodyDiv">
+			<div class="row">
+			
+			<!------------  Start of nemiCalendarsEventsListOptionsDiv ---------------->
+			
+				<div class="col-lg-6 col-lg-offset-4 nemiCalendarsEventsListDiv">
+					<div class="row">
+						<div class="col-lg-12 calendarListDiv">
+							<select class="form-control calendarList"></select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 nemiCalendarsEventsListOptionsDiv">
+							<div class="row">
+							
+								<div class="col-lg-6">
+									<button class="btn btn-success" id="newEventBtn">New Event</button>
+								</div>
+								
+								<div class="col-lg-6">
+									<button class="btn btn-success dropdown-toggle" type="button" id="searchEventBtn" data-toggle="dropdown" aria-expanded="false">
+										Search Event
+										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu">
+										<li><a class="searchByDateOption">By date</a></li>
+										<li><a class="searchByTitleOption">By event title</a></li>
+									</ul>
+									<div class="row">
+									
+										<div class="col-lg-12 input-group searchEventInputBoxDiv">
+											<input type="text" class="form-control" id="searchEventDateInputBox" placeholder="Press here">
+											<input type="text" class="form-control" id="searchEventTitleInputBox" placeholder="Title of the event...">
+										</div>
+											
+									</div>
+																		
+								</div>
+							</div>		
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-1">
+							<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-left leftArrow" aria-hidden="true"></span></a>
+						</div>
+						<div class="col-lg-10 eventListDiv">
+							<div class="list-group singleEventDiv"></div>
+						</div>
+						<div class="col-lg-1">
+							<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-right rightArrow" aria-hidden="true"></span></a>
+						</div>
+					</div>
+				</div>	
+			<!------------------    End of nemiCalendarsEventsListOptionsDiv ------------------>
+			
+			<!------------------    Start of nemiEventInterfaceDiv --------------------------->
+	
+				<div class="col-lg-6 nemiEventInterfaceDiv">
+					<div class="row">
+						<div class="col-lg-12 nemiEventInterfaceView">
+						
+							
+						
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 nemiEventInterfaceEditOptionsDiv">
+							<div class="row editEventBtnsDiv">
+								<div class="col-lg-6">
+									<button class="btn btn-warning" id="editBtn">
+										Edit Event
+										<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+									</button>
+								</div>
+								<div class="col-lg-6">
+									<button class="btn btn-danger" id="deleteBtn">
+										Delete Event
+										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									</button>
+								</div>
+							</div>
+							<div class="row createEventBtnsDiv">
+								<div class="col-lg-6">
+									<button class="btn btn-success" id="doneBtn">
+										Create Event
+									</button>
+								</div>
+								<div class="col-lg-6">
+									<button class="btn btn-warning" id="cancelBtn">
+										Cancel
+									</button>
+								</div>
+							</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<!----------------------   End of nemiEventInterfaceDiv --------------------------->	
+			
+			<!----------------------   Start of nemiEventParameterListDiv ------------------->	
+			
+				<div class="col-lg-4 nemiEventParameterListDiv">
+					<div class="row">
+						<div class="col-lg-12 eventParameterListDiv">
+							<div class="row">
+								<div class="col-lg-12 title&DateEventParameterDiv">
+								
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12 descriptionEventParameterDiv">
+								
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!----------------------   End of nemiEventParameterListDiv ---------------------->	
+	
+			<!-----------------------  Start of nemiEventParameterEditorDiv ------------------->	
+
+				<div class="col-lg-4 nemiEventParameterEditorDiv">
+					<div class="row">
+					
+					</div>
+				</div>
+			<!-----------------------  End of nemiEventParameterEditorDiv ---------------------->	
+			
+			</div>	
+		</div>
+	</div>
+</div>	
+</body>
+</html>
