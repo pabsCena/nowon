@@ -1,1 +1,72 @@
 /*--------CSS File-----------------------*/
+
+
+/*NEMI LOGIN INTERFACE*/
+
+.nemiLoginInterfaceDiv{}
+
+.nemiLoginInterfaceView{}
+
+
+/*NEMI EVENT MANAGEMENT INTERFACE*/
+
+.nemiInterfaceDiv{
+	display:none;
+}
+
+/*Nemi interface Header Div*/
+
+.logOutBtnDiv{
+
+
+}
+
+.nemiTitleInterfaceDiv{
+
+
+}
+
+
+/*Nemi interface Body Div*/
+
+.nemiInterfaceBodyDiv{
+
+
+}
+
+/*Nemi Calendars Event List Div*/
+
+.nemiCalendarsEventsListDiv{
+
+
+}
+
+.calendarListDiv{}
+
+.nemiCalendarsEventsListOptionsDiv{}
+
+.nemiEventsListDiv{}
+
+
+/*Nemi Event Interface Div*/
+
+.nemiEventInterfaceDiv{}
+
+.nemieventInterfaceView{}
+
+.nemiEventInterfaceEditOptionsDiv{}
+
+
+
+/*Nemi Event Parameter List Div*/
+
+.nemiEventParameterListDiv{
+	display:none;
+}
+
+
+/*Nemi Event Parameter Editor Div*/
+
+.nemiEventParameterEditorDiv{
+	display:none;
+}

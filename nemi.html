@@ -3,8 +3,44 @@
 <head>
 	<meta charset="utf-8" />
 	<title>nOwOn Event Management Interface</title>
+	<!--Bootstrap CDN library-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!--Optional theme-->	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<!--style CSS file-->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+	<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+	<!--Script Bootstrap CDN library-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+	<style>
+		div {
+				background-color: lightSteelBlue;
+				border: 1px solid white;
+		}
+	
+	</style>
 </head>
 <body>
+<div class="col-lg-12 container-fluid nemiLoginInterfaceDiv">
+	<div class="row">
+		<div class="col-lg-4 nemiLoginInterfaceView">
+			<div class="row">
+				<div class="nowonLogoDiv">
+					<img src="images/nowonlogotype.png" class="nowonLogo" alt="nowon title">
+				</div>
+			</div>
+			<div class="row">
+				<div class="loginBtnDiv">		
+					<button class="btn btn-success" id="loginBtn">LOGIN</button>
+				</div>	
+			</div>			
+		</div>
+	</div>
+</div>
 <div class="col-lg-12 container-fluid nemiInterfaceDiv">
 	<div class="row">
 		<div class="col-lg-12 nemiInterfaceHeaderDiv">
@@ -24,9 +60,9 @@
 		<div class="col-lg-12 nemiInterfaceBodyDiv">
 			<div class="row">
 			
-			<!------------  Start of nemiCalendarsEventsListOptionsDiv ---------------->
+			<!--Start of nemiCalendarsEventsListOptionsDiv-->
 			
-				<div class="col-lg-6 col-lg-offset-4 nemiCalendarsEventsListDiv">
+				<div class="col-lg-6 nemiCalendarsEventsListDiv">
 					<div class="row">
 						<div class="col-lg-12 calendarListDiv">
 							<select class="form-control calendarList"></select>
@@ -50,14 +86,14 @@
 										<li><a class="searchByDateOption">By date</a></li>
 										<li><a class="searchByTitleOption">By event title</a></li>
 									</ul>
-									<div class="row">
-									
+							
+			
 										<div class="col-lg-12 input-group searchEventInputBoxDiv">
 											<input type="text" class="form-control" id="searchEventDateInputBox" placeholder="Press here">
 											<input type="text" class="form-control" id="searchEventTitleInputBox" placeholder="Title of the event...">
 										</div>
 											
-									</div>
+									
 																		
 								</div>
 							</div>		
@@ -65,20 +101,24 @@
 					</div>
 					
 					<div class="row">
-						<div class="col-lg-1">
-							<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-left leftArrow" aria-hidden="true"></span></a>
-						</div>
-						<div class="col-lg-10 eventListDiv">
-							<div class="list-group singleEventDiv"></div>
-						</div>
-						<div class="col-lg-1">
-							<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-right rightArrow" aria-hidden="true"></span></a>
-						</div>
+						<div class="col-lg-12 nemiEventsListDiv">
+							<div class="row">
+								<div class="col-lg-1">
+									<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-left leftArrow" aria-hidden="true"></span></a>
+								</div>
+								<div class="col-lg-10 eventListDiv">
+									<div class="list-group singleEventDiv"></div>
+								</div>
+								<div class="col-lg-1">
+									<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-right rightArrow" aria-hidden="true"></span></a>
+								</div>
+							</div>
+						</div>		
 					</div>
 				</div>	
-			<!------------------    End of nemiCalendarsEventsListOptionsDiv ------------------>
+			<!--End of nemiCalendarsEventsListOptionsDiv-->
 			
-			<!------------------    Start of nemiEventInterfaceDiv --------------------------->
+			<!--Start of nemiEventInterfaceDiv-->
 	
 				<div class="col-lg-6 nemiEventInterfaceDiv">
 					<div class="row">
@@ -111,7 +151,7 @@
 									</button>
 								</div>
 								<div class="col-lg-6">
-									<button class="btn btn-warning" id="cancelBtn">
+									<button class="btn btn-danger" id="cancelBtn">
 										Cancel
 									</button>
 								</div>
@@ -119,17 +159,17 @@
 							</div>
 						</div>
 					</div>
-				</div>
 				
-			<!----------------------   End of nemiEventInterfaceDiv --------------------------->	
+				
+			<!--End of nemiEventInterfaceDiv-->	
 			
-			<!----------------------   Start of nemiEventParameterListDiv ------------------->	
+			<!--Start of nemiEventParameterListDiv-->	
 			
 				<div class="col-lg-4 nemiEventParameterListDiv">
 					<div class="row">
 						<div class="col-lg-12 eventParameterListDiv">
 							<div class="row">
-								<div class="col-lg-12 title&DateEventParameterDiv">
+								<div class="col-lg-12 titleDateEventParameterDiv">
 								
 								</div>
 							</div>
@@ -142,20 +182,24 @@
 						</div>
 					</div>
 				</div>
-			<!----------------------   End of nemiEventParameterListDiv ---------------------->	
+			<!--End of nemiEventParameterListDiv-->	
 	
-			<!-----------------------  Start of nemiEventParameterEditorDiv ------------------->	
+			<!--Start of nemiEventParameterEditorDiv-->	
 
 				<div class="col-lg-4 nemiEventParameterEditorDiv">
 					<div class="row">
-					
+						<div class="col-lg-12 eventParameterEditorDiv">
+						</div>
 					</div>
 				</div>
-			<!-----------------------  End of nemiEventParameterEditorDiv ---------------------->	
+			<!--End of nemiEventParameterEditorDiv-->	
 			
 			</div>	
 		</div>
 	</div>
-</div>	
+</div>
+<!-- Scripts Section -->
+<script src="js/login.js"></script>	
+	
 </body>
 </html>
