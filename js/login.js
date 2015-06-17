@@ -5,10 +5,9 @@ var clientId 	=  	'264744363499-ioemohb9hlmd2v3dae3pg2mhcg4v0lcn.apps.googleuser
 var scopes 		=  	'https://www.googleapis.com/auth/calendar';
 
 $('#loginBtn').on('click', function(){
+
 	checkAuth();
-	//showInterfaces();
-	//$('#spinner').show();
-	//loopLi();
+
 });
 
 function checkAuth() {
@@ -23,18 +22,26 @@ function checkAuth() {
 //handles the result from Google call
 function handleAuthResult(authResult) {
 	if (authResult) {
-		
+	
 		//if the result is ok, call for the calendars
   		console.log(authResult);
   		
-  		//$(".eventListDiv").show();
+  		$body = $("body");
+		$body.addClass("loading");
   		
-  		//getCalendars();
-  		
-  		//showInterfaces();
-				
+		loopLi();
+  		  		
+  		getCalendars();
+		getEventsFromCalendarId();
+    	
+    	//show the interface of Nemi
+  		$('.nemiLoginInterfaceDiv').hide();
+  		$('.nemiInterfaceDiv').fadeIn("slow");
+						
   	} else {
   		//if the result is not ok, shows a message error
     	console.error("could not retrieve access token");
    	}
 }
+
+
