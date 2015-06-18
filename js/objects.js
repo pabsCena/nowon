@@ -19,13 +19,7 @@ function EventObject(summary, date, description){
 	this.description	=	description;
 		
 }
-/*
-function EventDate(identifier, start, end){
-	this.identifier	=	identifier;
-	this.start		=	start;
-	this.end		=	end;
-}
-*/
+
 function EventDateObject(start, end){
 	this.start		=	start;
 	this.end		=	end;

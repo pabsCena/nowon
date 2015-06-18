@@ -37,8 +37,7 @@
 /*Nemi Calendars Event List Div*/
 
 .nemiCalendarsEventsListDiv{
-
-
+	
 }
 
 .calendarListDiv{}
@@ -69,13 +68,20 @@
 
 .nemiEventInterfaceDiv{
 	display:none;
+	float: right;
 }
 
-.nemieventInterfaceView{}
+.nemieventInterfaceView{
+	
+}
 
-.nemiEventInterfaceEditOptionsDiv{}
+.nemiEventInterfaceEditOptionsDiv{
+	
+}
 
-
+.createEventBtnsDiv{
+	display:none;
+}
 
 /*Nemi Event Parameter List Div*/
 

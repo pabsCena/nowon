@@ -31,12 +31,17 @@ function getEvents(calendarId){
 		 	eventId 		=	eventList.result.items[i].id;
 			summary 		=	eventList.result.items[i].summary;       
 			description 	=	eventList.result.items[i].description;
-			end				=	eventList.result.items[i].end.dateTime;
 			
 			if(eventList.result.items[i].start.dateTime){
 				start		=	eventList.result.items[i].start.dateTime;
 			 }else{
 				start		=	eventList.result.items[i].start.date;
+			 }
+			 
+			 if(eventList.result.items[i].end.dateTime){
+				end		=	eventList.result.items[i].end.dateTime;
+			 }else{
+				end		=	eventList.result.items[i].end.date;
 			 }
 			 
 			var eventDate 	=	new EventDateObject(start, end);
@@ -93,7 +98,7 @@ function loopLi() {
             showIncomingEvents();
         }
 
-    }, 1000);
+    }, 2000);
 }
 
 
