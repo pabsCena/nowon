@@ -1,6 +1,10 @@
 //make an api call to obtain the calendars associated to the account
+
 function getCalendars(){
 
+	$body = $("body");
+	$body.addClass("loading");
+		
 	var calendarId, calendarName;
 	var calendarObjectList	=	[];
 				

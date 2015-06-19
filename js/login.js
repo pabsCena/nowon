@@ -33,15 +33,22 @@ function handleAuthResult(authResult) {
   		  		
   		getCalendars();
 		getEventsFromCalendarId();
+	
     	
     	//show the interface of Nemi
-  		$('.nemiLoginInterfaceDiv').hide();
-  		$('.nemiInterfaceDiv').fadeIn("slow");
-						
+  		//$('.nemiLoginInterfaceDiv').hide();
+  		//$('.nemiInterfaceDiv').fadeIn("slow");
+  		
+  		$( ".nemiLoginInterfaceDiv" ).hide( "clip", 1000, callback );
+ 						
   	} else {
   		//if the result is not ok, shows a message error
     	console.error("could not retrieve access token");
    	}
 }
 
-
+function callback() {
+  setTimeout(function() {
+	$( ".nemiInterfaceDiv" ).show("clip", 1000);
+  }, 1000 );
+};

@@ -8,24 +8,6 @@ $('.eventListDiv').on('click','a.list-group-item', function(){
 		
 		var calendarId = $(".form-control").find(':selected').attr('id');
 		
-		/*if($( ".editedOptionLg" )){
-		
-			$( '.WYSIWYGEditable .editedOptionLg' ).removeClass("editedOptionLg").addClass("clickOptionLg")
-				
-				.removeAttr("data-identifier").attr("data-modified",false).children().not('.newElement').remove();
-		}
-		
-		$( ".WYSIWYGShown" ).removeAttr("id").children().not('.optionsRow, .doneBtnRow').remove();
-		
-		$( ".WYSIWYGShown" ).attr("id", eventId);
-		*/
-		
-		if($(".nemiEventInterfaceView").attr("id")){
-		
-			$(".nemiEventInterfaceView").removeAttr("id").empty()
-		}
-		
-		
 		showEventInterfaceView();
 		
 		localizeEvent(calendarId, eventId); 
@@ -36,6 +18,10 @@ $('.eventListDiv').on('click','a.list-group-item', function(){
 	
 function showEventInterfaceView(){
 
+	if($(".nemiEventInterfaceView").attr("id")){
+		
+			$(".nemiEventInterfaceView").removeAttr("id").empty()
+		}
 	
 	if($(".nemiEventInterfaceDiv").is(":hidden")){
  

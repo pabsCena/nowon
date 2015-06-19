@@ -76,7 +76,6 @@
 }
 
 .nemiEventInterfaceEditOptionsDiv{
-	
 }
 
 .createEventBtnsDiv{
@@ -87,6 +86,7 @@
 
 .nemiEventParameterListDiv{
 	display:none;
+	float: right;
 }
 
 
@@ -94,6 +94,7 @@
 
 .nemiEventParameterEditorDiv{
 	display:none;
+	float: left;
 }
 
 
