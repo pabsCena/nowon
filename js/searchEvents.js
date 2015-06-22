@@ -39,12 +39,15 @@ $(document).ready(function(e) {
 
 //Method that searches for specific events according to it's date
 
-$("#searchEventDateInputBox").datepicker({
+ $('.searchEventInputBoxDiv #searchEventDateInputBox').datepicker({
+        'format': 'yyyy-mm-dd',
+        'autoclose': true
+    });
+
+
+$("#searchEventDateInputBox").on('change', function(){
 	
-	dateFormat: 'yy-mm-dd',
-	
-   	onSelect: function() { 
-   		//var dateAsObject 	= $(this).datepicker( 'getDate' );
+   	
     	var eventDate 		= $(this).val();
     	var calendarId 		= $(".form-control").find(':selected').attr('id');
 		
@@ -52,8 +55,9 @@ $("#searchEventDateInputBox").datepicker({
 		
 		$( '#searchEventDateInputBox' ).val('');
 		$( '#searchEventDateInputBox' ).hide();
-   }
+   
 });
+
 
 function eventsByDate(eventDate, calendarId){
 	

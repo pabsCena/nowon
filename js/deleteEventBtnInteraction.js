@@ -3,39 +3,13 @@
 $(function() {
 
 	$( "#deleteBtn" ).click(function() {
-		
-		confirmDelete();
+				
+		if(confirm("Are you sure you want to delete this event?")){
+			deleteEvent();
+		}
 		
 	});
 });
-
-
-function confirmDelete(){
-
-	$('<div></div>').appendTo('body')
-		.html('<div><h6>Are you sure?</h6></div>')
-		.dialog({
-			modal: true,
-			title: 'Delete',
-			zIndex: 10000,
-			autoOpen: true,
-			width: 'auto',
-			resizable: false,
-			buttons: {
-				Yes: function () {
-					deleteEvent();
-					$(this).dialog("close");
-				},
-				No: function () {
-					$(this).dialog("close");
-				}
-			},
-			close: function (event, ui) {
-				$(this).remove();
-			}
-		});
-}
-
 
 
 // function to delete an event
@@ -57,24 +31,31 @@ function deleteEvent(){
 		
 		request.then(function(resp) {
 			
-			alert("Event deleted");
-						
-			if($(".eventListDiv").find("#"+eventId+"").next()){
+			$.alert('Event deleted', {
+				autoClose: true,
+				closeTime: 2000,
+				onClose:function(){
 				
 				$body = $("body");
 				$body.addClass("loading");
-				
 				loopLi();
 				
-				showNextEventFromList(calendarId, eventId);
-				
+				if($(".eventListDiv a:last-child").attr("id") != eventId){
+			
+					showNextEventFromList(calendarId, eventId);
+			
+		
+				}else{
+						
+					$( ".nemiEventInterfaceDiv").hide();
+					$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 500);
+			
+				}
+					
 				getEventsFromCalendarId();
 				
-			}else{
-			
-				$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 500);
-				
-			}
+				}
+			});
 				
 			}, function(reason){
 				console.log('Error: ' + reason.result.error.message);

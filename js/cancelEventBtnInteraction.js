@@ -11,7 +11,7 @@ $(function() {
 
 function showEditModeAfterCancelEventBtn(){
 
-	//emptyEventEditingDivs();
+	emptyEventEditingDivs();
 
 	setTimeout(function() {
 		
@@ -36,10 +36,22 @@ function showEditModeAfterCancelEventBtn(){
 
 function emptyEventEditingDivs(){
 
-	$( ".WYSIWYGShown" ).height(0).removeAttr("id").children().not('.optionsRow, .doneBtnRow').remove();
+	$( ".nemiEventInterfaceView" ).removeAttr("id").children().remove();
 	
-	$( '.WYSIWYGEditable .editedOptionLg' ).removeClass("editedOptionLg").addClass("clickOptionLg")
+	$(".titleDateEventParameterDiv").children().find(".eventDateDiv, .eventTitleDiv").find("input").val("");
 	
-		.removeAttr("data-identifier").attr("data-modified",false).children().not('.newElement').remove();
+	$( '.descriptionEventParameterDiv .elementDescriptionLayerEdited' ).children(".newDescriptionElement").show();
+	
+	$( '.descriptionEventParameterDiv .elementDescriptionLayerEdited' ).removeClass("elementDescriptionLayerEdited").addClass("elementDescriptionLayer")
+	
+		.removeAttr("data-identifier").attr("data-modified",false).children().not('.newDescriptionElement').remove();
+		
+	if($( '.descriptionEventParameterDiv .elementDescriptionLayer' ).length>5){
+	
+		var x =	$( '.descriptionEventParameterDiv .elementDescriptionLayer' ).length;
+		var y =	x - 5;
+		$( '.descriptionEventParameterDiv .elementDescriptionLayer' ).slice(-y).remove();
+	
+	}
 	
 }

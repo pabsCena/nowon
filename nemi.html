@@ -5,17 +5,26 @@
 	<title>NEMI</title>
 	<!--Bootstrap CDN library-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<!--Optional theme-->	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	
 	<!--style CSS file-->
 	<link rel="stylesheet" href="css/style.css">
-	<!-- Latest compiled and minified JavaScript -->
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 	<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 	<!--Script Bootstrap CDN library-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		
+	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css"/>
 	
+	<script type="text/javascript" src="lib/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="lib/jquery.timepicker.min.js"></script>
+	<script type="text/javascript" src="lib/Datepair.js"></script>
+	<script type="text/javascript" src="lib/jquery.datepair.js"></script>
+	<script type="text/javascript" src="lib/alert.js"></script>
+
+
 	<style>
 		div {
 				background-color: lightSteelBlue;
@@ -87,8 +96,8 @@
 										<li><a class="searchByTitleOption">By event title</a></li>
 									</ul>			
 									<div class="col-lg-12 input-group searchEventInputBoxDiv">
-										<input type="text" class="form-control" id="searchEventDateInputBox" placeholder="Press here">
-										<input type="text" class="form-control" id="searchEventTitleInputBox" placeholder="Title of the event...">
+										<input type="text" id="searchEventDateInputBox" placeholder="Press here"/>
+										<input type="text" id="searchEventTitleInputBox" placeholder="Title of the event..."/>
 									</div>											
 								</div>
 							</div>		
@@ -161,13 +170,40 @@
 						<div class="col-lg-12 eventParameterListDiv">
 							<div class="row">
 								<div class="col-lg-12 titleDateEventParameterDiv">
-									COSAS
+									<div class="row">
+										<div class="col-lg-12 eventTitleDiv">
+											<h4>Title</h4>
+											<input type='text' id="eventTitleInputBox" class='form-control' aria-describedby='sizing-addon1' placeholder="Title here">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 eventDateDiv">
+											<h4>Date</h4>
+											<input type='text' class="date start" id="eventStartDateInputBox" placeholder="Start Date"/>
+											<input type='text' class="time start" id="eventStartTimeInputBox" placeholder="Start Time"/>to
+											<input type='text' class="time end" id="eventEndDateInputBox" placeholder="End Date"/>
+											<input type='text' class="date end" id="eventEndTimeInputBox" placeholder="End Time"/>
+										</div>
+									</div>	
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-12 descriptionEventParameterDiv">
-									MALAS
+									<h4>Description</h4>
+									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
+									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
+									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
+									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
+									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
 								
+								
+								<ul id="demo_ul">
+									<li class="demo_li"><div id="eventTextDiv"><i class="fa fa-home"></i></div><div>Text<span class="glyphicon glyphicon-font popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventEmailDiv"><i class="fa fa-home"></i></div><div>E-mail<span class="glyphicon glyphicon-envelope popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventPhoneDiv"><i class="fa fa-home"></i></div><div>Number<span class="glyphicon glyphicon-earphone popMenuIcon" ></span></div></li>
+									<li class="demo_li"><div id="eventUrlDiv"><i class="fa fa-home"></i></div><div>Url<span class="glyphicon glyphicon-globe popMenuIcon"></span></div></li>
+								</ul>
+								<button type="button" id="addLayerBtn"><span class="glyphicon glyphicon-plus"> New Element</span></button>
 								</div>
 							</div>
 						</div>
@@ -181,6 +217,13 @@
 					<div class="row">
 						<div class="col-lg-12 eventParameterEditorDiv">
 							COSA
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 createElementBtnDiv">
+							<button class="btn btn-success" id="createElementBtn">
+									<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -207,8 +250,14 @@
 <script src="js/generateElements.js"></script>
 <script src="js/showElement.js"></script>
 <script src="js/newEventBtnInteraction.js"></script>
-<script src="js/cancelEventBtnInteraction.js"></script>
 <script src="js/deleteEventBtnInteraction.js"></script>
+<script src="js/cancelEventBtnInteraction.js"></script>
+<script src="js/popupMenu.js"></script>
+<script src="js/createElementDescription.js"></script>
+<script src="js/interaction.js"></script>
+<script src="js/deleteElementDescription.js"></script>
+<script src="js/titleDateInteraction.js"></script>
+
 
 </body>
 </html>

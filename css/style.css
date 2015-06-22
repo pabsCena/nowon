@@ -62,6 +62,20 @@
 	.glyphicon-chevron-left, .glyphicon-chevron-right{
 		display: none;
 	}
+	
+	.rightArrow, .leftArrow{
+			font-size: 4em;
+			position: relative;
+			top: 2em;
+ 		}
+ 		
+ 		.rightArrow{
+ 			right: 0.5em;
+		}
+		
+		.leftArrow{
+ 			right: 0.2em;
+		}
 
 
 /*Nemi Event Interface Div*/
@@ -89,12 +103,76 @@
 	float: right;
 }
 
+#eventStartDateInputBox, #eventEndDateInputBox, #eventStartTimeInputBox, #eventEndTimeInputBox{
+	width: 22%;
+  	margin-right: 0.2em;
+
+}
+
+.elementDescriptionLayer{
+	margin: 0.3em;
+
+}
+
+.elementDescriptionLayer .newDescriptionElement{
+	position: relative;
+	padding: 9px 6px 10px;
+	color: #000;
+	cursor: pointer;
+	opacity: .2;
+	text-align: center;
+	line-height: 10px;
+}
+
+.elementDescriptionLayer:hover .newDescriptionElement {
+	opacity: 1;
+}
+
+.elementDescriptionLayerEdited{
+	margin: 0.3em;
+
+}					
+
+.elementDescriptionLayerEdited .deleteElementDescription{
+	position: relative;
+	padding: 9px 6px 10px;
+	color: #000;
+	cursor: pointer;
+	opacity: .2;
+	text-align: center;
+	line-height: 10px;
+}
+
+
+.elementDescriptionLayerEdited:hover .deleteElementDescription {
+	opacity: 1;
+}
+
+
+
+.popMenuIcon{
+	color: green;
+	font-size: 3.2em;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+	top: 0.35em;
+}
+
+#addLayerBtn{
+	display: none;
+}
 
 /*Nemi Event Parameter Editor Div*/
 
 .nemiEventParameterEditorDiv{
 	display:none;
 	float: left;
+}
+
+.createElementBtnDiv{
+	display: none;
 }
 
 
