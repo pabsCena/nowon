@@ -2,43 +2,32 @@
 
 $(document).on('click','.deleteElementDescription', function() {
 	
-	var element	=	 $(this).parent();
+	var identifier	=	 $(this).parent().attr("id");
 	
-	//deleteElement(element);
+	//deleteDescriptionElement(elementIdentifier);
 	
 	$(this).parent().children(".newDescriptionElement").show();
 	
 	$(this).parent().removeClass("elementDescriptionLayerEdited").addClass("elementDescriptionLayer").attr("data-modified","false").removeAttr("data-identifier").children().not('.newDescriptionElement').remove();
     
     if($("#addLayerBtn").is(":visible")){
+    
     	$("#addLayerBtn").hide();
     }
     
 });
 
 
-function deleteElement(element){
+function deleteDescriptionElement(identifier){
 
-	var identifier	=	 $(element).attr("data-identifier");
 	var event 	= 	getEventSessionStorage();
-	
-	switch	(identifier){
-		
-		case	"summary":
-			delete event.summary;
-			break;
-		case	"date":
-			delete event.date;
-			break;
-		default:
-			for(var i=0; i<event.description.length; i++){
-				if(identifier==event.description[i].identifier){
-					event.description.splice(i,1);
-				}
-			
-			}
-			break;	
+
+	for(var i=0; i<event.description.length; i++){
+		if(identifier==event.description[i].identifier){
+			event.description.splice(i,1);
+		}	
 	}
+	
 	setEventSessionStorage(event);
 	$(".WYSIWYGShown").find("[data-identifier='"+identifier+"']").remove();
 }

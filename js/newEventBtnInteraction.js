@@ -4,8 +4,11 @@ $(function() {
 
 	$( "#newEventBtn" ).click(function() {
 
-		 $( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
+		var event 	=	new EventObject();
+		setEventSessionStorage(event);
 
+		 $( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
+		
 	});
 });
 
@@ -31,15 +34,4 @@ function showEditModeAfterNewEventBtn(){
     	  });
    		});
     }, 400 );
-		
-		//$( '.WYSIWYGEditable .editedOptionLg' ).removeClass("editedOptionLg").addClass("clickOptionLg")
-			//.removeAttr("data-identifier").attr("data-modified",false).children().not('.newElement').remove();
-			
-		
-		
-		//$( ".WYSIWYGShown" ).height(getHeight2()).removeAttr("id").children().not('.optionsRow, .doneBtnRow').remove();
-			
-		//$( ".editModeDiv" ).height(getHeight2());
-		
-		
 }

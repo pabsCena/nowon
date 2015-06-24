@@ -1,25 +1,7 @@
 //Script that generates the pop up menu for elements of the description
 
-$(document).ready(function() {
-	$( "ul li.demo_li" ).on("click", function () {
-					
-			/*if($('.settingsInterface').not(":hidden")){
-		
-				var element		=	$('.settingsInterface').children().not(":hidden");
-				$(element).hide().find("input:text").val("");
-				$(element).find("input:radio:checked").prop('checked', false);
-			
-			}			
-	
-			showSettingsInterface($(this).children().attr("id"));
-			*/	
-			
-			$(".createElementBtnDiv").show();
-	});
-});	
-
-
  $(function(){
+ 
     $(".descriptionEventParameterDiv").popmenu({ 'width': '300px','background': '#34495e', 'focusColor': '#1abc9c', 
         'borderRadius': '10px' }); 
 });
@@ -114,3 +96,57 @@ $(document).ready(function() {
     };
 
 }(jQuery));
+
+
+$(function(){
+
+	$( "ul li.demo_li" ).on("click", function () {
+	
+		if($('.eventParameterEditorDiv').attr("id")==="activated"){
+		
+				var element		=	$('.eventParameterEditorDiv').children().not(":hidden");
+				$(element).hide().find("input:text").val("");
+				$(element).find("input:radio:checked").prop('checked', false);
+			
+			}	
+	
+		$('.eventParameterEditorDiv').attr("id", "activated");
+					
+	
+		showEventParameterDivSelected($(this).children().attr("id"));
+			
+	});
+});	
+
+
+function showEventParameterDivSelected(parameterName){
+
+	$(".createElementBtnDiv, .WYSIWYGInterface").show();
+	
+	switch(parameterName){
+	
+		case "eventTextMenuOption":
+            $('#textParameterEditorDiv').fadeIn("fast");
+            $(".textArea").show();
+			break;	
+		case "eventImageMenuOption":
+			$('#imageParameterEditorDiv').fadeIn("fast");
+			break;
+		case "eventEmailMenuOption":
+			$('#emailParameterEditorDiv').fadeIn("fast");
+			break;
+		case "eventPhoneMenuOption":
+			$('#phoneParameterEditorDiv').fadeIn("fast");
+			break;
+		case "eventUrlMenuOption":
+			$('#urlParameterEditorDiv').fadeIn("fast");
+			break;
+		default:
+			break;
+		
+		
+	}
+}
+
+ 
+

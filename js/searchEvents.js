@@ -5,7 +5,6 @@ $(document).ready(function(e) {
 		
 		var searchBtn			=	$(this).siblings("ul");
 				
-		
 		$('ul.dropdown-menu').toggle();
 		
 		$( "#searchEventDateInputBox, #searchEventTitleInputBox" ).hide();
@@ -23,12 +22,10 @@ $(document).ready(function(e) {
 				
 		switch ($(this).attr('class')){
 			case "searchByDateOption":
-				$( "#searchEventDateInputBox" ).fadeIn("slow");
-					//$( "#inputBoxDate" ).focus();
+				$( "#searchEventDateInputBox" ).fadeIn("slow").focus();
 				break;
 			case "searchByTitleOption":
-				$( "#searchEventTitleInputBox" ).fadeIn("slow");
-					//$( "#inputBoxTitle" ).focus();
+				$( "#searchEventTitleInputBox" ).fadeIn("slow").focus();
 				break;
 			default:
 				break;	
@@ -72,12 +69,8 @@ function eventsByDate(eventDate, calendarId){
 				if(calendars[i].events[j].date.start!=undefined){
 					
 					var str = calendars[i].events[j].date.start;
-					var str2 = str.slice(0,10);
-					
-					console.log(str2);
-					
+					var str2 = str.slice(0,10);							
 					var pos = eventDate.slice(0,10);
-					console.log(pos);
 				
 					if(pos===str2){
 						array[counter] = calendars[i].events[j];

@@ -4,11 +4,12 @@
 var clientId 	=  	'264744363499-ioemohb9hlmd2v3dae3pg2mhcg4v0lcn.apps.googleusercontent.com';	
 var scopes 		=  	'https://www.googleapis.com/auth/calendar';
 
-$('#loginBtn').on('click', function(){
-
+ $(function(){
+   $('#loginBtn').on('click', function(){
 	checkAuth();
-
+	});
 });
+
 
 function checkAuth() {
 	//send the auth request

@@ -1,8 +1,32 @@
 //Script that manages all the interaction with the buttons and divs in the app
  
- //make the labels of the WYSIWYGEditableDiv sortable
- 
- $(function() {
+ //Event date and time interaction
+	
+
+$(function(){
+
+	 $('.eventDateDiv .time').timepicker({
+		'showDuration': true,
+		'timeFormat': 'g:ia'
+	});
+
+	$('.eventDateDiv .date').datepicker({
+		'format': 'yyyy-mm-dd',
+		'autoclose': true
+	});
+
+	$('.eventDateDiv').datepair();
+
+  });
+   	
+$(function(){
+     
+    $("#geocompleteInputBox").geocomplete();
+   
+});   
+	
+    
+$(function(){     
     
     $( ".descriptionEventParameterDiv" ).sortable({
     	
@@ -12,7 +36,6 @@
 
             //showEventFromEditMode();
         }
-    	
     });
     
     $( ".descriptionEventParameterDiv" ).disableSelection({
@@ -20,12 +43,21 @@
     	update: function(event, ui) {
             //showEventFromEditMode();
         }
-    	
-    });
+    });   
+    
+});
+
+
+$(function() {
+
+	$('#allDayEventDateCheckBox').change(function () {
+	
+		 $('#eventStartTimeInputBox, #eventEndTimeInputBox').val("").toggle();
+		 
+	});
+});
  
-  });
- 
- 
+  
 //append a new empty label
  
  $(document).ready(function(){
@@ -56,5 +88,7 @@ function missingEmptyLayer (){
 	}
    
 };
+
+
 
 

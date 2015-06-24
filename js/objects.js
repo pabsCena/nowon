@@ -46,6 +46,13 @@ function TextParametersObject(text){
 	this.text	=	text;
 }
 
+function ImageParametersObject(url, width, height, scale){
+	this.url	=	url;
+	this.width	=	width;
+	this.height	=	height;
+	this.scale	=	scale;
+}
+
 function EmailParametersObject(email, icon, title, body){
 	this.email 	=	email;
 	this.icon	=	icon;

@@ -3,28 +3,44 @@
 <head>
 	<meta charset="utf-8" />
 	<title>NEMI</title>
+
 	<!--Bootstrap CDN library-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	
 	<!--style CSS file-->
 	<link rel="stylesheet" href="css/style.css">
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-	<script src="https://apis.google.com/js/client:platform.js" async defer></script>
-	<!--Script Bootstrap CDN library-->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-		
+	<!--Style time picker libraries-->
 	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css"/>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css"/>
 	
+	<!--Script JQuery library-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	
+	<!--Script JQuery UI library-->
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+	
+	<!--Script Bootstrap CDN library-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+	<!--Script Geocomplete api library-->
+	<script type="text/javascript" src="lib/jquery.geocomplete.min.js"></script>
+	
+	<!--Script Date picker library-->
 	<script type="text/javascript" src="lib/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="lib/jquery.timepicker.min.js"></script>
 	<script type="text/javascript" src="lib/Datepair.js"></script>
 	<script type="text/javascript" src="lib/jquery.datepair.js"></script>
+	
+	<!--Script JavaScript Alert meassages library-->
 	<script type="text/javascript" src="lib/alert.js"></script>
+	
+	<!--Script Client Google api-->
+	<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 
-
+	<!--Script Google maps api library-->
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+	
 	<style>
 		div {
 				background-color: lightSteelBlue;
@@ -33,7 +49,7 @@
 	
 	</style>
 </head>
-<body>
+<body class="wysihtml5-supported">
 <div class="col-lg-12 container-fluid nemiLoginInterfaceDiv">
 	<div class="row">
 		<div class="col-lg-4 nemiLoginInterfaceView">
@@ -140,7 +156,7 @@
 								<div class="col-lg-6">
 									<button class="btn btn-danger" id="deleteBtn">
 										Delete Event
-										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 									</button>
 								</div>
 							</div>
@@ -173,17 +189,26 @@
 									<div class="row">
 										<div class="col-lg-12 eventTitleDiv">
 											<h4>Title</h4>
-											<input type='text' id="eventTitleInputBox" class='form-control' aria-describedby='sizing-addon1' placeholder="Title here">
+											<input type='text' id="eventTitleInputBox" class='form-control' placeholder="Title here">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-12 eventDateDiv">
 											<h4>Date</h4>
-											<input type='text' class="date start" id="eventStartDateInputBox" placeholder="Start Date"/>
-											<input type='text' class="time start" id="eventStartTimeInputBox" placeholder="Start Time"/>to
-											<input type='text' class="time end" id="eventEndDateInputBox" placeholder="End Date"/>
-											<input type='text' class="date end" id="eventEndTimeInputBox" placeholder="End Time"/>
+											<input type='text' class="date start form-control" id="eventStartDateInputBox" placeholder="Start Date"/>
+											<input type='text' class="time start form-control" id="eventStartTimeInputBox" placeholder="Start Time"/>to
+											<input type='text' class="time end form-control" id="eventEndTimeInputBox" placeholder="End Date"/>
+											<input type='text' class="date end form-control" id="eventEndDateInputBox" placeholder="End Time"/> <br>
+											<input type="checkbox"  id ="allDayEventDateCheckBox" name="allDayEventDate" value="All day">All day<br>
 										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 eventLocationDiv">
+											<h4>Location</h4>
+											<form>
+												<input id="geocompleteInputBox" class='form-control' type="text" placeholder="Type in an address" autocomplete="off">
+											</form>
+										</div>	
 									</div>	
 								</div>
 							</div>
@@ -196,19 +221,19 @@
 									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
 									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
 								
-								
 								<ul id="demo_ul">
-									<li class="demo_li"><div id="eventTextDiv"><i class="fa fa-home"></i></div><div>Text<span class="glyphicon glyphicon-font popMenuIcon"></span></div></li>
-									<li class="demo_li"><div id="eventEmailDiv"><i class="fa fa-home"></i></div><div>E-mail<span class="glyphicon glyphicon-envelope popMenuIcon"></span></div></li>
-									<li class="demo_li"><div id="eventPhoneDiv"><i class="fa fa-home"></i></div><div>Number<span class="glyphicon glyphicon-earphone popMenuIcon" ></span></div></li>
-									<li class="demo_li"><div id="eventUrlDiv"><i class="fa fa-home"></i></div><div>Url<span class="glyphicon glyphicon-globe popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventTextMenuOption"><i class="fa fa-home"></i></div><div>Text<span class="glyphicon glyphicon-font popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventImageMenuOption"><i class="fa fa-home"></i></div><div>Image<span class="glyphicon glyphicon-picture popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventEmailMenuOption"><i class="fa fa-home"></i></div><div>E-mail<span class="glyphicon glyphicon-envelope popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventPhoneMenuOption"><i class="fa fa-home"></i></div><div>Number<span class="glyphicon glyphicon-earphone popMenuIcon" ></span></div></li>
+									<li class="demo_li"><div id="eventUrlMenuOption"><i class="fa fa-home"></i></div><div>Url<span class="glyphicon glyphicon-link popMenuIcon"></span></div></li>
 								</ul>
 								<button type="button" id="addLayerBtn"><span class="glyphicon glyphicon-plus"> New Element</span></button>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> 
 			<!--End of nemiEventParameterListDiv-->	
 	
 			<!--Start of nemiEventParameterEditorDiv-->	
@@ -216,13 +241,90 @@
 				<div class="col-lg-4 nemiEventParameterEditorDiv">
 					<div class="row">
 						<div class="col-lg-12 eventParameterEditorDiv">
-							COSA
+						
+							<div class="col-lg-12" id="textParameterEditorDiv">
+								<form>
+									<div id="wysihtml-toolbar" style="display: none;">
+									
+										<a data-wysihtml5-command="bold">bold</a>
+										<a data-wysihtml5-command="italic">italic</a>
+										<a data-wysihtml5-command="insertLineBreak">line break</a>
+										<a data-wysihtml5-command="fontSize" data-wysihtml5-command-value="small">small</a>
+										<a data-wysihtml5-command="fontSize" data-wysihtml5-command-value="large">large</a>
+										<a data-wysihtml5-command="underline">underline</a>
+										<a data-wysihtml5-command="insertOrderedList">insert ordered list</a>
+									
+									</div>
+									<textarea id="wysihtml-textarea" placeholder="Enter your text ..." autofocus>	</textarea>
+
+								</form>
+							</div>	
+
+							<div class="col-lg-12" id="imageParameterEditorDiv">
+								<h5>Insert image link</h5>
+								<input type='text' id="imageStringParameter" class='form-control' placeholder="Text here">
+								<div id="slider"></div>
+							</div>
+							
+							<div class="col-lg-12" id="emailParameterEditorDiv">
+								<h5>Text of button</h5>
+								<input type='text' id="emailTextBtnStringParameter" class='form-control' placeholder="Text here">
+								<h5>Email</h5>
+								<input type='text' id="emailStringParameter" class='form-control' placeholder="Email here">
+								<h5>Title</h5>
+								<input type='text' id="emailTitleStringParameter" class='form-control' placeholder="Title here">
+								<h5>Body</h5>
+								<input type='text' id="emailBodyStringParameter" class='form-control'  placeholder="Body here">
+								<h5>Icon</h5>
+								<input type="checkbox"  name="emailIconCheckBox">Icon<br>
+							</div>
+							
+							<div class="col-lg-12" id="phoneParameterEditorDiv">
+								<h5>Text of button</h5>
+								<input type='text' id="phoneTextBtnStringParameter" class='form-control' placeholder="Text here">
+								<h5>Phone number</h5>
+								<input type='text' id="phoneStringParameter" class='form-control' placeholder="Phone here">
+								<h5>Type</h5>
+								<input type="checkbox"  name="telTypePhoneParameter">Telephone<br>
+								<input type="checkbox"  name="mobTypePhoneParameter">Mobile<br>
+								<h5>Icon</h5>
+								<input type="checkbox"  name="phoneIconCheckBox">Icon<br>
+							</div>
+							
+							<div class="col-lg-12" id="urlParameterEditorDiv">
+								<h5>Text of button</h5>
+								<input type='text' id="urlTextBtnStringParameter" class='form-control' placeholder="Text here">
+								<h5>Url</h5>
+								<input type='text' class='form-control' id="urlStringParameter" placeholder="Paste url here">
+								<h5>Icon</h5>
+								<input type="checkbox"  name="urlIconCheckBox">Icon<br>
+								<h5>Type</h5>
+								<form class="urlBtnTypeParameter">
+									<input type="radio" value="url">Url
+									<br>
+									<input type="radio" value="image">Image
+									<br>
+									<input type="radio" value="music">Music
+									<br>
+									<input type="radio" value="pdf">Pdf
+									<br>
+									<input type="radio" value="youtube">Youtube
+									<br>
+									<input type="radio" value="facebook">Facebook
+								</form> 
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 WYSIWYGInterface">
+							
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 createElementBtnDiv">
 							<button class="btn btn-success" id="createElementBtn">
-									<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 							</button>
 						</div>
 					</div>
@@ -235,7 +337,12 @@
 </div>
 <div class="modal"></div>
 
+
+
 <!-- Scripts Section -->
+
+<script src="lib/wysihtml-toolbar.min.js"></script>
+<script src="lib/advanced.js"></script>
 <script src="js/login.js"></script>
 <script src="js/getCalendars.js"></script>
 <script src="js/getEvents.js"></script>
@@ -256,8 +363,18 @@
 <script src="js/createElementDescription.js"></script>
 <script src="js/interaction.js"></script>
 <script src="js/deleteElementDescription.js"></script>
-<script src="js/titleDateInteraction.js"></script>
+<script src="js/textParameterEditor.js"></script>
+<script src="js/imageParameterEditor.js"></script>
+<script src="js/emailParameterEditor.js"></script>
+<script src="js/phoneParameterEditor.js"></script>
+<script src="js/urlParameterEditor.js"></script>
+<script src="js/identifier.js"></script>
 
-
+<script>
+	var editor = new wysihtml5.Editor('wysihtml-textarea', { // id of textarea element
+	  toolbar:      'wysihtml-toolbar', // id of toolbar element
+	  parserRules:  wysihtml5ParserRules // defined in parser rules set 
+	});  
+</script>
 </body>
 </html>

@@ -1,88 +1,69 @@
 //Script that manages the creation of elements of the description
 
-
 $( '#createElementBtn' ).click(function() {
 
-	makeElementObject();
+	identifyParameter();
 	
 	if(!missingEmptyLayer()){
+	
 		$("#addLayerBtn").fadeIn();
 	}
 	
-	$( ".createElementBtnDiv" ).hide();
+	$('.eventParameterEditorDiv').removeAttr("id");
+
+	$( ".createElementBtnDiv" ).fadeOut();
+	
 });
 
-function makeElementObject(){
+function identifyParameter(){
 	
-	var identifier	=	"cosa";
-	sendToEditMode(identifier);
+	var parameterType	=	$('.eventParameterEditorDiv').children().not(":hidden").attr("id");
+	getElementParameters(parameterType);
 }
 
-function sendToEditMode(identifier){
+function getElementParameters(parameterType){
 
-	/*
-	var tag, value, usage;
-	var array 	=	[];
+	var tag;
 	
-	var element 	=	returnElement(identifier);
+	var identifier = getIdentifier();
 	
-	console.log(element);
-	
-	switch (identifier){
-		case "summary":
-			tag		=	"Title: ";
-			value	=	element;
+	switch (parameterType){
+		case "textParameterEditorDiv":
+			tag="<text>";
+			textParameterEditor(identifier);
 			break;
-		case "date":
-			tag		=	"Date & Time: "
-			value	=	"from " + element.start.date + " at " + element.start.time + " to " + element.end.date + " at " + element.end.time;
+		case "imageParameterEditorDiv":
+			tag="<img>";
+			imageParameterEditor(identifier);
+			break;
+		case "emailParameterEditorDiv":
+			tag="<email>";
+			emailParameterEditor(identifier);
 			break;	
+		case "phoneParameterEditorDiv":
+			tag="<phone>";
+			phoneParameterEditor(identifier);
+			break;	
+		case "urlParameterEditorDiv":
+			tag="<url>";
+			urlParameterEditor(identifier);
+			break;					
 		default:
-			array	=	sendDescription(element);
-			tag		=	array[0];
-			value	=	array[1];
 			break;
 	}
-	showInEditMode(identifier, tag, value);
-	showEventFromEditMode();
+	
+	sendTagDescription(tag, identifier);
 }
 
-function sendDescription(element){
-	
-	var aux		=	element.tag;
-	
-	switch	(aux){
-	
-		case	"email":
-			tag		=	"Email: ";
-			value	=	element.parameters.email;
-			break;
-		case	"phone":
-			tag		=	"Phone number: ";
-			value	=	element.parameters.number;
-			break;
-		case	"url":
-			type	=	element.parameters.type;
-			tag		=	"Url type ["+type+"]: ";
-			value	=	element.parameters.url;
-			break;
-		case	"text":				//text
-			tag		=	"Text: "
-			value	=	element.parameters.text;
-			break;
-		default:
-			break;
-	}
+function sendTagDescription(tag, identifier){
 		
-	var	array	=	[tag, value]
-	return array;
-}
-		
-function showInEditMode(identifier, tag, value){
-*/
+
 	if($('.descriptionEventParameterDiv #creating').length){
+	
 		$('.descriptionEventParameterDiv #creating').attr("data-modified", "true").attr("data-identifier", identifier).append(
-			$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"));/*, $("<p class='editedLabelText'>").text( tag + value ));	*/
+		
+			$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"), $("<p class='editedLayerText'>").text( tag ));
+			
 		$('.descriptionEventParameterDiv #creating').removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
 	}
 }

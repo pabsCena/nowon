@@ -21,8 +21,6 @@ function deleteSessionStorage(){
 	sessionStorage.removeItem('calendarListJSON');
 }
 
-
-
 function setEventSessionStorage(eventObject){
 
 	var eventJSON =	JSON.stringify(eventObject);
@@ -42,6 +40,28 @@ function getEventSessionStorage(){
 function deleteEventSessionStorage(){
 	
 	sessionStorage.removeItem('eventObject');
+
+}
+
+function setEventDescriptionSessionStorage(eventDescriptionObject){
+
+	var eventDescriptionJSON =	JSON.stringify(eventDescriptionObject);
+	sessionStorage.setItem("eventDescriptionObject", eventDescriptionJSON);
+
+}
+
+function getEventDescriptionSessionStorage(){
+	
+	var eventDescriptionJSON = sessionStorage.getItem("eventDescriptionObject");
+	var eventDescriptionObject = JSON.parse(eventDescriptionJSON);
+	
+	return eventDescriptionObject 
+
+}
+
+function deleteEventDescriptionSessionStorage(){
+	
+	sessionStorage.removeItem('eventDescriptionObject');
 
 }
 
