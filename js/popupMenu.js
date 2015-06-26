@@ -3,7 +3,7 @@
  $(function(){
  
     $(".descriptionEventParameterDiv").popmenu({ 'width': '300px','background': '#34495e', 'focusColor': '#1abc9c', 
-        'borderRadius': '10px' }); 
+        'borderRadius': '10px',  }); 
 });
 	
 (function ($) {
@@ -33,7 +33,8 @@
         function setIt() {
             tar_body.css({
                 'display': temp_display,
-                'position': 'fixed',
+                'position': 'absolute',
+                'z-index' : '1',
                 'margin-left': "1%",
                 'background': settings.background,
                 'width': settings.width,
@@ -127,8 +128,7 @@ function showEventParameterDivSelected(parameterName){
 	
 		case "eventTextMenuOption":
             $('#textParameterEditorDiv').fadeIn("fast");
-            $(".textArea").show();
-			break;	
+			break;		
 		case "eventImageMenuOption":
 			$('#imageParameterEditorDiv').fadeIn("fast");
 			break;

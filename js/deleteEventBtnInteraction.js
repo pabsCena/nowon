@@ -34,6 +34,7 @@ function deleteEvent(){
 			$.alert('Event deleted', {
 				autoClose: true,
 				closeTime: 2000,
+				type:'success',
 				onClose:function(){
 				
 				$body = $("body");

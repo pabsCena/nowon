@@ -5,24 +5,24 @@ function calendarObject(id, name){
 	this.name 	= 	name;
 }
 
-function EventIdObject(id, summary, date, description){
+function EventIdObject(id, summary, date, location, description){
 	this.id				=	id;
 	this.summary		=	summary;
 	this.date			=	date;
-	this.description	=	description;
+	this.location		=	location;
 		
 }
 
-function EventObject(summary, date, description){
+function EventObject(summary, date, location, description){
 	this.summary		=	summary;
 	this.date			=	date;
-	this.description	=	description;
+	this.location		=	location;
 		
 }
 
 function EventDateObject(start, end){
-	this.start		=	start;
-	this.end		=	end;
+	this.start	=	start;
+	this.end	=	end;
 }
 
 function StartObject(date, time){
@@ -35,13 +35,12 @@ function EndObject(date, time){
 	this.time 	=	time;
 }
 
-function DescriptionObject(identifier, tag, usage, parameters){
+function DescriptionObject(identifier, tag, parameters){
 	this.identifier	=	identifier;
 	this.tag		=	tag;
-	this.usage		= 	usage;
 	this.parameters	=	parameters;
 }
-
+  
 function TextParametersObject(text){
 	this.text	=	text;
 }
@@ -52,21 +51,25 @@ function ImageParametersObject(url, width, height, scale){
 	this.height	=	height;
 	this.scale	=	scale;
 }
-
-function EmailParametersObject(email, icon, title, body){
+ 
+function EmailParametersObject(usage, email, title, body, icon){
+	this.usage	= 	usage;
 	this.email 	=	email;
-	this.icon	=	icon;
 	this.title	=	title;
 	this.body	=	body;
+	this.icon	=	icon;
+
 }
 
-function PhoneParametersObject(number, type, icon){
+function PhoneParametersObject(usage, number, type, icon){
+	this.usage	= 	usage;
 	this.number	=	number;
 	this.type	=	type;
 	this.icon	=	icon;
 }
 
-function UrlParametersObject(url, type, icon){
+function UrlParametersObject(usage, url, type, icon){
+	this.usage	= 	usage;
 	this.url	=	url;
 	this.type	=	type;
 	this.icon	=	icon;

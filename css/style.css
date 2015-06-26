@@ -14,18 +14,22 @@
 	display:none;
 }
 
-/*Nemi interface Header Div*/
-
-.logOutBtnDiv{
-
+.nemiInterfaceHeaderDiv{
 
 }
 
-.nemiTitleInterfaceDiv{
+	/*Nemi interface Header Div*/
+
+	.logOutBtnDiv{
 
 
-}
+	}
 
+	.nemiTitleInterfaceDiv{
+
+
+	}
+ 
 
 /*Nemi interface Body Div*/
 
@@ -40,42 +44,46 @@
 	
 }
 
-.calendarListDiv{}
-
-.nemiCalendarsEventsListOptionsDiv{}
-
-	#searchEventDateInputBox, #searchEventTitleInputBox{
-		display: none;	
-	}
-
-
-.nemiEventsListDiv{}
-
-	a.list-group-item{
-		display: none;
-	}
-
-	a.list-group-item.current{
-		display: block;
-	}
-
-	.glyphicon-chevron-left, .glyphicon-chevron-right{
-		display: none;
-	}
+	.calendarListDiv{
 	
-	.rightArrow, .leftArrow{
-			font-size: 4em;
-			position: relative;
-			top: 2em;
- 		}
- 		
- 		.rightArrow{
- 			right: 0.5em;
+	}
+
+	.nemiCalendarsEventsListOptionsDiv{}
+
+		#searchEventDateInputBox, #searchEventTitleInputBox{
+			display: none;	
 		}
+
+
+	.nemiEventsListDiv{}
+
+		a.list-group-item{
+			display: none;
+		}
+
+		a.list-group-item.current{
+			display: block;
+		}
+
+		.glyphicon-chevron-left, .glyphicon-chevron-right{
+			display: none;
+		}
+	
+		.rightArrow, .leftArrow{
+				font-size: 4em;
+				position: relative;
+				top: 2em;
+			}
 		
-		.leftArrow{
- 			right: 0.2em;
-		}
+			.rightArrow{
+				right: 0.5em;
+			}
+		
+			.leftArrow{
+				right: 0.2em;
+			}
+
+/*---END---*/		
 
 
 /*Nemi Event Interface Div*/
@@ -85,89 +93,120 @@
 	float: right;
 }
 
-.nemieventInterfaceView{
+		.nemiEventInterfaceView{
+		
+		}
+		
+			.editEventBtnsDiv{
+		
+				}
+		
+/*---END---*/		
+
+.nemiEditingEventInterfaceDiv{
+	float: right;
+	display: none;
 	
 }
+		.editingNemiEventTitleDateInterfaceView{
+		
+		}
+		
+				.eventTitleDiv{
+		
+				}
+		
+				.eventDateDiv{
+		
+				}
+				
+				#eventStartDateInputBox, #eventEndDateInputBox, #eventStartTimeInputBox, #eventEndTimeInputBox{
+					width: 23%;
+					display: inline;
+				}
+				
+				.eventLocationDiv{
+				
+				}
+				
+				#geocompleteInputBox{
+					width: 100%;
+				}
+				
+		.editingNemiEventParameterListDiv{
+		
+		}
+		
+				.descriptionEventParameterDiv{
+				
+				}
+				
+						.elementDescriptionLayer{
+							margin: 0.3em;
 
-.nemiEventInterfaceEditOptionsDiv{
-}
+						}
 
-.createEventBtnsDiv{
-	display:none;
-}
+						.elementDescriptionLayer .newDescriptionElement{
+							position: relative;
+							padding: 9px 6px 10px;
+							color: #000;
+							cursor: pointer;
+							opacity: .2;
+							text-align: center;
+							line-height: 10px;
+						}
 
-/*Nemi Event Parameter List Div*/
+						.elementDescriptionLayer:hover .newDescriptionElement {
+							opacity: 1;
+						}
 
-.nemiEventParameterListDiv{
-	display:none;
-	float: right;
-}
+						.elementDescriptionLayerEdited{
+							margin: 0.3em;
 
-#eventStartDateInputBox, #eventEndDateInputBox, #eventStartTimeInputBox, #eventEndTimeInputBox{
-	width: 23%;
-  	display: inline;
+						}					
 
-}
-
-#geocompleteInputBox{
-	width: 100%;
-}
-
-.elementDescriptionLayer{
-	margin: 0.3em;
-
-}
-
-.elementDescriptionLayer .newDescriptionElement{
-	position: relative;
-	padding: 9px 6px 10px;
-	color: #000;
-	cursor: pointer;
-	opacity: .2;
-	text-align: center;
-	line-height: 10px;
-}
-
-.elementDescriptionLayer:hover .newDescriptionElement {
-	opacity: 1;
-}
-
-.elementDescriptionLayerEdited{
-	margin: 0.3em;
-
-}					
-
-.elementDescriptionLayerEdited .deleteElementDescription{
-	position: relative;
-	padding: 9px 6px 10px;
-	color: #000;
-	cursor: pointer;
-	opacity: .2;
-	text-align: center;
-	line-height: 10px;
-}
+						.elementDescriptionLayerEdited .deleteElementDescription{
+							position: relative;
+							padding: 9px 6px 10px;
+							color: #000;
+							cursor: pointer;
+							opacity: .2;
+							text-align: center;
+							line-height: 10px;
+						}
 
 
-.elementDescriptionLayerEdited:hover .deleteElementDescription {
-	opacity: 1;
-}
+						.elementDescriptionLayerEdited:hover .deleteElementDescription {
+							opacity: 1;
+						}
 
+						.popMenuIcon{
 
+							color: green;
+							font-size: 3.2em;
+							position: relative;
+							margin-left: auto;
+							margin-right: auto;
+							width: 85%;
+							top: 0.35em;
+						}
 
-.popMenuIcon{
+						#addLayerBtn{
+							display: none;
+						}		
+		
+		
+		
+		
+		.nemiEventInterfaceEditOptionsDiv{
+		
+		}
+		
+			.createEventBtnsDiv{
+			
+			}
 
-	color: green;
-	font-size: 3.2em;
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	width: 85%;
-	top: 0.35em;
-}
-
-#addLayerBtn{
-	display: none;
-}
+		
 
 /*Nemi Event Parameter Editor Div*/
 
@@ -176,21 +215,17 @@
 	float: left;
 }
 
-.eventParameterEditorDiv{
+	.eventParameterEditorDiv{
 	
-}
+	}
 
-#textParameterEditorDiv, #imageParameterEditorDiv, #emailParameterEditorDiv, #phoneParameterEditorDiv, #urlParameterEditorDiv{
-	display: none;
-}
+		#locationParameterEditorDiv, #textParameterEditorDiv, #imageParameterEditorDiv, #emailParameterEditorDiv, #phoneParameterEditorDiv, #urlParameterEditorDiv{
+			display: none;
+		}
 
-.WYSIWYGInterface{
-
-}
-
-.createElementBtnDiv{
-	display: none;
-}
+		.createElementBtnDiv{
+			display: none;
+		}
 
 
 /*Loading gif Div*/
@@ -219,138 +254,4 @@ body.loading {
    modal element will be visible */
 body.loading .modal {
     display: block;
-}
-
-.wysiwyg-font-size-smaller {
-  font-size: smaller;
-}
-
-.wysiwyg-font-size-larger {
-  font-size: larger;
-}
-
-.wysiwyg-font-size-xx-large {
-  font-size: xx-large;
-}
-
-.wysiwyg-font-size-x-large {
-  font-size: x-large;
-}
-
-.wysiwyg-font-size-large {
-  font-size: large;
-}
-
-.wysiwyg-font-size-medium {
-  font-size: medium;
-}
-
-.wysiwyg-font-size-small {
-  font-size: small;
-}
-
-.wysiwyg-font-size-x-small {
-  font-size: x-small;
-}
-
-.wysiwyg-font-size-xx-small {
-  font-size: xx-small;
-}
-
-.wysiwyg-color-black {
-  color: black;
-}
-
-.wysiwyg-color-silver {
-  color: silver;
-}
-
-.wysiwyg-color-gray {
-  color: gray;
-}
-
-.wysiwyg-color-white {
-  color: white;
-}
-
-.wysiwyg-color-maroon {
-  color: maroon;
-}
-
-.wysiwyg-color-red {
-  color: red;
-}
-
-.wysiwyg-color-purple {
-  color: purple;
-}
-
-.wysiwyg-color-fuchsia {
-  color: fuchsia;
-}
-
-.wysiwyg-color-green {
-  color: green;
-}
-
-.wysiwyg-color-lime {
-  color: lime;
-}
-
-.wysiwyg-color-olive {
-  color: olive;
-}
-
-.wysiwyg-color-yellow {
-  color: yellow;
-}
-
-.wysiwyg-color-navy {
-  color: navy;
-}
-
-.wysiwyg-color-blue {
-  color: blue;
-}
-
-.wysiwyg-color-teal {
-  color: teal;
-}
-
-.wysiwyg-color-aqua {
-  color: aqua;
-}
-
-.wysiwyg-text-align-right {
-  text-align: right;
-}
-
-.wysiwyg-text-align-center {
-  text-align: center;
-}
-
-.wysiwyg-text-align-left {
-  text-align: left;
-}
-
-.wysiwyg-text-align-justify {
-  text-align: justify;
-}
-
-.wysiwyg-float-left {
-  float: left;
-  margin: 0 8px 8px 0;
-}
-
-.wysiwyg-float-right {
-  float: right;
-  margin: 0 0 8px 8px;
-}
-
-.wysiwyg-clear-right {
-  clear: right;
-}
-
-.wysiwyg-clear-left {
-  clear: left;
 }

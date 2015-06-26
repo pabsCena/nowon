@@ -14,24 +14,19 @@ $(function() {
 
 function showEditModeAfterNewEventBtn(){
 	
-	setTimeout(function() {if($(".nemiEventInterfaceView").attr("id")){
-		
-			$(".nemiEventInterfaceView").removeAttr("id").empty()
-		}
-		
-		$( ".nemiCalendarsEventsListDiv, .nemiEventInterfaceDiv, .editEventBtnsDiv " ).hide();
-		$( ".nemiInterfaceBodyDiv, .createEventBtnsDiv" ).show();
-		
+	setTimeout(function() {
+	
 		if($(".nemiEventInterfaceView").attr("id")){
 		
 			$(".nemiEventInterfaceView").removeAttr("id").empty()
 		}
 		
-        $( ".nemiEventInterfaceDiv" ).removeClass("col-lg-6").addClass("col-lg-4").show("slide", "easeOutCubic", 500, function(){
-			$(".nemiEventParameterListDiv").show("slide", "easeOutCubic", 500, function(){
-				$(".nemiEventParameterEditorDiv").show("slide", "easeOutCubic", 500);
-           
+		$( ".nemiCalendarsEventsListDiv, .nemiEventInterfaceDiv" ).hide();
+		$( ".nemiInterfaceBodyDiv" ).show();
+		
+		$( ".nemiEditingEventInterfaceDiv" ).show("slide", "easeOutCubic", 500, function(){
+			$(".nemiEventParameterEditorDiv").show("slide", "easeOutCubic", 500);           
     	  });
-   		});
+    	  
     }, 400 );
 }

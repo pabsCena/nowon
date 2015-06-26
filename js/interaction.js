@@ -56,8 +56,66 @@ $(function() {
 		 
 	});
 });
+
+//checkboxes of all the parameters
+
+$(function() {
+ 	
+ 		$('#emailIconCheckBox').change(function () {
+ 		
+ 			if($(this).attr("value")==="true"){
+ 			
+ 				$(this).attr("value", "false");
+ 			
+ 			}else{
+ 			
+ 				$(this).attr("value", "true");
+ 			
+ 			}
+ 			
+ 			});
+ 			
+ 		$('#phoneIconCheckBox').change(function () {
+ 		
+ 			if($(this).attr("value")==="true"){
+ 			
+ 				$(this).attr("value", "false");
+ 			
+ 			}else{
+ 			
+ 				$(this).attr("value", "true");
+ 			
+ 			}
+ 			
+ 			});
+ 			
+ 		$('#urlIconCheckBox').change(function () {
+ 		
+ 			if($(this).attr("value")==="true"){
+ 			
+ 				$(this).attr("value", "false");
+ 			
+ 			}else{
+ 			
+ 				$(this).attr("value", "true");
+ 			
+ 			}
+ 			
+ 			});			
+	
+		$('.urlBtnTypeParameter input').change( function() {
+	
+			 $(".urlBtnTypeParameter input").not(this).prop("checked", false);
+		}); 
+	
+		$('.phoneBtnTypeParameter input').change( function() {
+	
+			 $(".phoneBtnTypeParameter input").not(this).prop("checked", false);
+		}); 	
  
-  
+});
+
+
 //append a new empty label
  
  $(document).ready(function(){
@@ -67,7 +125,7 @@ $(function() {
 		$("#addLayerBtn").fadeOut("fast", function(){
 		
 			$("<div class='elementDescriptionLayer ui-sortable-handle'>").attr("data-modified", false).append(
-			$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>")).insertBefore($(this)); 
+				$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>")).insertBefore($(this)); 
 		});
      
 	});

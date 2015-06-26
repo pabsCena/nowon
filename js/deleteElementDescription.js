@@ -2,9 +2,9 @@
 
 $(document).on('click','.deleteElementDescription', function() {
 	
-	var identifier	=	 $(this).parent().attr("id");
+	var identifier	=	 $(this).parent().attr("data-identifier");
 	
-	//deleteDescriptionElement(elementIdentifier);
+	deleteDescriptionElement(identifier);
 	
 	$(this).parent().children(".newDescriptionElement").show();
 	
@@ -15,19 +15,30 @@ $(document).on('click','.deleteElementDescription', function() {
     	$("#addLayerBtn").hide();
     }
     
+    deleteEventDescriptionInEventinterface();
+    
 });
 
 
 function deleteDescriptionElement(identifier){
 
-	var event 	= 	getEventSessionStorage();
+	var descriptionsArray 	= 	getEventDescriptionSessionStorage();
 
-	for(var i=0; i<event.description.length; i++){
-		if(identifier==event.description[i].identifier){
-			event.description.splice(i,1);
+	for(var i=0; i<descriptionsArray.length; i++){
+	
+		if(identifier==descriptionsArray[i].identifier){
+		
+			descriptionsArray.splice(i,1);
 		}	
 	}
 	
-	setEventSessionStorage(event);
-	$(".WYSIWYGShown").find("[data-identifier='"+identifier+"']").remove();
+	setEventDescriptionSessionStorage(descriptionsArray);
+
 }
+ 
+ 
+function deleteEventDescriptionInEventinterface(){
+
+
+
+} 
