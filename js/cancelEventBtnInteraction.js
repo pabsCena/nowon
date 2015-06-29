@@ -1,11 +1,17 @@
 $(function() {
 
 	$( "#cancelBtn" ).click(function() {
+	
+		showEditModeAfterCancelEventBtn();
 
-		 $( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterCancelEventBtn );
+		 $( ".nemiInterfaceBodyDiv" ).fadeOut(500, function(){
 		 
-		 deleteEventDescriptionSessionStorage();
-
+		 	deleteEventDescriptionSessionStorage();
+		 	deleteEventSessionStorage();
+		 
+		 	$( ".nemiInterfaceBodyDiv" ).show();
+		 
+		});
 	});
 });
 
@@ -16,7 +22,6 @@ function showEditModeAfterCancelEventBtn(){
 	setTimeout(function() {
 		
 		$( ".nemiEventParameterEditorDiv, .nemiEditingEventInterfaceDiv " ).hide();
-		$( ".nemiInterfaceBodyDiv" ).show();
 		
 		if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3")){
 						
@@ -36,19 +41,18 @@ function showEditModeAfterCancelEventBtn(){
 
 function emptyEventEditingDivs(){
 
-	$( ".nemiEditingEventInterfaceDiv" ).removeAttr("id");
-	
-	$(".editingNemiEventTitleDateInterfaceView .eventTitleDiv , .eventDateDiv, .eventLocationDiv").children("input").not(":checkbox").val("");
-	
-	emptyValues();
-	
 	$(".eventParameterEditorDiv").children().not(":hidden").fadeOut( 100, function() {
 	
 		$('.eventParameterEditorDiv').removeAttr("id");
 		
-		$( ".createElementBtnDiv" ).fadeOut();
-		
 	});
+
+	$( ".nemiEditingEventInterfaceDiv" ).removeAttr("id");
+	
+	$(".editingNemiEventTitleDateInterfaceView #eventTitleDiv , #eventDateDiv, #eventLocationDiv").children("input").not(":checkbox").val("");
+	
+	emptyValues();
+	
 	
 		if($("#allDayEventDateCheckBox").prop("checked")){
 		

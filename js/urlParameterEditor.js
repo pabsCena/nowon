@@ -38,93 +38,93 @@ function getUrlParameters(descriptionObject){
 	jQuery.each( parameters, function( i, val ) {
 		
 		 
-		switch (i){
+		switch (val.id){
 			
-			case 0:
+			case "urlTextBtnStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					urlParameters.usage	=	$(val)[0].value;
+					urlParameters.usage		=	val.value;
 
 				}
 				
 				break;
 				
-			case 1:
+			case "urlStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					urlParameters.url	=	$(val)[0].value;
+					urlParameters.url	=	val.value;
 
 				}
 				
 				break;
 				
-			case 2:
+			case "urlTypeBtn":
 				
-				if($(val)[0].checked){
+				if(val.checked){
 					
-					urlParameters.type	=	$(val)[0].value;
+					urlParameters.type	=	val.value;
 
 				}
 				
 				break;
 				
-			case 3:
+			case "imageUrlTypeBtn":
 				
-				if($(val)[0].checked){
+				if(val.checked){
 					
-					urlParameters.type		=	$(val)[0].value;
+					urlParameters.type		=	val.value;
 
 				}
 				
 				break;
 				
-			case 4:
+			case "musicUrlTypeBtn":
 				
-				if($(val)[0].value){
+				if(val.checked){
 					
-					urlParameters.type	=	$(val)[0].value;
-
-				}
-				 
-				break;
-				
-			case 5:
-				
-				if($(val)[0].value){
-					
-					urlParameters.type	=	$(val)[0].value;
+					urlParameters.type	=	val.value;
 
 				}
 				 
 				break;
 				
-			case 6:
+			case "pdfUrlTypeBtn":
 				
-				if($(val)[0].value){
+				if(val.checked){
 					
-					urlParameters.type	=	$(val)[0].value;
+					urlParameters.type	=	val.value;
 
 				}
 				 
 				break;
 				
-			case 7:
+			case "youtubeUrlTypeBtn":
 				
-				if($(val)[0].value){
+				if(val.checked){
 					
-					urlParameters.type	=	$(val)[0].value;
+					urlParameters.type	=	val.value;
 
 				}
 				 
 				break;
 				
-			case 8:
+			case "facebookUrlTypeBtn":
 				
-				if($(val)[0].value){
+				if(val.checked){
 					
-					urlParameters.icon	=	$(val)[0].value;
+					urlParameters.type	=	val.value;
+
+				}
+				 
+				break;
+				
+			case "urlIconCheckBox":
+				
+				if(val.checked){
+					
+					urlParameters.icon	=	val.value;
 
 				}
 				 

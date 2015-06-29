@@ -42,53 +42,53 @@ function getEmailParameters(descriptionObject){
 	jQuery.each( parameters, function( i, val ) {
 		
 		 
-		switch (i){
+		switch (val.id){
 			
-			case 0:
+			case "emailTextBtnStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					emailParameters.usage	=	$(val)[0].value;
+					emailParameters.usage	=	val.value;
+
+				}
+				 
+				break;
+				
+			case "emailStringParameter":
+				
+				if(val.value){
+					
+					emailParameters.email	=	val.value;
 
 				}
 				
 				break;
 				
-			case 1:
+			case "emailTitleStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					emailParameters.email	=	$(val)[0].value;
+					emailParameters.title	=	val.value;
 
 				}
 				
 				break;
 				
-			case 2:
+			case "emailBodyStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					emailParameters.title	=	$(val)[0].value;
+					emailParameters.body		=	val.value;
 
 				}
 				
 				break;
 				
-			case 3:
+			case "emailIconCheckBox":
 				
-				if($(val)[0].value){
+				if(val.checked){
 					
-					emailParameters.body		=	$(val)[0].value;
-
-				}
-				
-				break;
-				
-			case 4:
-				
-				if($(val)[0].value){
-					
-					emailParameters.icon	=	$(val)[0].value;
+					emailParameters.icon	=	val.value;
 
 				}
 				

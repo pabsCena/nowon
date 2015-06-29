@@ -1,18 +1,18 @@
 //Script that localise the event in the Session Storage and generate the elements that composes it
 
 
-function generateElementsOfEvent(event){
+function generateElementsOfEvent(eventIdentified){
 	
-	var eventId 		=	new EventIdObject();
+	var event 		=	new EventObject();
 	
-	eventId.id			=	event.id;
-	eventId.summary		=	event.summary;
-	eventId.date		=	splitDate(event.date);
+	event.id			=	eventIdentified.id;
+	event.summary		=	eventIdentified.summary;
+	event.date			=	splitDate(eventIdentified.date);
 	//eventId.description	=	splitDescription(event.description);
 
-	console.log(eventId);
+	console.log(event);
 
-	setEventSessionStorage(eventId);	
+	setEventSessionStorage(event);	
 }
 
 
@@ -20,12 +20,10 @@ function splitDate(date){
 	
 	var eventDate	=	new EventDateObject();
 	
-	var startDate 	=	returnDate(date.start);
-	var endDate		=	returnDate(date.end);
+	eventDate.start	 	=	returnDate(date.start);
+	eventDate.end		=	returnDate(date.end);
 		
-	eventDate.start	=	startDate;
-	eventDate.end	=	endDate;
-	
+		
 	return eventDate;
 }
 

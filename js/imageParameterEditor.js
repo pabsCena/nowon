@@ -41,13 +41,13 @@ function getImageParameters(descriptionObject){
 	jQuery.each( parameters, function( i, val ) {
 		
 		 
-		switch (i){
+		switch (val.id){
 			
-			case 0:
+			case "imageStringParameter":
 				
-				if($(val)[0].value){
+				if(valvalue){
 					
-					imageParameters.url	=	$(val)[0].value;
+					imageParameters.url	=	val.value;
 
 				}
 				

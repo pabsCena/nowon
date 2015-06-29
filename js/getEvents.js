@@ -45,7 +45,7 @@ function getEvents(calendarId){
 			 }
 			 
 			var eventDate 	=	new EventDateObject(start, end);
-			calendarObjectEventList[i] = new EventIdObject(eventId, summary, eventDate, description);		
+			calendarObjectEventList[i] = new EventObject(eventId, summary, eventDate, description);		
 		}
 		
 		populateSessionStorage(calendarObjectEventList, calendarId);

@@ -5,18 +5,12 @@ function calendarObject(id, name){
 	this.name 	= 	name;
 }
 
-function EventIdObject(id, summary, date, location, description){
+function EventObject(id, summary, date, location, description){
 	this.id				=	id;
 	this.summary		=	summary;
 	this.date			=	date;
 	this.location		=	location;
-		
-}
-
-function EventObject(summary, date, location, description){
-	this.summary		=	summary;
-	this.date			=	date;
-	this.location		=	location;
+	this.description	=	description;
 		
 }
 
@@ -29,7 +23,7 @@ function StartObject(date, time){
 	this.date 	=	date;
 	this.time 	=	time;
 }
-
+ 
 function EndObject(date, time){
 	this.date 	=	date;
 	this.time 	=	time;

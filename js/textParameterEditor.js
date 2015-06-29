@@ -1,30 +1,92 @@
 
-function textParameterEditor(identifier){
+function textParameterEditor(descriptionObject, descriptionsArray){
 	
-	getTextParameters();
+	var textObject 	=	getTextParameters(descriptionObject);
 	
-	console.log(identifier);
-	
-	$('#textParameterEditorDiv').fadeOut("fast");
+	storeTextParameters(textObject, descriptionsArray);
 
 }
 
 
 //Recoge todo lo escrito y lo escribe en la SS
-function getTextParameters(){
+function getTextParameters(descriptionObject){
 	
-	storeTextParameters();
+	var textParameters =	new TextParametersObject();
+	
+	var elements	= $(".textStringParameterDiv").children();
+	
+	textParameters	=	clasifyMarkDownLanguage(elements);
+	
+	descriptionObject.parameters	=	textParameters;
+
+	return descriptionObject;
 	
 }
 
-function storeTextParameters(){
+function storeTextParameters(textObject, descriptionsArray){
 
+	var length					=	descriptionsArray.length;
+
+	descriptionsArray[length]	=	textObject;
 	
-
-	emptyTextParameters();
+	setEventDescriptionSessionStorage(descriptionsArray);
+	
 }
 
-function emptyTextParameters(){
+function clasifyMarkDownLanguage(elements){
 
+	jQuery.each( elements, function( i, val ) {
+	
+		console.log(elements[i]);
+	
+	
+	
+	});
+
+/*
+	switch (textParameter){
+	
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+		case :
+		
+			break;
+			
+			
+	
+	
+	}
+
+*/
 
 }

@@ -5,17 +5,17 @@
 
 $(function(){
 
-	 $('.eventDateDiv .time').timepicker({
+	 $('#eventDateDiv .time').timepicker({
 		'showDuration': true,
-		'timeFormat': 'g:ia'
+		'timeFormat': 'H:i'
 	});
 
-	$('.eventDateDiv .date').datepicker({
+	$('#eventDateDiv .date').datepicker({
 		'format': 'yyyy-mm-dd',
 		'autoclose': true
 	});
 
-	$('.eventDateDiv').datepair();
+	$('#eventDateDiv').datepair();
 
   });
    	
@@ -148,5 +148,13 @@ function missingEmptyLayer (){
 };
 
 
+$( document ).ready(function() {
+
+	var editor = new wysihtml5.Editor('wysihtml-div', { // id of textarea element
+	  toolbar:      'wysihtml-toolbar', // id of toolbar element
+	  parserRules:  wysihtml5ParserRules // defined in parser rules set 
+	});  
+   
+});
 
 

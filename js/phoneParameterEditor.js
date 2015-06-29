@@ -39,53 +39,53 @@ function getPhoneParameters(descriptionObject){
 	jQuery.each( parameters, function( i, val ) {
 		
 		 
-		switch (i){
+		switch (val.id){
 			
-			case 0:
+			case "phoneTextBtnStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					phoneParameters.usage	=	$(val)[0].value;
+					phoneParameters.usage		=	val.value;
 
 				}
 				
 				break;
 				
-			case 1:
+			case "phoneStringParameter":
 				
-				if($(val)[0].value){
+				if(val.value){
 					
-					phoneParameters.number	=	$(val)[0].value;
+					phoneParameters.number		=	val.value;
 
 				}
 				
 				break;
 				
-			case 2:
+			case "phoneTelephoneTypeParameter":
 				
-				if($(val)[0].checked){
+				if(val.checked){
 					
-					phoneParameters.type	=	$(val)[0].value;
+					phoneParameters.type		=	val.value;
 
 				}
 				
 				break;
 				
-			case 3:
+			case "phoneMobileTypeParameter":
 				
-				if($(val)[0].checked){
+				if(val.checked){
 					
-					phoneParameters.type		=	$(val)[0].value;
+					phoneParameters.type		=	val.value;
 
 				}
 				
 				break;
 				
-			case 4:
+			case "phoneIconCheckBox":
 				
-				if($(val)[0].value){
+				if(val.checked){
 					
-					phoneParameters.icon	=	$(val)[0].value;
+					phoneParameters.icon		=	val.value;
 
 				}
 				 

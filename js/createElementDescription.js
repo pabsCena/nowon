@@ -46,6 +46,7 @@
 	});
  
  });
+ 
 function identifyParameter(){
 	
 	var parameterType	=	$('.eventParameterEditorDiv').children().not(":hidden").attr("id");
@@ -143,7 +144,7 @@ function requiredParametersFilled(){
 	
 	jQuery.each( requiredElements, function( i, val ) {
 		
-		if(!$(val)[0].value){
+		if(!checkIsCorrect(val)){
 		
 			$.alert('Parameter required', {
 			
@@ -166,6 +167,25 @@ function requiredParametersFilled(){
 	});
 
 	return valid;
+
+}
+
+function checkIsCorrect(val){
+
+
+	if($(val)[0].textContent){
+
+		return true;
+		
+	}else if($(val)[0].value){
+	
+		return true;
+	
+	}else{
+
+		return false;
+	
+	}
 
 }
 
