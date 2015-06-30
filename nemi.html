@@ -271,17 +271,18 @@
 							<div class="col-lg-12" id="textParameterEditorDiv">
 								
 									<div id="wysihtml-toolbar" style="display: none;">
-								
-										<a data-wysihtml5-command="bold">bold</a>
-										<a data-wysihtml5-command="italic">italic</a>
-										<a data-wysihtml5-command="insertLineBreak">line break</a>
-										<a data-wysihtml5-command="fontSize" data-wysihtml5-command-value="small">small</a>
-										<a data-wysihtml5-command="fontSize" data-wysihtml5-command-value="large">large</a>
-										<a data-wysihtml5-command="underline">underline</a>
-										<a data-wysihtml5-command="insertOrderedList">insert ordered list</a>
-								
+										<ul class="commands">
+											<li data-wysihtml5-command="bold" class="command" title="Make text bold (CTRL + B)" unselectable="on">bold</li>
+											<li data-wysihtml5-command="italic" class="command" title="Make text italic (CTRL + I)" unselectable="on">italic</li>
+											<li data-wysihtml5-command="insertLineBreak" class="command" title="Insert a line break">line break</li>
+											<li data-wysihtml5-command="fontSize" data-wysihtml5-command-value="small" class="command" unselectable="on">small</li>
+											<li data-wysihtml5-command="fontSize" data-wysihtml5-command-value="large" class="command" unselectable="on">large</li>
+											<li data-wysihtml5-command="underline" class="command" title="Make text underlined" unselectable="on">underline</li>
+											<li data-wysihtml5-command="insertOrderedList" class="command" title="Insert an ordered list" unselectable="on">insert ordered list</li>
+											<li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command" unselectable="on">h1</li>
+											<li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command" unselectable="on">h2</li>
+										</ul>
 									</div>
-									
  									<div id="wysihtml-div" class="textStringParameterDiv" data-required="true" placeholder="Enter your text ..."></div>
 							
 							</div>	

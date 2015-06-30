@@ -30,8 +30,10 @@ function deleteEvent(){
 		});	
 		
 		request.then(function(resp) {
+		
+			if(resp.statusText=='OK') {
 			
-			$.alert('Event deleted', {
+				$.alert('Event deleted', {
 				autoClose: true,
 				closeTime: 2000,
 				type:'success',
@@ -57,10 +59,21 @@ function deleteEvent(){
 				
 				}
 			});
-				
-			}, function(reason){
-				console.log('Error: ' + reason.result.error.message);
-			});
+			
+			
+			} else {
+			
+				$.alert('There was a problem. Reload page and try again', {
+					autoClose: true,
+					closeTime: 2000,
+					type:'danger',
+				});
+					
+			}	
+			
+		}, function(reason){
+			console.log('Error: ' + reason.result.error.message);
+		});
 								
 	});
 

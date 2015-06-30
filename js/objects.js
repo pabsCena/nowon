@@ -46,25 +46,24 @@ function ImageParametersObject(url, width, height, scale){
 	this.scale	=	scale;
 }
  
-function EmailParametersObject(usage, email, title, body, icon){
-	this.usage	= 	usage;
+function EmailParametersObject(email, title, body, icon, usage){
 	this.email 	=	email;
 	this.title	=	title;
 	this.body	=	body;
 	this.icon	=	icon;
-
+	this.usage	= 	usage;
 }
 
-function PhoneParametersObject(usage, number, type, icon){
-	this.usage	= 	usage;
+function PhoneParametersObject(number, type, icon, usage){
 	this.number	=	number;
 	this.type	=	type;
 	this.icon	=	icon;
+	this.usage	= 	usage;	
 }
 
-function UrlParametersObject(usage, url, type, icon){
-	this.usage	= 	usage;
+function UrlParametersObject(url, type, icon, usage){
 	this.url	=	url;
 	this.type	=	type;
 	this.icon	=	icon;
+	this.usage	= 	usage;
 }

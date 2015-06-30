@@ -55,7 +55,7 @@ function getPhoneParameters(descriptionObject){
 				
 				if(val.value){
 					
-					phoneParameters.number		=	val.value;
+					phoneParameters.number		=	'"' + val.value + '"';
 
 				}
 				

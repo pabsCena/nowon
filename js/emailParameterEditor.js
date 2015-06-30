@@ -57,8 +57,8 @@ function getEmailParameters(descriptionObject){
 			case "emailStringParameter":
 				
 				if(val.value){
-					
-					emailParameters.email	=	val.value;
+									
+					emailParameters.email	=	'"' + val.value + '"';
 
 				}
 				
@@ -68,7 +68,7 @@ function getEmailParameters(descriptionObject){
 				
 				if(val.value){
 					
-					emailParameters.title	=	val.value;
+					emailParameters.title	=	'"' + val.value + '"';
 
 				}
 				
@@ -78,7 +78,7 @@ function getEmailParameters(descriptionObject){
 				
 				if(val.value){
 					
-					emailParameters.body		=	val.value;
+					emailParameters.body		=	'"' + val.value + '"';
 
 				}
 				

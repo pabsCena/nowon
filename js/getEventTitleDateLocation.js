@@ -7,54 +7,81 @@ function getTitleDateLocation(eventObject, eventTitleDateLocation){
 	var endDateObject		=	new EndObject();
 
 	jQuery.each( eventTitleDateLocation, function( i, val ) {
-	
+	 
 
-		switch (val.children[0].id){
+		switch ($(val).children().attr("id")){
 		
 			case "eventTitleDiv":
 			
-				if(val.children.eventTitleDiv.children[0].children.eventTitleInputBox.value){
+				if($(val).children().find("#eventTitleInputBox").val()){
 					
-					eventObject.summary	=	val.children.eventTitleDiv.children[0].children.eventTitleInputBox.value;
+					eventObject.summary	=	$(val).children().find("#eventTitleInputBox").val();
 
 				}else{
 				
-					
-					missingParameters	=	missingParameters	+	"Title";
+					 eventObject.summary	=	"undefined";
+					 
+					//missingParameters	=	missingParameters	+	"Title";
 				}
 			
 				break;
 				
 			case "eventDateDiv":
 				
-				if(val.children.eventDateDiv.children[0].children.eventStartDateInputBox.value){
+				if($(val).children().find("#eventStartDateInputBox").val()){
+				
+					startDateObject.date	=	$(val).children().find("#eventStartDateInputBox").val();
 					
-					if(!val.children.eventDateDiv.children[0].children.allDayEventDateCheckBox.checked){
+				
+					if($(val).children().find("#eventStartTimeInputBox").val()){
+						
+						startDateObject.time	= 	$(val).children().find("#eventStartTimeInputBox").val();
+						
+					}else{
 					
-							startDateObject.time	= 	val.children.eventDateDiv.children[0].children.eventStartTimeInputBox.value;
-							endDateObject.time		=	val.children.eventDateDiv.children[0].children.eventEndTimeInputBox.value;
-						
-						}
-						
-						startDateObject.date	=	val.children.eventDateDiv.children[0].children.eventStartDateInputBox.value;
-						
-						if(!val.children.eventDateDiv.children[0].children.eventEndDateInputBox.value){
-						
-							endDateObject.date		=	val.children.eventDateDiv.children[0].children.eventStartDateInputBox.value;
-							
-						}else{
-						
-							endDateObject.date		=	val.children.eventDateDiv.children[0].children.eventEndDateInputBox.value;
-						
-						}
+						startDateObject.time	= 	"00:00";
 					
-					dateObject.start	=	startDateObject;
-					dateObject.end		=	endDateObject;
+					}	
+									
+					if(!$(val).children().find("#eventEndDateInputBox").val()){
+					
+						endDateObject.date		=	$(val).children().find("#eventStartDateInputBox").val();
+						
+					}else{
+					
+						endDateObject.date		=	$(val).children().find("#eventEndDateInputBox").val();
+					
+					}
+					
+					if(	$(val).children().find("#eventEndTimeInputBox").val()){
+						
+						endDateObject.time		=	$(val).children().find("#eventEndTimeInputBox").val();
+					
+					}else{
+						
+						endDateObject.time		=	"00:00";
+					
+					}	
+					
+					dateObject.start	=	mergeDate(startDateObject);
+					dateObject.end		=	mergeDate(endDateObject);
 					eventObject.date	=	dateObject;
 					
 				}else{
 				
-					missingParameters	=	missingParameters	+	" Date";
+					var now = new Date();
+					var	today = now.toISOString();
+			
+					dateObject.start	=	today;
+			
+					var twoHoursLater = new Date(now.getTime() + (2*1000*60*60));
+					twoHoursLater = twoHoursLater.toISOString();
+				
+					dateObject.end		=	twoHoursLater;
+			
+					eventObject.date	=	dateObject;
+				
+					//missingParameters	=	missingParameters	+	" Date";
 					
 				}
 			
@@ -62,9 +89,9 @@ function getTitleDateLocation(eventObject, eventTitleDateLocation){
 				
 			case "eventLocationDiv":
 			
-				if(val.children.eventLocationDiv.children[0].children.geocompleteInputBox.value){
+				if($(val).children().find("#geocompleteInputBox").val()){
 					
-					eventObject.location	=	val.children.eventLocationDiv.children[0].children.geocompleteInputBox.value;
+					eventObject.location	=	$(val).children().find("#geocompleteInputBox").val();
 
 				}
 				
@@ -78,18 +105,21 @@ function getTitleDateLocation(eventObject, eventTitleDateLocation){
 				
 	});
 	
+	/*
 	
 	if(missingParameters){
 		
 		if(confirm(missingParameters + " are missing. Do you still want to continue?")){
+			
+			dateObject.summary	=	"undefined";
 		
 			var now = new Date();
-			var	today = returnDate(now.toISOString());
+			var	today = now.toISOString();
 			
 			dateObject.start	=	today;
 			
 			var twoHoursLater = new Date(now.getTime() + (2*1000*60*60));
-			twoHoursLater = returnDate(twoHoursLater.toISOString());
+			twoHoursLater = twoHoursLater.toISOString();
 				
 			dateObject.end		=	twoHoursLater;
 			
@@ -99,5 +129,17 @@ function getTitleDateLocation(eventObject, eventTitleDateLocation){
 	
 	}
 	
+	*/
+	
 	setEventSessionStorage(eventObject);
+}
+
+function mergeDate(object){
+
+	var aux		=	object.date.split('-');
+	var aux2	=	object.time.split(':')
+	var completeDate	=	new Date(Date.UTC(aux[0], aux[1]-1, aux[2], aux2[0], aux2[1]));
+	var ISODate			=	completeDate.toISOString();
+
+	return ISODate;
 }

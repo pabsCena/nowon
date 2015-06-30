@@ -54,7 +54,7 @@ function getUrlParameters(descriptionObject){
 				
 				if(val.value){
 					
-					urlParameters.url	=	val.value;
+					urlParameters.url	=	'"' + val.value + '"';
 
 				}
 				

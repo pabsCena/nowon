@@ -36,9 +36,3 @@ function deleteDescriptionElement(identifier){
 
 }
  
- 
-function deleteEventDescriptionInEventinterface(){
-
-
-
-} 

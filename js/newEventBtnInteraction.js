@@ -4,8 +4,11 @@ $(function() {
 
 	$( "#newEventBtn" ).click(function() {
 
-		var event 	=	new EventObject();
+		var event 				=	new EventObject();
+		
 		setEventSessionStorage(event);
+				
+		deleteEventDescriptionSessionStorage();
 
 		 $( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
 		
