@@ -232,6 +232,38 @@
   			border: 1px solid black;
  			height: 16em;
 		}
+		
+		.commands{
+		
+			border-left: 1px solid #ddd;
+  			display: inline-block;
+		
+		}
+		
+		.command{
+		
+			position: relative;
+			border-right: 1px solid #ddd;
+			border-left: 1px solid #fff;
+			list-style: none;
+			font-size: 19px;
+			display: inline-block;
+			cursor: pointer;
+			height: 40px;
+			width: 81px;
+		
+		}
+		
+		[data-wysihtml5-command]:after{
+
+			content: "";
+			background-repeat: no-repeat;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
 
 
 /*Loading gif Div*/

@@ -137,9 +137,11 @@ function showEventParameterDivSelected(parameterName){
 			break;
 		case "eventPhoneMenuOption":
 			$('#phoneParameterEditorDiv').fadeIn("fast");
+			$("#phoneTelephoneTypeParameter").prop("checked", "true");
 			break;
 		case "eventUrlMenuOption":
 			$('#urlParameterEditorDiv').fadeIn("fast");
+			$("#urlTypeBtn").prop("checked", "true");
 			break;
 		default:
 			break;

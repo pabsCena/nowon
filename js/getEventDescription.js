@@ -17,29 +17,38 @@ function getDescription(eventObject, eventDescription){
 				
 				if(descriptionObject[j].identifier==identifier){
 					
-					var element				=	descriptionObject[j];
+					var element	=	descriptionObject[j];
 					
 					jQuery.each( element, function( k, val2 ) {
 					
 						switch (k){
-						
-							case "tag":
-								
-								descriptionString	=	descriptionString	+	val2;
-							
-								break;
 								
 							case "parameters":
+							
+								var nameLastElement =	getNameOfLastElement(element.parameters);
 								
 								jQuery.each( val2, function( m, val3 ) {
 								
 									if(m=="usage"){
 									
-										descriptionString	=	descriptionString	+ ">" +	val3;
+										descriptionString	= descriptionString + "[" + val3 + "](";
+									
+									}else if(m=="image"){
+									
+										descriptionString	=	"!" + descriptionString	;
 									
 									}else{
 									
-										descriptionString	=	descriptionString	+ " " + m + "="	+ val3;
+										if(m == nameLastElement){
+										
+											descriptionString	=	descriptionString + val3 + ")";
+										
+										}else{
+										
+											descriptionString	=	descriptionString + val3 + " ";
+										
+										}
+									
 									
 									}
 								
@@ -91,3 +100,41 @@ function mergeDescriptionText(descriptionArray){
 	
 	return descriptionCompleteString;	 
 }
+
+function getNameOfLastElement(element){
+
+	var length	=	getLength(element);
+	var counter	=	0;
+	var lastElementName;
+
+	jQuery.each( element, function( i, val ) {
+		
+		if(counter == length-1){
+		
+			lastElementName =	i;
+			
+		}else{
+		
+			counter++;
+		
+		}	
+	});
+	
+	return lastElementName;
+}
+
+function getLength(element){
+	
+	var count = 0;
+	var i;
+
+	for (i in element) {
+		if (element.hasOwnProperty(i)) {
+			count++;
+		}
+	}
+	
+	return count;
+
+}
+

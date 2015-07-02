@@ -65,7 +65,7 @@ function getPhoneParameters(descriptionObject){
 				
 				if(val.checked){
 					
-					phoneParameters.type		=	val.value;
+					phoneParameters.tag		=	val.value;
 
 				}
 				
@@ -75,22 +75,12 @@ function getPhoneParameters(descriptionObject){
 				
 				if(val.checked){
 					
-					phoneParameters.type		=	val.value;
+					phoneParameters.tag		=	val.value;
 
 				}
 				
 				break;
-				
-			case "phoneIconCheckBox":
-				
-				if(val.checked){
-					
-					phoneParameters.icon		=	val.value;
-
-				}
-				 
-				break;
-				
+							
 			default:
 			
 				break;				

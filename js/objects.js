@@ -29,9 +29,8 @@ function EndObject(date, time){
 	this.time 	=	time;
 }
 
-function DescriptionObject(identifier, tag, parameters){
+function DescriptionObject(identifier, parameters){
 	this.identifier	=	identifier;
-	this.tag		=	tag;
 	this.parameters	=	parameters;
 }
   
@@ -39,31 +38,31 @@ function TextParametersObject(text){
 	this.text	=	text;
 }
 
-function ImageParametersObject(url, width, height, scale){
+function ImageParametersObject(image, usage, url, width, height){
+	this.image	=	image;
+	this.usage	=	usage;
 	this.url	=	url;
 	this.width	=	width;
 	this.height	=	height;
-	this.scale	=	scale;
 }
  
-function EmailParametersObject(email, title, body, icon, usage){
-	this.email 	=	email;
-	this.title	=	title;
-	this.body	=	body;
-	this.icon	=	icon;
-	this.usage	= 	usage;
+function EmailParametersObject(usage, tag, address, title, body){
+	this.usage		= 	usage;
+	this.tag		=	tag;
+	this.address 	=	address;
+	this.title		=	title;
+	this.body		=	body; 
 }
 
-function PhoneParametersObject(number, type, icon, usage){
+function PhoneParametersObject(usage, tag, type, number){
+	this.usage	= 	usage;
+	this.tag	=	tag;
+	this.type	=	type;
 	this.number	=	number;
-	this.type	=	type;
-	this.icon	=	icon;
-	this.usage	= 	usage;	
 }
 
-function UrlParametersObject(url, type, icon, usage){
-	this.url	=	url;
-	this.type	=	type;
-	this.icon	=	icon;
+function UrlParametersObject(usage, type, url){
 	this.usage	= 	usage;
+	this.type	=	type;
+	this.url	=	url;
 }

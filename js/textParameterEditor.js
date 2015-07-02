@@ -13,7 +13,7 @@ function getTextParameters(descriptionObject){
 	
 	var textParameters =	new TextParametersObject();
 	
-	var elements	= $(".textStringParameterDiv").children();
+	var elements	= $(".textStringParameterDiv");
 	
 	textParameters	=	clasifyMarkDownLanguage(elements);
 	
@@ -35,11 +35,55 @@ function storeTextParameters(textObject, descriptionsArray){
 
 function clasifyMarkDownLanguage(elements){
 
-	jQuery.each( elements, function( i, val ) {
+	var descriptionString =	"";
+
+	if($(elements).text()){
 	
-		console.log(elements[i]);
+		descriptionString	=	descriptionString	+	$(elements).text();
 	
+	}
+
+	var elementos 	=	$(elements).children();
+
+	jQuery.each( elementos, function( i, val ) {
 	
+		switch (val.tagName){
+		
+			case "B":
+			
+				val.outerHTML
+			
+				break;
+			
+			case "I":
+			
+				break;
+				
+			case "OL":
+			
+				break;
+				
+			case "H1":
+			
+				break;
+				
+			case "H2":
+			
+				break;
+				
+			case "BLOCKQUOTE":
+			
+				break;				
+				
+			default:
+			
+				break;	
+		
+		
+		
+		}
+	
+	$(elementos);
 	
 	});
 

@@ -36,6 +36,8 @@ function emailParameterEditor(descriptionObject, descriptionsArray){
 function getEmailParameters(descriptionObject){
 
 	var emailParameters =	new EmailParametersObject();
+		
+		emailParameters.tag			=	"email";
 	
 	var parameters	= $("#emailParameterEditorDiv form").children("input");
 	
@@ -49,7 +51,7 @@ function getEmailParameters(descriptionObject){
 				if(val.value){
 					
 					emailParameters.usage	=	val.value;
-
+ 
 				}
 				 
 				break;
@@ -58,7 +60,7 @@ function getEmailParameters(descriptionObject){
 				
 				if(val.value){
 									
-					emailParameters.email	=	'"' + val.value + '"';
+					emailParameters.address	=	val.value;
 
 				}
 				
@@ -83,16 +85,7 @@ function getEmailParameters(descriptionObject){
 				}
 				
 				break;
-				
-			case "emailIconCheckBox":
-				
-				if(val.checked){
-					
-					emailParameters.icon	=	val.value;
 
-				}
-				
-				break;
 				
 			default:
 			

@@ -14,9 +14,7 @@ $(document).on('click','.deleteElementDescription', function() {
     
     	$("#addLayerBtn").hide();
     }
-    
-    deleteEventDescriptionInEventinterface();
-    
+        
 });
 
 

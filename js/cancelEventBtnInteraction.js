@@ -49,18 +49,17 @@ function emptyEventEditingDivs(){
 
 	$( ".nemiEditingEventInterfaceDiv" ).removeAttr("id");
 	
-	$(".editingNemiEventTitleDateInterfaceView #eventTitleDiv , #eventDateDiv, #eventLocationDiv").children("input").not(":checkbox").val("");
-	
-	emptyValues();
-	
-	
+	var elements = $(".editingNemiEventTitleDateInterfaceView #eventTitleDiv form, #eventDateDiv form, #eventLocationDiv form").children();	
+		
 		if($("#allDayEventDateCheckBox").prop("checked")){
 		
 			$("#allDayEventDateCheckBox").prop("checked", false);
 			$('#eventStartTimeInputBox, #eventEndTimeInputBox').toggle();
 		
 		}
-	
+
+		emptyValues(elements);
+
 	
 	$( '.descriptionEventParameterDiv .elementDescriptionLayerEdited' ).children(".newDescriptionElement").show();
 	

@@ -181,7 +181,7 @@
 								<div class="col-lg-12" id="eventTitleDiv">
 									<form>
 										<h4>Title</h4>
-										<input type='text' id="eventTitleInputBox" class='form-control' placeholder="Title here">
+										<input type='text' id="eventTitleInputBox" class='form-control' data-required="true" placeholder="Title here">
 									</form>
 								</div>
 							</div>
@@ -190,7 +190,7 @@
 								<div class="col-lg-12" id="eventDateDiv">
 									<form>
 										<h4>Date</h4>
-										<input type='text' class="date start form-control" id="eventStartDateInputBox" placeholder="Start Date"/>
+										<input type='text' class="date start form-control" id="eventStartDateInputBox" data-required="true" placeholder="Start Date"/>
 										<input type='text' class="time start form-control" id="eventStartTimeInputBox" placeholder="Start Time"/>to
 										<input type='text' class="time end form-control" id="eventEndTimeInputBox" placeholder="End Date"/>
 										<input type='text' class="date end form-control" id="eventEndDateInputBox" placeholder="End Time"/> <br>
@@ -227,6 +227,8 @@
 									<li class="demo_li"><div id="eventEmailMenuOption"><i class="fa fa-home"></i></div><div>E-mail<span class="glyphicon glyphicon-envelope popMenuIcon"></span></div></li>
 									<li class="demo_li"><div id="eventPhoneMenuOption"><i class="fa fa-home"></i></div><div>Number<span class="glyphicon glyphicon-earphone popMenuIcon" ></span></div></li>
 									<li class="demo_li"><div id="eventUrlMenuOption"><i class="fa fa-home"></i></div><div>Url<span class="glyphicon glyphicon-link popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventSlideShowMenuOption"><i class="fa fa-home"></i></div><div>Slide Show<span class="glyphicon glyphicon-th popMenuIcon"></span></div></li>
+									<li class="demo_li"><div id="eventJumpMenuOption"><i class="fa fa-home"></i></div><div>Jump<span class="glyphicon glyphicon-heart-empty popMenuIcon"></span></div></li>
 								</ul>
 								<button type="button" id="addLayerBtn"><span class="glyphicon glyphicon-plus"> New Element</span></button>
 								</div>
@@ -272,15 +274,15 @@
 								
 									<div id="wysihtml-toolbar" style="display: none;">
 										<ul class="commands">
-											<li data-wysihtml5-command="bold" class="command" title="Make text bold (CTRL + B)" unselectable="on">bold</li>
-											<li data-wysihtml5-command="italic" class="command" title="Make text italic (CTRL + I)" unselectable="on">italic</li>
-											<li data-wysihtml5-command="insertLineBreak" class="command" title="Insert a line break">line break</li>
-											<li data-wysihtml5-command="fontSize" data-wysihtml5-command-value="small" class="command" unselectable="on">small</li>
-											<li data-wysihtml5-command="fontSize" data-wysihtml5-command-value="large" class="command" unselectable="on">large</li>
-											<li data-wysihtml5-command="underline" class="command" title="Make text underlined" unselectable="on">underline</li>
-											<li data-wysihtml5-command="insertOrderedList" class="command" title="Insert an ordered list" unselectable="on">insert ordered list</li>
-											<li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command" unselectable="on">h1</li>
-											<li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command" unselectable="on">h2</li>
+											<li class="command glyphicon glyphicon-bold" data-wysihtml5-command="bold"  title="Make text bold (CTRL + B)" unselectable="on"></li>
+											<li class="command glyphicon glyphicon-italic" data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" unselectable="on"></li>
+											<li class="command glyphicon glyphicon-list" data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" unselectable="on"> · List</li>
+											<li class="command glyphicon glyphicon-list" data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" unselectable="on"> 1 List</li>
+											<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" unselectable="on">H1</li>
+											<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" unselectable="on">H2</li>
+											<li class="command glyphicon glyphicon-indent-left" data-wysihtml5-command="insertBlockQuote" title="Insert Block quote" unselectable="on"></li>
+											<li class="command glyphicon glyphicon-minus"  title="Insert line" unselectable="on"></li>
+
 										</ul>
 									</div>
  									<div id="wysihtml-div" class="textStringParameterDiv" data-required="true" placeholder="Enter your text ..."></div>
@@ -289,15 +291,16 @@
 
 							<div class="col-lg-12" id="imageParameterEditorDiv">
 								<form>
+									<h5>Text of button</h5>
+									<input type='text' id="imageTextBtnStringParameter" class='form-control' placeholder="Text here">
+								</form>
+								<form>
 									<h5>Insert image link</h5>
 									<input type='text' id="imageStringParameter" class='form-control' data-required="true" placeholder="Text here">
 									<button  type="button" class="btn btn-success" id="addImageBtn">
-										Add image
+										Preview
 									</button>
 								</form>
-								<form>
-									<div id="slider"></div>
-								</form>	
 							</div>
 						
 							<div class="col-lg-12" id="emailParameterEditorDiv">
@@ -317,10 +320,6 @@
 									<h5>Body</h5>
 									<input type='text' id="emailBodyStringParameter" class='form-control'  placeholder="Body here">
 								</form>
-								<form>
-									<h5>Icon</h5>
-									<input type="checkbox" id="emailIconCheckBox" name="emailIconCheckBox" value="false">Icon<br>
-								</form>
 							</div>
 						
 							<div class="col-lg-12" id="phoneParameterEditorDiv">
@@ -334,12 +333,8 @@
 								</form>
 								<form class="phoneBtnTypeParameter">	
 									<h5>Type</h5>
-									<input type="checkbox"  id="phoneTelephoneTypeParameter" name="telTypePhoneParameter" value="tel">Telephone<br>
+									<input type="checkbox"  id="phoneTelephoneTypeParameter" name="telTypePhoneParameter" value="telephone" checked>Telephone<br>
 									<input type="checkbox"  id="phoneMobileTypeParameter" name="mobTypePhoneParameter" value="mobile">Mobile<br>
-								</form>
-								<form>	
-									<h5>Icon</h5>
-									<input type="checkbox" id="phoneIconCheckBox" name="phoneIconCheckBox" value="false">Icon<br>
 								</form>
 							</div>
 						
@@ -354,17 +349,13 @@
 								</form>
 								<form class="urlBtnTypeParameter">	
 									<h5>Type</h5>
-									<input type="checkbox" id="urlTypeBtn" name="urlTypeBtn" value="url">Url<br>
+									<input type="checkbox" id="urlTypeBtn" name="urlTypeBtn" value="url" checked>Url<br>
 									<input type="checkbox" id="imageUrlTypeBtn" name="imageUrlTypeBtn" value="image">Image<br>
 									<input type="checkbox" id="musicUrlTypeBtn" name="musicUrlTypeBtn" value="music">Music<br>
 									<input type="checkbox" id="pdfUrlTypeBtn" name="pdfUrlTypeBtn" value="pdf">Pdf<br>
 									<input type="checkbox" id="youtubeUrlTypeBtn" name="youtubeUrlTypeBtn" value="youtube">Youtube<br>
 									<input type="checkbox" id="facebookUrlTypeBtn" name="facebookUrlTypeBtn" value="facebook">Facebook<br>
 								</form>		
-								<form>	
-									<h5>Icon</h5>
-									<input type="checkbox" id="urlIconCheckBox" name="urlIconCheckBox" value="false">Icon<br>
-								</form>	 
 							</div>
 						
 						</div>
@@ -374,7 +365,7 @@
 					<div class="row">
 				
 						<div class="col-lg-12 createElementBtnDiv">
-							<button class="btn btn-success" id="createElementBtn">
+							<button class="btn btn-success" id="createElementBtn"><span class="glyphicon glyphicon-eye-open"></span>
 									OK
 							</button>
 							<button class="btn btn-warning" id="cancelCreationElementBtn">

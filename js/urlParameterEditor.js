@@ -32,7 +32,7 @@ function urlParameterEditor(descriptionObject, descriptionsArray){
 function getUrlParameters(descriptionObject){
 
 	var urlParameters =	new UrlParametersObject();
-	
+		
 	var parameters	= $("#urlParameterEditorDiv form").children("input");
 	
 	jQuery.each( parameters, function( i, val ) {
@@ -54,7 +54,7 @@ function getUrlParameters(descriptionObject){
 				
 				if(val.value){
 					
-					urlParameters.url	=	'"' + val.value + '"';
+					urlParameters.url	=	val.value;
 
 				}
 				
@@ -115,16 +115,6 @@ function getUrlParameters(descriptionObject){
 				if(val.checked){
 					
 					urlParameters.type	=	val.value;
-
-				}
-				 
-				break;
-				
-			case "urlIconCheckBox":
-				
-				if(val.checked){
-					
-					urlParameters.icon	=	val.value;
 
 				}
 				 

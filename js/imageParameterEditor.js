@@ -2,26 +2,24 @@
 $('#addImageBtn').on('click', function(){
 
 	var urlImagen 	=	$("#imageStringParameter").val();
+	
+	if(urlImagen){
 
 	$.loadImage(urlImagen)
 		.done(function(image) {
-		  console.log(image);
+		
 		  $('.descriptionEventParameterDiv #creating').append(
-		  	$("<img>").attr("src", urlImagen).attr("width", 200).attr("height", 200)
+		  	$("<img>").attr("src", urlImagen).attr("data-width", image.width).attr("data-height", image.height).attr("width", 200).attr("height", 200)
 		  )
 		})
 		.fail(function(image) {
 		  alert("Failed to load image");
+		  $("#imageStringParameter").val("");
 		});
 	
-	});
-
-
-$(function() {
-
-    $( "#slider" ).slider();
-  
-  });
+	}
+	
+});
 
  
 function imageParameterEditor(descriptionObject, descriptionsArray){
@@ -42,12 +40,29 @@ function getImageParameters(descriptionObject){
 		
 		 
 		switch (val.id){
+		
+			case "imageTextBtnStringParameter":
+			
+					if(val.value){
+					
+						imageParameters.usage	=	val.value;	
+								
+					}else{
+						
+						imageParameters.usage	=	"";	
+					
+					}
+			
+				break;
 			
 			case "imageStringParameter":
 				
-				if(valvalue){
+				if(val.value){
 					
-					imageParameters.url	=	val.value;
+					imageParameters.image	=	"image";
+					imageParameters.url		=	val.value;
+					imageParameters.width	=	$('.descriptionEventParameterDiv #creating').children("img").attr("data-width");
+					imageParameters.height	=	$('.descriptionEventParameterDiv #creating').children("img").attr("data-height");
 
 				}
 				

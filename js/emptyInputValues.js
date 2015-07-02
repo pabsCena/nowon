@@ -1,7 +1,5 @@
 
-function emptyValues(){
-
-var parameters	= $(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
+function emptyValues(parameters){
 	
 	jQuery.each( parameters, function( i, val ) {
 		

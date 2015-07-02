@@ -32,9 +32,10 @@
  	 
  	 	$('.descriptionEventParameterDiv .elementDescriptionLayer').removeAttr("id").children().not('.newDescriptionElement').remove();
  	 	
- 	 	emptyValues();
+ 	 	var parameters	= $(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
+ 	 		
+ 	 	emptyValues(parameters);
 
-	 		
 		$(".eventParameterEditorDiv").children().not(":hidden").fadeOut( "fast", function() {
 		
 			$( ".createElementBtnDiv" ).hide();
@@ -55,8 +56,6 @@ function identifyParameter(){
 }
 
 function getElementParameters(parameterType){
-
-	var tag;
 	
 	var descriptions	=	[];
 	
@@ -65,6 +64,9 @@ function getElementParameters(parameterType){
 	var eventDescriptionArray	=	getEventDescriptionSessionStorage();
 	
 	var identifier = getIdentifier();
+	
+	var emptyParameters	=	$(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
+
 	
 	if(eventDescriptionArray!=undefined){
 	
@@ -75,62 +77,49 @@ function getElementParameters(parameterType){
 	switch (parameterType){
 		case "textParameterEditorDiv":
 		
-			tag="<text";
 			descriptionObject.identifier	=	identifier;
-			descriptionObject.tag			=	tag;
 			textParameterEditor(descriptionObject, descriptions);
 			break;
 			
 		case "imageParameterEditorDiv":
 		
-			tag="<img";
 			descriptionObject.identifier	=	identifier;
-			descriptionObject.tag			=	tag;
 			imageParameterEditor(descriptionObject, descriptions);
-			emptyValues();
 			break;
 			
 		case "emailParameterEditorDiv":
 		
-			tag="<email";
 			descriptionObject.identifier	=	identifier;
-			descriptionObject.tag			=	tag;
 			emailParameterEditor(descriptionObject, descriptions);
-			emptyValues();
 			break;	
 			
 		case "phoneParameterEditorDiv":
-		
-			tag="<phone";
+			
 			descriptionObject.identifier	=	identifier;
-			descriptionObject.tag			=	tag;
 			phoneParameterEditor(descriptionObject, descriptions);
-			emptyValues();
 			break;	
 			
 		case "urlParameterEditorDiv":
 		
-			tag="<url";
 			descriptionObject.identifier	=	identifier;
-			descriptionObject.tag			=	tag;
 			urlParameterEditor(descriptionObject, descriptions);
-			emptyValues();
 			break;				
 				
 		default:
 			break;
 	}
 	
-	sendTagDescription(tag, identifier);
+	emptyValues(emptyParameters);
+	sendTagDescription(identifier);
 }
 
-function sendTagDescription(tag, identifier){ 
+function sendTagDescription(identifier){ 
 		
 	if($('.descriptionEventParameterDiv #creating').length){
 	
 		$('.descriptionEventParameterDiv #creating').attr("data-modified", "true").attr("data-identifier", identifier).append(
 		
-			$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"), $("<p class='editedLayerText'>").text( tag ));
+			$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"), $("<p class='editedLayerText'>"));
 			
 		$('.descriptionEventParameterDiv #creating').removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
 	}
@@ -141,7 +130,7 @@ function requiredParametersFilled(){
 	var requiredElements 	= 	$('.eventParameterEditorDiv').children().not(":hidden").find("[data-required=true]");
 	var length				=	requiredElements.length;
 	var valid;
-	
+	 
 	jQuery.each( requiredElements, function( i, val ) {
 		
 		if(!checkIsCorrect(val)){

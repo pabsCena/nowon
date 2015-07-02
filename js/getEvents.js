@@ -18,7 +18,8 @@ function getEvents(calendarId){
 	var eventId, summary, start, end, description;
 	var calendarObjectEventList		=	[];
 				
-	gapi.client.load('calendar', 'v3').then(function() {					
+	gapi.client.load('calendar', 'v3').then(function() {	
+					
 		var request = gapi.client.calendar.events.list({
 			'calendarId' : calendarId
 			});	

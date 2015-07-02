@@ -23,36 +23,77 @@ function getEventInformation(eventObject){
 
 	var eventTitleDateLocation	=	$(".editingNemiEventTitleDateInterfaceView .row");	
 	
-		getTitleDateLocation(eventObject, eventTitleDateLocation);
+		if(getTitleDateLocation(eventObject, eventTitleDateLocation)){
+		
+			var eventDescription		=	$(".descriptionEventParameterDiv");
+		
+			getDescription(eventObject, eventDescription);
+			
+			createEvent();		
+		
+		}
 
-	var eventDescription		=	$(".descriptionEventParameterDiv");
+	
 		
-		getDescription(eventObject, eventDescription);
-		
-	createEvent();		
 }
 
 function createEvent(){
 
 	var calendarId 	= 	$(".form-control").find(':selected').attr('id');
-	var eventObject	=	getEventSessionStorage();	
+	var eventObject	=	getEventSessionStorage();
+		
 	
+	if(eventObject.date.start.length>10){
 	
-	 resource = {
+		resource = {
 	 
 			"summary": eventObject.summary,
 			
+			"start": {
+			
+					"dateTime": eventObject.date.start
+				
+				},
+			
+			"end":{
+		
+				"dateTime": eventObject.date.end
+		
+			},
+			
 			"location": eventObject.location,
 		
+			"description":	eventObject.description
+		};	
+	
+			
+	}else{
+	
+		 resource = {
+	 
+			"summary": eventObject.summary,
+			
 			"start": {
-				"dateTime": eventObject.date.start
+			
+				"date": eventObject.date.start
+			
+				},
+		
+			"end":{
+	
+				"date": eventObject.date.end
+	
 			},
-			"end": {
-				"dateTime": eventObject.date.end
-			},
+			
+			"location": eventObject.location,
 		
 			"description":	eventObject.description
 		};
+
+	}	
+	
+	
+	
 	
 	if(eventObject.id){
 	
