@@ -4,17 +4,20 @@ var loaded = false;
 
 function getEventsFromCalendarId(){
 
-		var calendarObjectList;
+		var calendarObjectList = null;
 		//calendarObjectList	=	getCalendarsSessionStorage();		
-		setTimeout(function(){
+		var waiting = setInterval(function(){
 			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
-		
-				
-			for(var i=0; i<calendarObjectList.length; i++){
-				getEvents(calendarObjectList[i].id);	
+			
+			if (calendarObjectList != null){
+						
+				for(var i=0; i<calendarObjectList.length; i++){
+					getEvents(calendarObjectList[i].id);	
+				}
+				clearInterval(waiting);
 			}
 		
-		}, 5000);
+		}, 500);
 }
 
 
