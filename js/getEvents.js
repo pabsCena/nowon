@@ -5,7 +5,11 @@ var loaded = false;
 function getEventsFromCalendarId(){
 
 		var calendarObjectList;
-		calendarObjectList	=	getCalendarsSessionStorage();
+		//calendarObjectList	=	getCalendarsSessionStorage();
+		
+		//
+		var calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
+		
 				
 			for(var i=0; i<calendarObjectList.length; i++){
 				getEvents(calendarObjectList[i].id);	
