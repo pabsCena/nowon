@@ -14,7 +14,7 @@ function getEventsFromCalendarId(){
 				getEvents(calendarObjectList[i].id);	
 			}
 		
-		}, 10000);
+		}, 5000);
 }
 
 
