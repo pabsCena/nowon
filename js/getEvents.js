@@ -14,7 +14,7 @@ function getEventsFromCalendarId(){
 				}
 				if (calendarObjectList){ break; }
 		} catch (e) {
-				console.log("error: " + e );
+				console.log("Waiting for calendarObjectList -> " + calendarObjectList );
 		}
 	}
 }
