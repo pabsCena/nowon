@@ -32,9 +32,12 @@ function handleAuthResult(authResult) {
   		
 		loopLi();
   		  		
-  		getCalendars();
-		getEventsFromCalendarId();
+  		var getCalendarsDone = getCalendars();
+		var getEventsDone = getEventsFromCalendarId();
 	
+    	
+    	console.log( "Calendars done ->" + getCalendarsDone );
+    	console.log( "Events done ->" + getEventsDone );
     	
     	//show the interface of Nemi
   		//$('.nemiLoginInterfaceDiv').hide();
