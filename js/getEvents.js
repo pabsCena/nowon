@@ -6,13 +6,11 @@ function getEventsFromCalendarId(){
 
 		var calendarObjectList;
 		calendarObjectList	=	getCalendarsSessionStorage();
-		
-		if (calendarObjectList != null){
-		
+				
 			for(var i=0; i<calendarObjectList.length; i++){
 				getEvents(calendarObjectList[i].id);	
 			}
-		}
+
 }
 
 
