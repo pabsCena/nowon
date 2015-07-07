@@ -4,11 +4,17 @@ var loaded = false;
 
 function getEventsFromCalendarId(){
 
-	var calendarObjectList	=	getCalendarsSessionStorage();
-	
-	for(var i=0; i<calendarObjectList.length; i++){
-	
-		getEvents(calendarObjectList[i].id);	
+	var calendarObjectList;
+		
+	while (!calendarObjectList){
+		try {
+				calendarObjectList	=	getCalendarsSessionStorage();
+				for(var i=0; i<calendarObjectList.length; i++){
+					getEvents(calendarObjectList[i].id);	
+				}
+		} catch (e) {
+				console.log("error: " + e );
+		}
 	}
 }
 
