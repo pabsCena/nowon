@@ -5,16 +5,16 @@ var loaded = false;
 function getEventsFromCalendarId(){
 
 		var calendarObjectList;
-		//calendarObjectList	=	getCalendarsSessionStorage();
-		
-		//
-		var calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
+		//calendarObjectList	=	getCalendarsSessionStorage();		
+		setTimeout(function(){
+			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
 		
 				
 			for(var i=0; i<calendarObjectList.length; i++){
 				getEvents(calendarObjectList[i].id);	
 			}
-
+		
+		}, 10000);
 }
 
 
