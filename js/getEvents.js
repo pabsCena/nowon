@@ -12,6 +12,7 @@ function getEventsFromCalendarId(){
 				for(var i=0; i<calendarObjectList.length; i++){
 					getEvents(calendarObjectList[i].id);	
 				}
+				break;
 		} catch (e) {
 				console.log("error: " + e );
 		}
