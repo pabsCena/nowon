@@ -13,6 +13,8 @@ $(function(){
 		}
 		
 		getEventInformation(eventObject);
+		
+		showModeAfterCreateNewEvent();
 	
 	});
 
@@ -154,3 +156,29 @@ function createNewEvent(calendarId, resource){
 	});
 }
 
+function showModeAfterCreateNewEvent(){
+
+	emptyEventEditingDivs();
+
+	setTimeout(function() {
+		
+		$( ".nemiEventParameterEditorDiv, .nemiEditingEventInterfaceDiv " ).hide();
+		
+		if($('.nemiCalendarsEventsListDiv').is("col-lg-offset-3")){
+						
+			$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-4").addClass("col-lg-6");			
+			$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 100, callback);
+			
+		}
+		
+		function callback() {
+		
+		 	$( ".nemiCalendarsEventsListDiv" ).show("clip", 500);
+    	}
+		        
+    	}, 500 );
+	
+	
+
+
+}

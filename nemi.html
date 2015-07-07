@@ -45,7 +45,7 @@
 	
 	<style>
 		div {
-				background-color: lightSteelBlue;
+				/*background-color: lightSteelBlue;*/
 				border: 1px solid white;
 		}
 	
@@ -273,17 +273,18 @@
 							<div class="col-lg-12" id="textParameterEditorDiv">
 								
 									<div id="wysihtml-toolbar" style="display: none;">
-										<ul class="commands">
-											<li class="command glyphicon glyphicon-bold" data-wysihtml5-command="bold"  title="Make text bold (CTRL + B)" unselectable="on"></li>
-											<li class="command glyphicon glyphicon-italic" data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" unselectable="on"></li>
-											<li class="command glyphicon glyphicon-list" data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" unselectable="on"> · List</li>
-											<li class="command glyphicon glyphicon-list" data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" unselectable="on"> 1 List</li>
-											<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" unselectable="on">H1</li>
-											<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" unselectable="on">H2</li>
-											<li class="command glyphicon glyphicon-indent-left" data-wysihtml5-command="insertBlockQuote" title="Insert Block quote" unselectable="on"></li>
-											<li class="command glyphicon glyphicon-minus"  title="Insert line" unselectable="on"></li>
-
-										</ul>
+										<header>
+											<ul class="commands">
+												<li class="command glyphicon glyphicon-bold" data-wysihtml5-command="bold"  title="Make text bold (CTRL + B)" unselectable="on"></li>
+												<li class="command glyphicon glyphicon-italic" data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" unselectable="on"></li>
+												<li class="command" data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" unselectable="on"> · List</li>
+												<li class="command" data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" unselectable="on"> 1 List</li>
+												<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" unselectable="on">H1</li>
+												<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" unselectable="on">H2</li>
+												<li class="command glyphicon glyphicon-indent-left" data-wysihtml5-command="insertBlockQuote" title="Insert Block quote" unselectable="on"></li>
+												<li class="command glyphicon glyphicon-minus"  title="Insert line" unselectable="on"></li>
+											</ul>
+										</header>	
 									</div>
  									<div id="wysihtml-div" class="textStringParameterDiv" data-required="true" placeholder="Enter your text ..."></div>
 							

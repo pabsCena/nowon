@@ -40,7 +40,7 @@ function getDescription(eventObject, eventDescription){
 									}else{
 									
 										if(m == nameLastElement){
-										
+										 
 											descriptionString	=	descriptionString + val3 + ")";
 										
 										}else{
@@ -67,7 +67,7 @@ function getDescription(eventObject, eventDescription){
 				
 				}
 			
-			}
+			} 
 			
 			descriptionArrayString[i]	=	descriptionString;
 			

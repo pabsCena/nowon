@@ -15,7 +15,7 @@ function getTextParameters(descriptionObject){
 	
 	var elements	= $(".textStringParameterDiv");
 	
-	textParameters	=	clasifyMarkDownLanguage(elements);
+	textParameters.text				=	clasifyMarkDownLanguage(elements);
 	
 	descriptionObject.parameters	=	textParameters;
 
@@ -35,102 +35,27 @@ function storeTextParameters(textObject, descriptionsArray){
 
 function clasifyMarkDownLanguage(elements){
 
-	var descriptionString =	"";
+	var descriptionTextArrayString	= [];
+	
+	var descriptionTextArrayStringAux	=	[]
+	
+	var descriptionTextString	=	"";
 
-	if($(elements).text()){
+	if(elements[0].children.length == 0){
 	
-		descriptionString	=	descriptionString	+	$(elements).text();
+		descriptionTextString = descriptionTextString + elements[0].innerText;
+		
+	}else if(elements[0].innerHTML.substr(0, elements[0].innerHTML.indexOf('<'))){
 	
-	}
+		descriptionTextString = descriptionTextString + elements[0].innerHTML.substr(0, elements[0].innerHTML.indexOf('<'));
 
-	var elementos 	=	$(elements).children();
 
-	jQuery.each( elementos, function( i, val ) {
-	
-		switch (val.tagName){
-		
-			case "B":
 			
-				val.outerHTML
-			
-				break;
-			
-			case "I":
-			
-				break;
-				
-			case "OL":
-			
-				break;
-				
-			case "H1":
-			
-				break;
-				
-			case "H2":
-			
-				break;
-				
-			case "BLOCKQUOTE":
-			
-				break;				
-				
-			default:
-			
-				break;	
-		
-		
-		
-		}
-	
-	$(elementos);
-	
-	});
-
-/*
-	switch (textParameter){
-	
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-		case :
-		
-			break;
-			
-			
+	}else{
 	
 	
 	}
-
-*/
-
+	return descriptionTextString;	
 }
+
+
