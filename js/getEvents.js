@@ -4,8 +4,9 @@ var loaded = false;
 
 function getEventsFromCalendarId(){
 
-		var calendarObjectList;
+		var calendarObjectList = null;
 		//calendarObjectList	=	getCalendarsSessionStorage();		
+<<<<<<< HEAD
 		setTimeout(function(){
 		
 			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
@@ -15,6 +16,20 @@ function getEventsFromCalendarId(){
 			}
 		
 		}, 1000);
+=======
+		var waiting = setInterval(function(){
+			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
+			
+			if (calendarObjectList != null){
+						
+				for(var i=0; i<calendarObjectList.length; i++){
+					getEvents(calendarObjectList[i].id);	
+				}
+				clearInterval(waiting);
+			}
+		
+		}, 500);
+>>>>>>> ab29d531bb13e5a06e9f7fd8b746aafe797efa0a
 }
 
 
