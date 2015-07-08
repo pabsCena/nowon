@@ -122,6 +122,8 @@ function getUrlParameters(descriptionObject){
 				
 			default:
 			
+				urlParameters.type	=	"url";
+			
 				break;				
 		} 
 	});

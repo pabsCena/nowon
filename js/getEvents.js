@@ -7,20 +7,20 @@ function getEventsFromCalendarId(){
 		var calendarObjectList;
 		//calendarObjectList	=	getCalendarsSessionStorage();		
 		setTimeout(function(){
-			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
 		
+			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
 				
 			for(var i=0; i<calendarObjectList.length; i++){
 				getEvents(calendarObjectList[i].id);	
 			}
 		
-		}, 10000);
+		}, 1000);
 }
 
 
 function getEvents(calendarId){
 
-	var eventId, summary, start, end, description;
+	var eventId, summary, start, end, location, description;
 	var calendarObjectEventList		=	[];
 				
 	gapi.client.load('calendar', 'v3').then(function() {	
@@ -35,7 +35,8 @@ function getEvents(calendarId){
 		for(var i =0; i <eventList.result.items.length ; i++) {		
 		
 		 	eventId 		=	eventList.result.items[i].id;
-			summary 		=	eventList.result.items[i].summary;       
+			summary 		=	eventList.result.items[i].summary;
+			location		=	eventList.result.items[i].location;       
 			description 	=	eventList.result.items[i].description;
 			
 			if(eventList.result.items[i].start.dateTime){
@@ -51,7 +52,7 @@ function getEvents(calendarId){
 			 }
 			 
 			var eventDate 	=	new EventDateObject(start, end);
-			calendarObjectEventList[i] = new EventObject(eventId, summary, eventDate, description);		
+			calendarObjectEventList[i] = new EventObject(eventId, summary, eventDate, location, description);		
 		}
 		
 		populateSessionStorage(calendarObjectEventList, calendarId);
@@ -96,13 +97,14 @@ function matchCorrespondingCalendar(sortedCalendarObjectEventList, calendarId){
 
 function loopLi() {
    
-   var timer = setInterval(function() { // this code is executed every 5 seconds:
+   var timer = setInterval(function() { 
 	
         if(loaded) {
         	            
-        	clearInterval(timer);
-            $body.removeClass("loading");
+            $( "body" ).removeClass("loading");
             showIncomingEvents();
+            clearInterval(timer);
+
         }
 
     }, 2000);

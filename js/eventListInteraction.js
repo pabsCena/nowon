@@ -12,7 +12,7 @@ $('.eventListDiv').on('click','a.list-group-item', function(){
 		
 		localizeEvent(calendarId, eventId); 
 		
-		showEventFromEventList();
+		//showEventFromEventList();
 	}	 
 });
 	
@@ -83,6 +83,10 @@ function showEventFromEventList(){
 			case "date":
 				element	=	event.date;
 				break;
+				
+			case "location":
+				element	=	event.location;
+				break;	
 				
 			case "description":
 				element	=	returnDescriptionElements(event.description);

@@ -59,7 +59,6 @@ function getImageParameters(descriptionObject){
 				
 				if(val.value){
 					
-					imageParameters.image	=	"image";
 					imageParameters.url		=	val.value;
 					imageParameters.width	=	$('.descriptionEventParameterDiv #creating').children("img").attr("data-width");
 					imageParameters.height	=	$('.descriptionEventParameterDiv #creating').children("img").attr("data-height");

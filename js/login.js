@@ -5,9 +5,13 @@ var clientId 	=  	'264744363499-ioemohb9hlmd2v3dae3pg2mhcg4v0lcn.apps.googleuser
 var scopes 		=  	'https://www.googleapis.com/auth/calendar';
 
  $(function(){
+ 
    $('#loginBtn').on('click', function(){
+   
 	checkAuth();
+	
 	});
+	
 });
 
 
@@ -27,12 +31,12 @@ function handleAuthResult(authResult) {
 		//if the result is ok, call for the calendars
   		console.log(authResult);
   		
-  		$body = $("body");
-		$body.addClass("loading");
+  		$( "body" ).addClass("loading");
   		
 		loopLi();
   		  		
   		getCalendars();
+  		
 		getEventsFromCalendarId();
 	
     	//show the interface of Nemi
@@ -48,7 +52,10 @@ function handleAuthResult(authResult) {
 }
 
 function callback() {
+
   setTimeout(function() {
+  
 	$( ".nemiInterfaceDiv" ).show("clip", 1000);
   }, 1000 );
+  
 };

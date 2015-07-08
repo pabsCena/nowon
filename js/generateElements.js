@@ -8,7 +8,8 @@ function generateElementsOfEvent(eventIdentified){
 	event.id			=	eventIdentified.id;
 	event.summary		=	eventIdentified.summary;
 	event.date			=	splitDate(eventIdentified.date);
-	//eventId.description	=	splitDescription(event.description);
+	event.location		=	eventIdentified.location;
+	event.description	=	splitDescription(eventIdentified.description);
 
 	console.log(event);
 
@@ -37,89 +38,262 @@ function returnDate(date){
 	return newDate;
 }
 
-/*
+
 function splitDescription(description){
 
 	if(description){
+	
 		var eachLine 	= description.split('\n');
 		var array		=	[];
-	
+		var aux			=	[];
+		var aux2		=	[];
+		var counter;
+
 		for(var i = 0; i<eachLine.length; i++) {
-			array[i]	=	generateDescriptionElement(eachLine[i]);
+		
+			if(eachLine[i].substring(0,2) != "![" && eachLine[i].substring(0,1) != "["){
+					
+				aux[i] 		=	eachLine[i];
+				
+				if(i==eachLine.length-1){
+				
+					for(var j=0; j<aux.length; j++){
+					
+						if(aux2[0]==undefined){
+						
+							aux2[0] = aux[j] + "\n";
+						
+						}else{
+							
+							aux2[0] = aux2[0] + "\n" + aux[j];
+						
+						}
+						
+					}
+					
+					array[i]	= 	generateDescriptionElement(aux2[0]);
+					
+					aux = [];
+				
+				}
+			
+			}else{
+			
+				if(aux.length != 0){
+								
+					for(var j=0; j<aux.length; j++){
+						
+						if(aux2[0]==undefined){
+						
+							aux2[0] = aux[j] + "\n";
+						
+						}else{
+							
+							aux2[0] = aux2[0] + "\n" + aux[j];
+						
+						}
+												
+					}
+					
+					array[i-1]	= 	generateDescriptionElement(aux2[0]);
+					
+					aux = [];
+					
+					array[i]	= 	generateDescriptionElement(eachLine[i]);
+										
+					}else{
+				
+						array[i]	= 	generateDescriptionElement(eachLine[i]);
+				
+					}
+			}
 		}
+					
 	}
+
 	return	array;
 }
 
-function generateDescriptionElement(element){
+
+
+function generateDescriptionElement(elementString){
 	
-	var description		=	new Description();	
-	var localizator 	=	element.substring(0,4);
-	var usage;
+	var descriptionObject	=	new DescriptionObject();
+	
+	var localizator;
+	var parametersString	= [];
+	var usageString 		= [];
+	
+	if(elementString.substring(0,2) == "!["){
+	
+		localizator	=	"imageNotUrl";
 		
-	switch	(localizator){
+		elementString.replace(/\((.*?)\)/g, function(g0,g1){parametersString.push(g1);})
+		
+		
+		elementString.replace(/\[(.*?)\]/g, function(g0,g1){usageString.push(g1);})
 	
-		case	"<ema":
-			description.tag			=	"email";
-			usage					=	element.split(">");
-			description.usage		=	usage[1];
-			description.identifier	=	getIdentifier();
-			description.parameters	=	generateEmailParameters(element);
-			break;
-		case	"<pho":
-			description.tag			=	"phone";
-			usage					=	element.split(">");
-			description.usage		=	usage[1];
-			description.identifier	=	getIdentifier();
-			description.parameters	=	generatePhoneParameters(element);
-			break;
-		case	"<url":
-			description.tag			=	"url";
-			usage					=	element.split(">");
-			description.usage		=	usage[1];
-			description.identifier	=	getIdentifier();
-			description.parameters	=	generateUrlParameters(element);
-			break;
-		default:
-			description.tag				=	"text";
-			description.identifier		=	getIdentifier();
-			description.parameters		=	generateTextParameters(element);
-			break;
+		var parametersStringArray	=	parametersString[0].match(/(".*?"|[^"\s]+)+(?=\s*|\s*$)/g);
+	
+	
+	}else if (elementString.substring(0,1) == "["){
+				
+		elementString.replace(/\((.*?)\)/g, function(g0,g1){parametersString.push(g1);})
+		
+		elementString.replace(/\[(.*?)\]/g, function(g0,g1){usageString.push(g1);})
+	
+		var parametersStringArray	=	parametersString[0].match(/(".*?"|[^"\s]+)+(?=\s*|\s*$)/g);
+	
+		localizator	=	parametersStringArray[0];
+
+	
+	}else{
+	
+		localizator	=	"text";
+	
 	}
-	return description;
-}
-
-function generateEmailParameters(element){
-	var emailParameters	=	new EmailParameters();
-	var textArray		=	element.split(/[< =>]+/);
-	emailParameters.email	=	textArray[2];
-
-	return emailParameters;
-}
-
-function generatePhoneParameters(element){
-	var phoneParameters		=	new PhoneParameters();
-	var textArray			=	element.split(/[< =>]+/);
-	phoneParameters.number	=	textArray[2];
-
-	return phoneParameters;
-}
-
-function generateUrlParameters(element){
-	var urlParameters	=	new UrlParameters();
 	
-	urlParameters.url	= 	element;		//falta
-	//var textArray		=	element.split(/[< =>]+/);
-	//urlParameters.url	=	textArray[2];
-	//urlParameters.type	=	textArray[4];
+	switch	(localizator){
+		 
+		case	"imageNotUrl":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateImageParameters(parametersStringArray, usageString[0]);
+			
+			break;
+			
+		case	"email":
 
-	return urlParameters;
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateEmailParameters(parametersStringArray, usageString[0]);
+			
+			break;
+
+		case	"telephone":
+			
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generatePhoneParameters(parametersStringArray, usageString[0]);
+				
+			break;
+		
+		case	"mobile":
+			
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generatePhoneParameters(parametersStringArray, usageString[0]);
+			
+			break;	
+		
+		case	"url":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+			
+			break;
+			
+		case	"image":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+			
+			break;
+			
+		case	"music":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+			
+			break;
+		
+		case	"pdf":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+			
+			break;
+			
+		case	"youtube":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+			
+			break;
+			
+		case	"facebook":
+		
+				descriptionObject.identifier	=	getIdentifier();
+				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+			
+			break;					
+		
+		case 	"text":
+		
+				descriptionObject.identifier		=	getIdentifier();
+				descriptionObject.parameters		=	generateTextParameters(elementString);
+		
+			break;
+			
+		default:
+		
+		
+			break;
+				
+	}
+	 
+	return descriptionObject;
 }
 
-function generateTextParameters(element){
-	var textParameters	=	new TextParameters();
-	textParameters.text	=	element;
+function generateImageParameters(parametersString, usageString){
 	
-	return	textParameters;
+	var imageParametersObject	=	new ImageParametersObject();
+	
+	imageParametersObject.usage		=	usageString;
+	imageParametersObject.url 		=	parametersString[0];
+	imageParametersObject.width		=	parametersString[1];
+	imageParametersObject.height	=	parametersString[2];	
+	
+	return imageParametersObject;
 }
-*/
+
+function generateEmailParameters(parametersString, usageString){
+
+	var emailParametersObject	=	new EmailParametersObject();
+	
+	emailParametersObject.usage		=	usageString;
+	emailParametersObject.tag 		=	parametersString[0];
+	emailParametersObject.address	=	parametersString[1];
+	emailParametersObject.title		=	parametersString[2];
+	emailParametersObject.body		=	parametersString[3];
+
+
+	return emailParametersObject;
+}
+
+function generatePhoneParameters(parametersString, usageString){
+
+	var phoneParametersObject		=	new PhoneParametersObject();
+	
+	phoneParametersObject.usage		=	usageString;
+	phoneParametersObject.type		=	parametersString[0];
+	phoneParametersObject.number	=	parametersString[1];
+
+	return phoneParametersObject;
+}
+
+function generateUrlParameters(parametersString, usageString){
+
+	var urlParametersObject		=	new UrlParametersObject();
+	
+	urlParametersObject.usage		= 	usageString;
+	urlParametersObject.type		=	parametersString[0];
+	urlParametersObject.url			=	parametersString[1];
+
+	return urlParametersObject;
+}
+
+function generateTextParameters(elementString){
+	
+	var textParametersObject	=	new TextParametersObject();
+	textParametersObject.text	=	elementString;
+	
+	return	textParametersObject;
+}

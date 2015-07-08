@@ -38,14 +38,13 @@ function TextParametersObject(text){
 	this.text	=	text;
 }
 
-function ImageParametersObject(image, usage, url, width, height){
-	this.image	=	image;
+function ImageParametersObject(usage, url, width, height){
 	this.usage	=	usage;
 	this.url	=	url;
 	this.width	=	width;
 	this.height	=	height;
 }
- 
+    
 function EmailParametersObject(usage, tag, address, title, body){
 	this.usage		= 	usage;
 	this.tag		=	tag;
@@ -56,7 +55,6 @@ function EmailParametersObject(usage, tag, address, title, body){
 
 function PhoneParametersObject(usage, tag, type, number){
 	this.usage	= 	usage;
-	this.tag	=	tag;
 	this.type	=	type;
 	this.number	=	number;
 }
