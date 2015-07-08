@@ -47,7 +47,6 @@ function splitDescription(description){
 		var array		=	[];
 		var aux			=	[];
 		var aux2		=	[];
-		var counter;
 
 		for(var i = 0; i<eachLine.length; i++) {
 		
