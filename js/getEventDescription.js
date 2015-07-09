@@ -7,7 +7,7 @@ function getDescription(eventObject, eventDescription){
 		var descriptionElement		=	$(eventDescription).children(".elementDescriptionLayerEdited");
 		var descriptionObject		=	getEventDescriptionSessionStorage();
 		var descriptionArrayString	=	[]; 
-		
+		 
 		jQuery.each( descriptionElement, function( i, val ) {
 		
 			var identifier	=	$(val).attr("data-identifier");

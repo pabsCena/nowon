@@ -5,17 +5,17 @@ $('#addImageBtn').on('click', function(){
 	
 	if(urlImagen){
 
-	$.loadImage(urlImagen)
-		.done(function(image) {
+		$.loadImage(urlImagen)
+			.done(function(image) {
 		
-		  $('.descriptionEventParameterDiv #creating').append(
-		  	$("<img>").attr("src", urlImagen).attr("data-width", image.width).attr("data-height", image.height).attr("width", 200).attr("height", 200)
-		  )
-		})
-		.fail(function(image) {
-		  alert("Failed to load image");
-		  $("#imageStringParameter").val("");
-		});
+			  $('.descriptionEventParameterDiv #creating').append(
+				$("<img>").attr("src", urlImagen).attr("data-width", image.width).attr("data-height", image.height).attr("width", 200).attr("height", 200)
+			  )
+			})
+			.fail(function(image) {
+			  alert("Failed to load image");
+			  $("#imageStringParameter").val("");
+			});
 	
 	}
 	
@@ -36,8 +36,10 @@ function getImageParameters(descriptionObject){
 	
 	var parameters	= $("#imageParameterEditorDiv form").children("input").not("button");
 	
+	imageParameters.image = "image";
+	
 	jQuery.each( parameters, function( i, val ) {
-		
+	
 		 
 		switch (val.id){
 		

@@ -9,11 +9,13 @@ $(function() {
 		setEventSessionStorage(event);
 				
 		deleteEventDescriptionSessionStorage();
+		
+		$( "#doneBtn" ).text("Create Event");
 
 		 $( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
 		
 	});
-});
+}); 
 
 function showEditModeAfterNewEventBtn(){
 	
@@ -27,8 +29,8 @@ function showEditModeAfterNewEventBtn(){
 		$( ".nemiCalendarsEventsListDiv, .nemiEventInterfaceDiv" ).hide();
 		$( ".nemiInterfaceBodyDiv" ).show();
 		
-		$( ".nemiEditingEventInterfaceDiv" ).show("slide", "easeOutCubic", 500, function(){
-			$(".nemiEventParameterEditorDiv").show("slide", "easeOutCubic", 500);           
+		$( ".nemiEditingEventInterfaceDiv" ).toggle("slide", "easeOutCubic", 500, function(){
+			$(".nemiEventParameterEditorDiv").toggle("slide", "easeOutCubic", 500);           
     	  });
     	  
     }, 400 );

@@ -2,7 +2,7 @@
 
 $(function() {
 
-	$( "#deleteBtn" ).click(function() {
+	$( "#deleteEventBtn" ).click(function() {
 				
 		if(confirm("Are you sure you want to delete this event?")){
 			deleteEvent();
@@ -39,8 +39,7 @@ function deleteEvent(){
 				type:'success',
 				onClose:function(){
 				
-				$body = $("body");
-				$body.addClass("loading");
+				$( "body" ).addClass("loading");
 				loopLi();
 				
 				if($(".eventListDiv a:last-child").attr("id") != eventId){

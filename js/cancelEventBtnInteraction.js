@@ -17,7 +17,7 @@ $(function() {
 
 function showEditModeAfterCancelEventBtn(){
 
-	emptyEventEditingDivs();
+	
 
 	setTimeout(function() {
 		
@@ -33,6 +33,8 @@ function showEditModeAfterCancelEventBtn(){
 		function callback() {
 		
 		 	$( ".nemiCalendarsEventsListDiv" ).show("clip", 500);
+		 	
+		 	emptyEventEditingDivs();
     	}
 		        
     	}, 500 );

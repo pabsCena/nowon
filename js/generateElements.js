@@ -2,18 +2,32 @@
 
 
 function generateElementsOfEvent(eventIdentified){
-	
-	var event 		=	new EventObject();
+ 	
+	var event 				=	new EventObject();
+	var descriptionObject 	=	new DescriptionObject();
+
 	
 	event.id			=	eventIdentified.id;
 	event.summary		=	eventIdentified.summary;
 	event.date			=	splitDate(eventIdentified.date);
 	event.location		=	eventIdentified.location;
-	event.description	=	splitDescription(eventIdentified.description);
+	event.description	=	eventIdentified.description;
+	
+	if(event.description){
+		
+		descriptionObject	=	splitDescription(eventIdentified.description);
+		
+		setEventDescriptionSessionStorage(descriptionObject);
 
-	console.log(event);
+		console.log(descriptionObject);	
+		
+	}
+	
+	console.log(event);	
 
-	setEventSessionStorage(event);	
+	setEventSessionStorage(event);
+	setEventDescriptionSessionStorage(descriptionObject);
+
 }
 
 
@@ -263,7 +277,7 @@ function generateImageParameters(parametersString, usageString){
 	
 	var imageParametersObject	=	new ImageParametersObject();
 	
-	imageParametersObject.usage		=	usageString;
+	imageParametersObject.iamge		=	usageString;
 	imageParametersObject.url 		=	parametersString[0];
 	imageParametersObject.width		=	parametersString[1];
 	imageParametersObject.height	=	parametersString[2];	

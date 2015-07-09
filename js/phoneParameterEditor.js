@@ -37,7 +37,6 @@ function getPhoneParameters(descriptionObject){
 	var parameters	= $("#phoneParameterEditorDiv form").children("input");
 	
 	jQuery.each( parameters, function( i, val ) {
-		
 		 
 		switch (val.id){
 			
@@ -65,7 +64,7 @@ function getPhoneParameters(descriptionObject){
 				
 				if(val.checked){
 					
-					phoneParameters.tag		=	val.value;
+					phoneParameters.type		=	val.value;
 
 				}
 				
@@ -75,7 +74,7 @@ function getPhoneParameters(descriptionObject){
 				
 				if(val.checked){
 					
-					phoneParameters.tag		=	val.value;
+					phoneParameters.type		=	val.value;
 
 				}
 				

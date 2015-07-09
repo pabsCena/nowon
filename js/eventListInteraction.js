@@ -63,11 +63,10 @@ function localizeEvent(calendarId, eventId){
 function showEventFromEventList(){
 	
 	var event		=	getEventSessionStorage();
+	var description	=	getEventDescriptionSessionStorage();
 		
 	var parameters	=	Object.keys(event);
-	
-	var element;
-	
+		
 	for(var i=0; i<parameters.length;i++){
 	
 		switch (parameters[i]){
@@ -89,9 +88,9 @@ function showEventFromEventList(){
 				break;	
 				
 			case "description":
-				showDescription(event.description);
+				showDescription(description);
 				break;
-				
+		 		 
 			default:
 				break;	
 		

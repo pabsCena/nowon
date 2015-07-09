@@ -124,7 +124,7 @@ function sendTagDescription(identifier){
 		$('.descriptionEventParameterDiv #creating').removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
 	}
 }
-	
+	  
 function requiredParametersFilled(){
 	
 	var requiredElements 	= 	$('.eventParameterEditorDiv').children().not(":hidden").find("[data-required=true]");

@@ -13,9 +13,7 @@ $(function(){
 		}
 		
 		getEventInformation(eventObject);
-		
-		showModeAfterCreateNewEvent();
-	
+			
 	});
 
  
@@ -34,9 +32,6 @@ function getEventInformation(eventObject){
 			createEvent();		
 		
 		}
-
-	
-		
 }
 
 function createEvent(){
@@ -125,9 +120,11 @@ function createNewEvent(calendarId, resource){
 				$.alert('Event created successfully', {
 				
 					autoClose: true,
-					closeTime: 2000,
+					closeTime: 1000,
 					type:'success',
-					onClose:function(){
+					onShow:function(){
+						
+						showModeAfterCreateNewEvent();
 				
 					}
 				
@@ -141,7 +138,7 @@ function createNewEvent(calendarId, resource){
 					closeTime: 2000,
 					type:'danger',
 					onClose:function(){
-				
+						
 					}
 				
 				});
@@ -157,28 +154,39 @@ function createNewEvent(calendarId, resource){
 }
 
 function showModeAfterCreateNewEvent(){
-
-	emptyEventEditingDivs();
-
-	setTimeout(function() {
 		
-		$( ".nemiEventParameterEditorDiv, .nemiEditingEventInterfaceDiv " ).hide();
 		
-		if($('.nemiCalendarsEventsListDiv').is("col-lg-offset-3")){
+		$( ".nemiEventParameterEditorDiv" ).toggle("slide", "easeOutCubic", 500, function(){
+				$(".nemiEditingEventInterfaceDiv").toggle("slide", "easeOutCubic", 500, function(){
+				
+				
+				if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3")){
 						
-			$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-4").addClass("col-lg-6");			
-			$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 100, callback);
+					$(".nemiCalendarsEventsListDiv").addClass("col-lg-offset-3", callback);
 			
-		}
+				}else{
+			
+					callback();
+		
+				}
+				
+				});
+				           
+    	  });
+		
 		
 		function callback() {
 		
-		 	$( ".nemiCalendarsEventsListDiv" ).show("clip", 500);
-    	}
-		        
-    	}, 500 );
-	
-	
+		 	$( "body" ).addClass("loading");
+		 	
+			loopLi();
+			
+			getEventsFromCalendarId();
+			
+			$('.nemiCalendarsEventsListDiv').toggle("blind", "slow");
+		 	
+		 	emptyEventEditingDivs();
 
+    	}
 
 }
