@@ -3,6 +3,7 @@
 function showElement(element, identifier){
 
 	switch (identifier){
+	
 		case "id":
 			setEventId(element, identifier);
 			break;
@@ -11,84 +12,134 @@ function showElement(element, identifier){
 			break;
 		case "date":
 			showDate(element, identifier);
-			break;	
+			break;
+		case "location":
+			showLocation(elemen, identifier);
+			break;		
 		case "description":
-			//showDescription(element, identifier);
+			showDescription(element, identifier);
 			break;
 		default:
 			break;
 	}
+} 
+
+function showDescription(descriptionList){
+	
+	for(var i=0; i<descriptionList.length; i++){
+	
+		if(descriptionList[i]!=null){
+			
+			switch	(descriptionList[i].elementDescription){
+				
+				case	"text":				
+					showText(descriptionList[i].parameters.text);
+					break;
+				case	"image":
+					showImage(descriptionList[i].parameters.url);
+					break;
+				case	"email":
+					showEmail(descriptionList[i].parameters.usage);
+					break;
+				case	"phone": 
+					showPhone(descriptionList[i].parameters.usage);
+					break;
+				case	"url":
+					showUrl(descriptionList[i].parameters.usage);
+					break;
+				
+				default:
+					break;
+			}
+		}	
+	}	
 }
 
-function setEventId(element, identifier){
+
+function setEventId(element){
 	$( ".nemiEventInterfaceView" ).attr("id", element);
 }
 
-function showTitle(element, identifier){
+function showTitle(element){
 
 	$( ".nemiEventInterfaceView" ).append(
-       	$("<div class='eventSummary'>").attr("data-identifier", identifier).append(
-       		$("<p>").text("· "+element)));
-}
+       	$("<div id='eventSummaryInterfaceView'>").append(
+       		$("<p>").text(element)));
+} 
 
-function showDate(element, identifier){
+function showDate(element){
 
 	$(".nemiEventInterfaceView").append(
-       	$("<div class='Eventdate'>").attr("data-identifier", identifier).append(
-       		$("<p class='startEventDate'>").text("· "+element.start.date+ " at "+ element.start.time),
-       			$("<p class='endEventDate'>").text("· "+element.end.date+ " at "+ element.end.time)));
+       	$("<div id='eventDateInterfaceView'>").append(
+       		$("<p>").text(element.start.date)));
+}
+ 
+function showLocation(element){
+	
+	$(".nemiEventInterfaceView").append(
+       	$("<div id='eventLocationInterfaceView'>").append(
+       		$("<p>").text("In " + element)));
+       		 
+} 
+
+function showText(element){
+
+	var aux = element.split("\n"); 
+
+	$(".nemiEventInterfaceView").append(
+       	$("<div class='eventTextInterfaceView'>"));
+       	
+       	for(var i=0; i<aux.length; i++){
+       	
+       		$(".eventTextInterfaceView").append(
+       			$("<p>").text(aux[i]));
+       	}
 }
 
-/*
-function showDescription(element, identifier){
+function showImage(element){
 	
-	var tag	=	element.tag;
 	
-	switch	(tag){
+	if(element){
 	
-		case	"email":
-			showEmail(element, identifier);
-			break;
-		case	"phone":
-			showPhone(element, identifier);
-			break;
-		case	"url":
-			showUrl(element, identifier);
-			break;
-		case	"text":				//text
-			showText(element, identifier);
-			break;
-		default:
-			break;
+	  $(".nemiEventInterfaceView").append(
+		  	$("<div class='eventImageInterfaceView'>"));
+		  		
+	$.loadImage(element)
+		.done(function(image) {
+				
+			  $(".eventImageInterfaceView").append(
+				$("<img>").attr("src", element))
+		
+		  })
+            
+		.fail(function(image) {
+		  
+		  alert("Failed to load image");
+		
+		});
 	}
-}
-
-function showEmail(element, identifier){
-
-	$(".WYSIWYGShown").append(
-       	$("<div class='email'>").attr("data-identifier", identifier).append(
-       		$("<button class='btn btn-primary'>").text(element.usage)));
-}
-
-function showPhone(element, identifier){
-	
-	$(".WYSIWYGShown").append(
-       	$("<div class='phone'>").attr("data-identifier", identifier).append(
-       		$("<button class='btn btn-primary'>").text(element.usage)));
 	
 }
 
-function showUrl(element, identifier){
+function showEmail(element){
 
-	$(".WYSIWYGShown").append(
-       	$("<div class='url'>").attr("data-identifier", identifier).append(
-       		$("<button class='btn btn-primary'>").text(element.usage)));
+	$(".nemiEventInterfaceView").append(
+       	$("<div class='eventEmailButtonInterfaceView'>").append(
+       		$("<button class='btn btn-primary'>").text(element)));
 }
 
-function showText(element, identifier){
-
-	$(".WYSIWYGShown").append(
-       	$("<div class='text'>").attr("data-identifier", identifier).append(
-       		$("<p>").text(element.parameters.text)));
+function showPhone(element){
+	
+	$(".nemiEventInterfaceView").append(
+       	$("<div class='eventPhoneButtonInterfaceView'>").append(
+       		$("<button class='btn btn-primary'>").text(element)));
+	
 }
-*/
+
+function showUrl(element){
+
+	$(".nemiEventInterfaceView").append(
+       	$("<div class='eventUrlButtonInterfaceView'>").append(
+       		$("<button class='btn btn-primary'>").text(element)));
+}
+

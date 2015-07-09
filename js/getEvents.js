@@ -6,7 +6,7 @@ function getEventsFromCalendarId(){
 
 		var calendarObjectList = null;
 		//calendarObjectList	=	getCalendarsSessionStorage();		
-<<<<<<< HEAD
+
 		setTimeout(function(){
 		
 			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
@@ -16,7 +16,7 @@ function getEventsFromCalendarId(){
 			}
 		
 		}, 1000);
-=======
+
 		var waiting = setInterval(function(){
 			calendarObjectList  = JSON.parse(sessionStorage.getItem('calendarListJSON'));
 			
@@ -29,7 +29,6 @@ function getEventsFromCalendarId(){
 			}
 		
 		}, 500);
->>>>>>> ab29d531bb13e5a06e9f7fd8b746aafe797efa0a
 }
 
 

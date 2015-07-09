@@ -12,7 +12,7 @@ $('.eventListDiv').on('click','a.list-group-item', function(){
 		
 		localizeEvent(calendarId, eventId); 
 		
-		//showEventFromEventList();
+		showEventFromEventList();
 	}	 
 });
 	
@@ -73,34 +73,28 @@ function showEventFromEventList(){
 		switch (parameters[i]){
 		
 			case "id":
-				element	=	event.id;
+				setEventId(event.id); 
 				break;
 				
 			case "summary":
-				element	=	event.summary;
+				showTitle(event.summary);
 				break;
 				
 			case "date":
-				element	=	event.date;
+				showDate(event.date);
 				break;
 				
 			case "location":
-				element	=	event.location;
+				showLocation(event.location);
 				break;	
 				
 			case "description":
-				element	=	returnDescriptionElements(event.description);
+				showDescription(event.description);
 				break;
 				
 			default:
 				break;	
 		
-		}
-		
-		showElement(element, parameters[i]);
-		
-	//$( ".WYSIWYGEditable" ).find("[data-modified=false]").first().attr("id", "creating");
-	//sendToEditMode(identifier);
-	
+		}	
 	}
 }

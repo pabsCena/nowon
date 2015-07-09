@@ -43,34 +43,41 @@ function splitDescription(description){
 
 	if(description){
 	
-		var eachLine 	= description.split('\n');
+		var eachLine 	= 	description.split('\n');
 		var array		=	[];
 		var aux			=	[];
-		var aux2		=	[];
+		var aux2;
+		var counter;
 
 		for(var i = 0; i<eachLine.length; i++) {
 		
 			if(eachLine[i].substring(0,2) != "![" && eachLine[i].substring(0,1) != "["){
+				
+				if(eachLine[i]==0){
 					
-				aux[i] 		=	eachLine[i];
+					eachLine[i]	=	"\n";
+				
+				}
+				
+				aux[i] 	=	eachLine[i];
 				
 				if(i==eachLine.length-1){
 				
 					for(var j=0; j<aux.length; j++){
 					
-						if(aux2[0]==undefined){
+						if(aux2==undefined){
 						
-							aux2[0] = aux[j] + "\n";
+							aux2 = aux[j];
 						
 						}else{
 							
-							aux2[0] = aux2[0] + "\n" + aux[j];
+							aux2 = aux2 + "\n" + aux[j];
 						
 						}
 						
 					}
 					
-					array[i]	= 	generateDescriptionElement(aux2[0]);
+					array[i]	= 	generateDescriptionElement(aux2);
 					
 					aux = [];
 				
@@ -82,19 +89,19 @@ function splitDescription(description){
 								
 					for(var j=0; j<aux.length; j++){
 						
-						if(aux2[0]==undefined){
+						if(aux2==undefined){
 						
-							aux2[0] = aux[j] + "\n";
+							aux2 = aux[j];
 						
 						}else{
 							
-							aux2[0] = aux2[0] + "\n" + aux[j];
+							aux2 = aux2 + "\n" + aux[j];
 						
 						}
 												
 					}
 					
-					array[i-1]	= 	generateDescriptionElement(aux2[0]);
+					array[i-1]	= 	generateDescriptionElement(aux2);
 					
 					aux = [];
 					
@@ -156,78 +163,89 @@ function generateDescriptionElement(elementString){
 		 
 		case	"imageNotUrl":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateImageParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"image";
+				descriptionObject.parameters			=	generateImageParameters(parametersStringArray, usageString[0]);
 			
 			break;
 			
 		case	"email":
 
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateEmailParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"email";
+				descriptionObject.parameters			=	generateEmailParameters(parametersStringArray, usageString[0]);
 			
 			break;
 
 		case	"telephone":
 			
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generatePhoneParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"phone";
+				descriptionObject.parameters			=	generatePhoneParameters(parametersStringArray, usageString[0]);
 				
 			break;
 		
 		case	"mobile":
 			
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generatePhoneParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"phone";
+				descriptionObject.parameters			=	generatePhoneParameters(parametersStringArray, usageString[0]);
 			
 			break;	
 		
 		case	"url":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"url";
+				descriptionObject.parameters			=	generateUrlParameters(parametersStringArray, usageString[0]);
 			
 			break;
 			
 		case	"image":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"url";				
+				descriptionObject.parameters			=	generateUrlParameters(parametersStringArray, usageString[0]);
 			
 			break;
 			
 		case	"music":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"url";				
+				descriptionObject.parameters			=	generateUrlParameters(parametersStringArray, usageString[0]);
 			
 			break;
 		
 		case	"pdf":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"url";				
+				descriptionObject.parameters			=	generateUrlParameters(parametersStringArray, usageString[0]);
 			
 			break;
 			
 		case	"youtube":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"url";				
+				descriptionObject.parameters			=	generateUrlParameters(parametersStringArray, usageString[0]);
 			
 			break;
 			
 		case	"facebook":
 		
-				descriptionObject.identifier	=	getIdentifier();
-				descriptionObject.parameters	=	generateUrlParameters(parametersStringArray, usageString[0]);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"url";				
+				descriptionObject.parameters			=	generateUrlParameters(parametersStringArray, usageString[0]);
 			
 			break;					
 		
 		case 	"text":
 		
-				descriptionObject.identifier		=	getIdentifier();
-				descriptionObject.parameters		=	generateTextParameters(elementString);
+				descriptionObject.identifier			=	getIdentifier();
+				descriptionObject.elementDescription	=	"text";				
+				descriptionObject.parameters			=	generateTextParameters(elementString);
 		
 			break;
 			
