@@ -120,8 +120,10 @@ $(function() {
  
  $(document).ready(function(){
  
-	 $('#addLayerBtn').on('click', function() {
-	 
+	 $('#addLayerBtn').on('click', function(e) {
+	
+		e.preventDefault();
+	 	
 		$("#addLayerBtn").fadeOut("fast", function(){
 		
 			$("<div class='elementDescriptionLayer ui-sortable-handle'>").attr("data-modified", false).append(

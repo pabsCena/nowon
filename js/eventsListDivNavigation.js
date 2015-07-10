@@ -5,7 +5,9 @@
 	var firstPageNumber = $('a.list-group-item').first().data('page-number');
 	var lastPageNumber 	= $('a.list-group-item').last().data('page-number');
 
-	$('.eventListDiv').bind("DOMSubtreeModified", function(){
+	$('.eventListDiv').bind("DOMSubtreeModified", function(e){
+	
+	 e.preventDefault();
 
 		firstPageNumber = $('a.list-group-item').first().data('page-number');
 		lastPageNumber = $('a.list-group-item').last().data('page-number');
@@ -19,7 +21,8 @@
 	});
 
 	$('.glyphicon-chevron-right').click(function(e) {
-		e.preventDefault(); 
+		
+	e.preventDefault(); 
 	
 		var currentPageNumber = $('a.list-group-item.current').data('page-number');
 	

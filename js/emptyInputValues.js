@@ -18,12 +18,12 @@ function emptyValues(parameters){
 				break;
 		
 			default:
-			
+				
+				$("#imageDivPreview").empty();
+
 				break;
 		}
-	
-			
-	
+
 	});
 
 }

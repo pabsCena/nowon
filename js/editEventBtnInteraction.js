@@ -1,14 +1,16 @@
 
 $(function() {
 
-	$( "#editEventBtn" ).click(function() {
-						
+	$( "#editEventBtn" ).click(function(e) {
+
+	 e.preventDefault();
+	 
+	 	$( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
+				
 		setParametersToEditMode();
 		
 		$( "#doneBtn" ).text("Modify Event");
-		
-		$( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
-		
+				
 	});
 });
 
@@ -108,6 +110,12 @@ function setDescriptionInEditingDiv(descriptionObject){
 				
 				$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>")).insertAfter($('.descriptionEventParameterDiv div.ui-sortable-handle').last());
 			
+			if(i==descriptionObject.length-1){
+			
+				$("#addLayerBtn").fadeIn();
+				
+			}
+		
 		}
 		
 		if(descriptionObject[i]!=null){
@@ -119,6 +127,8 @@ function setDescriptionInEditingDiv(descriptionObject){
 					$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"), $("<p class='editedLayerText'>"));
 	
 						$(firstdescriptionLayer).removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
+						
+						showDescription( firstdescriptionLayer, descriptionObject[i]);
 		}	
 	
 	}

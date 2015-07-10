@@ -1,7 +1,10 @@
 //Script that logs out of the google user account 
 $(function() {
 
-	$('.logoutBtn').on('click', function(){
+	$('.logoutBtn').on('click', function(e){
+	
+	 e.preventDefault();
+	 
 		signOut();
 	});
 });

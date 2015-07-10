@@ -179,7 +179,7 @@
 						<div class="col-lg-12 editingNemiEventTitleDateInterfaceView">			
 							<div class="row">
 								<div class="col-lg-12" id="eventTitleDiv">
-									<form>
+									<form onsubmit="return false">
 										<h4>Title</h4>
 										<input type='text' id="eventTitleInputBox" class='form-control' data-required="true" placeholder="Title here">
 									</form>
@@ -188,7 +188,7 @@
 			
 							<div class="row">
 								<div class="col-lg-12" id="eventDateDiv">
-									<form>
+									<form onsubmit="return false">
 										<h4>Date</h4>
 										<input type='text' class="date start form-control" id="eventStartDateInputBox" data-required="true" placeholder="Start Date"/>
 										<input type='text' class="time start form-control" id="eventStartTimeInputBox" placeholder="Start Time"/>to
@@ -200,7 +200,7 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-12" id="eventLocationDiv">
-									<form>
+									<form onsubmit="return false">
 										<h4>Location</h4>
 										<input id="geocompleteInputBox" class='form-control' type="text" placeholder="Type in an address" autocomplete="off">
 									</form>
@@ -227,7 +227,6 @@
 									<li class="demo_li"><div id="eventEmailMenuOption"><i class="fa fa-home"></i></div><div>E-mail<span class="glyphicon glyphicon-envelope popMenuIcon"></span></div></li>
 									<li class="demo_li"><div id="eventPhoneMenuOption"><i class="fa fa-home"></i></div><div>Number<span class="glyphicon glyphicon-earphone popMenuIcon" ></span></div></li>
 									<li class="demo_li"><div id="eventUrlMenuOption"><i class="fa fa-home"></i></div><div>Url<span class="glyphicon glyphicon-link popMenuIcon"></span></div></li>
-									<li class="demo_li"><div id="eventSlideShowMenuOption"><i class="fa fa-home"></i></div><div>Slide Show<span class="glyphicon glyphicon-th popMenuIcon"></span></div></li>
 								</ul>
 								<button type="button" id="addLayerBtn"><span class="glyphicon glyphicon-plus"> New Element</span></button>
 								</div>
@@ -290,48 +289,46 @@
 							</div>	
 
 							<div class="col-lg-12" id="imageParameterEditorDiv">
-								<form>
-									<h5>Text of button</h5>
+								<form onsubmit="return false">
+									<h5>Text of image</h5>
 									<input type='text' id="imageTextBtnStringParameter" class='form-control' placeholder="Text here">
 								</form>
-								<form>
+								<form onsubmit="return false">
 									<h5>Insert image link</h5>
-									<input type='text' id="imageStringParameter" class='form-control' data-required="true" placeholder="Text here">
-									<button  type="button" class="btn btn-success" id="addImageBtn">
-										Preview
-									</button>
+									<input type='text' id="imageStringParameter" class='form-control' data-required="true" data-valid-url="false" placeholder="Text here">
 								</form>
+								<div id="imageDivPreview"></div>
 							</div>
 						
 							<div class="col-lg-12" id="emailParameterEditorDiv">
-								<form>
+								<form onsubmit="return false">
 									<h5>Text of button</h5>
 									<input type='text' id="emailTextBtnStringParameter" class='form-control' data-required="true" placeholder="Text here">
 								</form>
-								<form>	
+								<form onsubmit="return false">	
 									<h5>Email</h5>
 									<input type='text' id="emailStringParameter" class='form-control' data-required="true" placeholder="Email here">
 								</form>
-								<form>
+								<form onsubmit="return false">
 									<h5>Title</h5>
 									<input type='text' id="emailTitleStringParameter" class='form-control' placeholder="Title here">
 								</form>
-								<form>
+								<form onsubmit="return false">
 									<h5>Body</h5>
 									<input type='text' id="emailBodyStringParameter" class='form-control'  placeholder="Body here">
 								</form>
 							</div>
 						
 							<div class="col-lg-12" id="phoneParameterEditorDiv">
-								<form>
+								<form onsubmit="return false">
 									<h5>Text of button</h5>
 									<input type='text' id="phoneTextBtnStringParameter" class='form-control' data-required="true" placeholder="Text here">
 								</form>
-								<form>	
+								<form onsubmit="return false">	
 									<h5>Phone number</h5>
 									<input type='text' id="phoneStringParameter" class='form-control' data-required="true" placeholder="Phone here">
 								</form>
-								<form class="phoneBtnTypeParameter">	
+								<form class="phoneBtnTypeParameter" onsubmit="return false">	
 									<h5>Type</h5>
 									<input type="checkbox"  id="phoneTelephoneTypeParameter" name="telTypePhoneParameter" value="telephone" checked>Telephone<br>
 									<input type="checkbox"  id="phoneMobileTypeParameter" name="mobTypePhoneParameter" value="mobile">Mobile<br>
@@ -339,15 +336,15 @@
 							</div>
 						
 							<div class="col-lg-12" id="urlParameterEditorDiv">
-								<form>
+								<form onsubmit="return false">
 									<h5>Text of button</h5>
 									<input type='text' id="urlTextBtnStringParameter" class='form-control' data-required="true" placeholder="Text here">
 								</form>	
-								<form>	
+								<form onsubmit="return false">	
 									<h5>Url</h5>
 									<input type='text' class='form-control' id="urlStringParameter" data-required="true" placeholder="Paste url here">
 								</form>
-								<form class="urlBtnTypeParameter">	
+								<form class="urlBtnTypeParameter" onsubmit="return false">	
 									<h5>Type</h5>
 									<input type="checkbox" id="urlTypeBtn" name="urlTypeBtn" value="url" checked>Url<br>
 									<input type="checkbox" id="imageUrlTypeBtn" name="imageUrlTypeBtn" value="image">Image<br>

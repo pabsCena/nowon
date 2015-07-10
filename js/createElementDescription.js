@@ -3,7 +3,9 @@
 
  $(function(){
  
-   $( '#createElementBtn' ).click(function() {
+   $( '#createElementBtn' ).click(function(e) {
+		
+	e.preventDefault();
 		
 		if(requiredParametersFilled()){
 	
@@ -28,12 +30,16 @@
  
  $(function(){
  
- 	 $( '#cancelCreationElementBtn' ).click(function() {
+ 	 $( '#cancelCreationElementBtn' ).click(function(e) {
  	 
+ 	 e.preventDefault();
+
  	 	$('.descriptionEventParameterDiv .elementDescriptionLayer').removeAttr("id").children().not('.newDescriptionElement').remove();
  	 	
  	 	var parameters	= $(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
- 	 		
+ 	 	
+ 	 	$("#imageDivPreview").empty();
+	
  	 	emptyValues(parameters);
 
 		$(".eventParameterEditorDiv").children().not(":hidden").fadeOut( "fast", function() {
@@ -64,7 +70,7 @@ function getElementParameters(parameterType){
 	var eventDescriptionArray	=	getEventDescriptionSessionStorage();
 	
 	var identifier = getIdentifier();
-	
+		
 	var emptyParameters	=	$(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
 
 	
@@ -82,9 +88,9 @@ function getElementParameters(parameterType){
 			break;
 			
 		case "imageParameterEditorDiv":
-		
+			
 			descriptionObject.identifier	=	identifier;
-			imageParameterEditor(descriptionObject, descriptions);
+			imageParameterEditor(descriptionObject, descriptions);	
 			break;
 			
 		case "emailParameterEditorDiv":
@@ -109,8 +115,10 @@ function getElementParameters(parameterType){
 			break;
 	}
 	
+	
 	emptyValues(emptyParameters);
-	sendTagDescription(identifier);
+	sendTagDescription(identifier);	
+		
 }
 
 function sendTagDescription(identifier){ 
@@ -127,25 +135,39 @@ function sendTagDescription(identifier){
 	  
 function requiredParametersFilled(){
 	
-	var requiredElements 	= 	$('.eventParameterEditorDiv').children().not(":hidden").find("[data-required=true]");
+	var requiredElements 	= 	$('.eventParameterEditorDiv').children().not(":hidden").find("[data-required=true]");		
 	var length				=	requiredElements.length;
 	var valid;
 	 
 	jQuery.each( requiredElements, function( i, val ) {
 		
-		if(!checkIsCorrect(val)){
+		if($(val).attr("data-valid-url")=="false"){
 		
-			$.alert('Parameter required', {
+			$.alert('Image url not valid', {
 			
 				autoClose: true,
-				closeTime: 2000,
+				closeTime: 1500,
 				type:'warning', 
 				onShow:function(){
 				
 					$(val).focus();
 					
 				}
-			});
+			}); 
+		
+		}else if(!checkIsCorrect(val)){
+		
+			$.alert('Parameter required', {
+			
+				autoClose: true,
+				closeTime: 1500,
+				type:'warning', 
+				onShow:function(){
+				
+					$(val).focus();
+					
+				}
+			}); 
 			
 			return valid	=	false;
 						
@@ -161,14 +183,13 @@ function requiredParametersFilled(){
 
 function checkIsCorrect(val){
 
-
 	if($(val)[0].textContent){
 
 		return true;
 		
 	}else if($(val)[0].value){
 	
-		return true;
+		return true;	
 	
 	}else{
 

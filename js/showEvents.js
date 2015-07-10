@@ -1,12 +1,10 @@
 //Script that shows the events related to the calendar selected
 
 
-	$( ".form-control.calendarList" ).change(function () {
+	$( ".form-control.calendarList" ).change(function (e) {
 	
-		//$( ".WYSIWYGShown" ).removeAttr("id").children().not('.optionsRow,  .doneBtnRow').remove();
-		
-		//$( ".optionsRow" ).hide();
-		
+		e.preventDefault();
+	
 		showIncomingEvents();			
 
 	});

@@ -1,15 +1,17 @@
 
-$( "#urlTextBtnStringParameter" ).keyup(function() {
-	
-		if($('.descriptionEventParameterDiv #creating').children("button").length){
+$( "#urlTextBtnStringParameter" ).keyup(function(e) {
+
+	 e.preventDefault();
 		
-			$('.descriptionEventParameterDiv #creating').children("button").text($(this).val());
+		if($('.descriptionEventParameterDiv #creating').children(".eventUrlButtonInterfaceView").find("button").length){
+		
+			$('.descriptionEventParameterDiv #creating').children(".eventUrlButtonInterfaceView").find("button").text($(this).val());
 			
 		}else{
 		
-			$('.descriptionEventParameterDiv #creating').append(
-		
-				$("<button class='btn btn-primary'>").text($(this).val()));	
+			var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
+					
+			showUrl(layerToEdit, $(this).val());		
 		}
 	
 		}).keydown(function( event ) {

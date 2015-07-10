@@ -6,7 +6,9 @@ var scopes 		=  	'https://www.googleapis.com/auth/calendar';
 
  $(function(){
  
-   $('#loginBtn').on('click', function(){
+   $('#loginBtn').on('click', function(e){
+   
+	e.preventDefault();
    
 	checkAuth();
 	

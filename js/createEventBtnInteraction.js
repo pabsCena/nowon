@@ -1,7 +1,9 @@
 
 $(function(){
 	
-	$( "#doneBtn" ).click(function() {
+	$( "#doneBtn" ).click(function(e) {
+
+ 	 e.preventDefault();
 	
 		var eventObject 	=	new EventObject();
 		var event			=	getEventSessionStorage();
@@ -88,14 +90,11 @@ function createEvent(){
 		};
 
 	}	
-	
-	
-	
-	
+
 	if(eventObject.id){
 	
 		var eventId		=	eventObject.id;
-		//modifyEvent(calendarId, eventId, resource);
+		modifyEvent(calendarId, eventId, resource);
 		
 	}else{
 	
@@ -117,7 +116,7 @@ function createNewEvent(calendarId, resource){
 		
 			if(resp.statusText=='OK') {
 			
-				$.alert('Event created successfully', {
+				$.alert('Event created', {
 				
 					autoClose: true,
 					closeTime: 1000,
@@ -153,27 +152,80 @@ function createNewEvent(calendarId, resource){
 	});
 }
 
-function showModeAfterCreateNewEvent(){
+
+function modifyEvent(calendarId, eventId, resource){
+
+	gapi.client.load('calendar', 'v3', function() {	
+
+		var request = gapi.client.calendar.events.update({
 		
+			'calendarId':	calendarId,
+			'eventId'	:	eventId,	
+			'resource': 	resource
+		});	
 		
-		$( ".nemiEventParameterEditorDiv" ).toggle("slide", "easeOutCubic", 500, function(){
-				$(".nemiEditingEventInterfaceDiv").toggle("slide", "easeOutCubic", 500, function(){
+		request.then(function(resp) {
+		
+			if(resp.statusText=='OK') {
+			
+				$.alert('Event modified', {
 				
-				
-				if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3")){
+					autoClose: true,
+					closeTime: 1000,
+					type:'success',
+					onShow:function(){
 						
-					$(".nemiCalendarsEventsListDiv").addClass("col-lg-offset-3", callback);
-			
-				}else{
-			
-					callback();
-		
-				}
+						showModeAfterCreateNewEvent();
+				
+					}
 				
 				});
-				           
-    	  });
+				
+			}else{
+			
+				$.alert('There was a problem, reload the page and try again', {
+				
+					autoClose: true,
+					closeTime: 2000,
+					type:'danger',
+					onClose:function(){
+						
+					}
+				
+				});
+				
+			}
+
+		}, function(reason){
 		
+			console.log('Error: ' + reason.result.error.message);
+			
+		}); 
+	});
+}
+
+
+function showModeAfterCreateNewEvent(){
+		
+	
+	$( ".nemiEventParameterEditorDiv" ).toggle("slide", "easeOutCubic", 500, function(){
+		$(".nemiEditingEventInterfaceDiv").toggle("slide", "easeOutCubic", 500, function(){
+		
+		
+		if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3")){
+				
+			$(".nemiCalendarsEventsListDiv").addClass("col-lg-offset-3", callback);
+	
+		}else{
+	
+			callback();
+
+		}
+		
+		});
+				   
+  });
+	
 		
 		function callback() {
 		

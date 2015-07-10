@@ -1,16 +1,18 @@
 
 
-	$( "#emailTextBtnStringParameter" ).keyup(function() {
+	$( "#emailTextBtnStringParameter" ).keyup(function(e) {
 	
-		if($('.descriptionEventParameterDiv #creating').children("button").length){
-		
-			$('.descriptionEventParameterDiv #creating').children("button").text($(this).val());
+	 e.preventDefault();
+	
+		if($('.descriptionEventParameterDiv #creating').children(".eventEmailButtonInterfaceView").find("button").length){
+		 
+			$('.descriptionEventParameterDiv #creating').children(".eventEmailButtonInterfaceView").find("button").text($(this).val());
 			
 		}else{
 		
-			$('.descriptionEventParameterDiv #creating').append(
-		
-				$("<button class='btn btn-primary'>").text($(this).val()));	
+			var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
+					
+				showEmail(layerToEdit, $(this).val());	
 		}
 	
 		}).keydown(function( event ) {

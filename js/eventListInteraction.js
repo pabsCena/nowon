@@ -1,6 +1,8 @@
 //Script that controls the interaction with the elements of the events list
 
-$('.eventListDiv').on('click','a.list-group-item', function(){
+$('.eventListDiv').on('click','a.list-group-item', function(e){
+
+ e.preventDefault();
 	
 	if($(this).attr('id')!=undefined){
 		
@@ -8,11 +10,13 @@ $('.eventListDiv').on('click','a.list-group-item', function(){
 		
 		var calendarId = $(".form-control").find(':selected').attr('id');
 		
+		var nemiInterfaceView = $(".nemiEventInterfaceView");
+		
 		showEventInterfaceView();
 		
 		localizeEvent(calendarId, eventId); 
 		
-		showEventFromEventList();
+		showElements(nemiInterfaceView);
 	}	 
 });
 	
@@ -60,40 +64,4 @@ function localizeEvent(calendarId, eventId){
 	generateElementsOfEvent(event);
 }
 
-function showEventFromEventList(){
-	
-	var event		=	getEventSessionStorage();
-	var description	=	getEventDescriptionSessionStorage();
-		
-	var parameters	=	Object.keys(event);
-		
-	for(var i=0; i<parameters.length;i++){
-	
-		switch (parameters[i]){
-		
-			case "id":
-				setEventId(event.id); 
-				break;
-				
-			case "summary":
-				showTitle(event.summary);
-				break;
-				
-			case "date":
-				showDate(event.date);
-				break;
-				
-			case "location":
-				showLocation(event.location);
-				break;	
-				
-			case "description":
-				showDescription(description);
-				break;
-		 		 
-			default:
-				break;	
-		
-		}	
-	}
-}
+

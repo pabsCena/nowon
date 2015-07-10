@@ -1,16 +1,18 @@
 
 
-$( "#phoneTextBtnStringParameter" ).keyup(function() {
+$( "#phoneTextBtnStringParameter" ).keyup(function(e) {
+
+ 	 e.preventDefault();
 	
-		if($('.descriptionEventParameterDiv #creating').children("button").length){
+		if($('.descriptionEventParameterDiv #creating').children(".eventPhoneButtonInterfaceView").find("button").length){
 		
-			$('.descriptionEventParameterDiv #creating').children("button").text($(this).val());
+			$('.descriptionEventParameterDiv #creating').children(".eventPhoneButtonInterfaceView").find("button").text($(this).val());
 			
 		}else{
 		
-			$('.descriptionEventParameterDiv #creating').append(
-		
-				$("<button class='btn btn-primary'>").text($(this).val()));	
+			var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
+					
+			showPhone(layerToEdit, $(this).val());	
 		}
 	
 		}).keydown(function( event ) {
@@ -19,7 +21,7 @@ $( "#phoneTextBtnStringParameter" ).keyup(function() {
 			event.preventDefault();
 		  }
 		  	  
-	});
+	}); 
 
 
 function phoneParameterEditor(descriptionObject, descriptionsArray){

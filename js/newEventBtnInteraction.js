@@ -2,9 +2,11 @@
 
 $(function() {
 
-	$( "#newEventBtn" ).click(function() {
+	$( "#newEventBtn" ).click(function(e) {
+	
+	 e.preventDefault();
 
-		var event 				=	new EventObject();
+		var event 	=	new EventObject();
 		
 		setEventSessionStorage(event);
 				

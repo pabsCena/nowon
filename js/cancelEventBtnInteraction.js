@@ -1,6 +1,8 @@
 $(function() {
 
-	$( "#cancelBtn" ).click(function() {
+	$( "#cancelBtn" ).click(function(e) {
+		
+	e.preventDefault();
 	
 		showEditModeAfterCancelEventBtn();
 

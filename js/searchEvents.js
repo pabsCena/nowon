@@ -1,8 +1,10 @@
 //Script that searches for specific events according to it's date or title
 
-$(document).ready(function(e) {
-	$('#searchEventBtn').click(function() {
+$(document).ready(function() {
+	$('#searchEventBtn').click(function(e) {
 		
+	e.preventDefault();
+
 		var searchBtn			=	$(this).siblings("ul");
 				
 		$('ul.dropdown-menu').toggle();
@@ -42,9 +44,10 @@ $(document).ready(function(e) {
     });
 
 
-$("#searchEventDateInputBox").on('change', function(){
+$("#searchEventDateInputBox").on('change', function(e){
 	
-   	
+   	e.preventDefault();
+
     	var eventDate 		= $(this).val();
     	var calendarId 		= $(".form-control").find(':selected').attr('id');
 		

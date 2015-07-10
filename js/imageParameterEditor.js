@@ -1,22 +1,42 @@
 
-$('#addImageBtn').on('click', function(){
+$('#imageStringParameter').bind('change paste', function(){
 
-	var urlImagen 	=	$("#imageStringParameter").val();
+	var urlImagen 	=	$(this).val();
+	
+	$( "#imageDivPreview").empty();
 	
 	if(urlImagen){
 
 		$.loadImage(urlImagen)
 			.done(function(image) {
+			
+			
+			$( "#imageStringParameter" ).attr("data-valid-url", "true");
 		
-			  $('.descriptionEventParameterDiv #creating').append(
+			  $('#imageDivPreview').append(
 				$("<img>").attr("src", urlImagen).attr("data-width", image.width).attr("data-height", image.height).attr("width", 200).attr("height", 200)
 			  )
 			})
 			.fail(function(image) {
-			  alert("Failed to load image");
-			  $("#imageStringParameter").val("");
+			 
+				 $.alert('Fail to load the image', {
+			
+					autoClose: true,
+					closeTime: 1000,
+					type:'warning', 
+					onShow:function(){
+				
+						$( "#imageStringParameter" ).attr("data-valid-url", "false").focus();
+						$( "#imageDivPreview") .empty();
+					
+					}
+				});
+	 
 			});
 	
+	}else{
+	
+		$("#imageDivPreview").empty();
 	}
 	
 });
@@ -24,12 +44,21 @@ $('#addImageBtn').on('click', function(){
  
 function imageParameterEditor(descriptionObject, descriptionsArray){
 
-	var imageObject 	=	getImageParameters(descriptionObject);
+	var htmlDivSelected	=	$('.descriptionEventParameterDiv #creating');
 	
+	var imageUrl		=	$( '#imageStringParameter').val();
+	
+		showImage(htmlDivSelected, imageUrl);
+		
+		$("#imageDivPreview").empty();
+	
+	var imageObject 	=	getImageParameters(descriptionObject);
+
 	storeImageParameters(imageObject, descriptionsArray);
-
-};
-
+		
+};  
+	
+	
 function getImageParameters(descriptionObject){
 
 	var imageParameters =	new ImageParametersObject();

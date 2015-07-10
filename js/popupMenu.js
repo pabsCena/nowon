@@ -101,8 +101,10 @@
 
 $(function(){
 
-	$( "ul li.demo_li" ).on("click", function () {
+	$( "ul li.demo_li" ).on("click", function (e) {
 	
+	 e.preventDefault();
+
 		if($('.eventParameterEditorDiv').attr("id")==="activated"){
 		
 				var element		=	$('.eventParameterEditorDiv').children().not(":hidden");

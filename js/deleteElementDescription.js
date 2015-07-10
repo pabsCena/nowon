@@ -1,6 +1,8 @@
 //Script that deletes an element of the description
 
-$(document).on('click','.deleteElementDescription', function() {
+$(document).on('click','.deleteElementDescription', function(e) {
+
+ 	 e.preventDefault();
 	
 	var identifier	=	 $(this).parent().attr("data-identifier");
 	
