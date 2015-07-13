@@ -125,9 +125,9 @@ function sendTagDescription(identifier){
 		
 	if($('.descriptionEventParameterDiv #creating').length){
 	
-		$('.descriptionEventParameterDiv #creating').attr("data-modified", "true").attr("data-identifier", identifier).append(
+		$('.descriptionEventParameterDiv #creating').attr("data-modified", "true").attr("data-identifier", identifier);
 		
-			$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"), $("<p class='editedLayerText'>"));
+		$(".descriptionEventParameterDiv #creating").children(".editElementDescription, .deleteElementDescription").show();
 			
 		$('.descriptionEventParameterDiv #creating').removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
 	}

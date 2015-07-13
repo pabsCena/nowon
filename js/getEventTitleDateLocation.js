@@ -92,9 +92,9 @@ function getTitleDateLocation(eventObject, eventTitleDateLocation){
 
 function mergeDateTime(object){
 
-	var aux		=	object.date.split('-');
-	var aux2	=	object.time.split(':')
-	var completeDate	=	new Date(Date.UTC(aux[0], aux[1]-1, aux[2], aux2[0], aux2[1]));
+	var aux				=	object.date.split('-');
+	var aux2			=	object.time.split(':')
+	var completeDate	=	new Date(aux[0], aux[1]-1, aux[2], aux2[0], aux2[1]);
 	var ISODate			=	completeDate.toISOString();
 
 	return ISODate;

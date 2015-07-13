@@ -9,7 +9,7 @@ function getDescription(eventObject, eventDescription){
 		var descriptionArrayString	=	[]; 
 		 
 		jQuery.each( descriptionElement, function( i, val ) {
-		
+		 
 			var identifier	=	$(val).attr("data-identifier");
 			var descriptionString	=	"";
 			
@@ -36,6 +36,10 @@ function getDescription(eventObject, eventDescription){
 									}else if(m=="image"){
 									
 										descriptionString	=	"!" + descriptionString	;
+									
+									}else if(m=="text"){
+									
+										descriptionString	=	descriptionString + val3;
 									
 									}else{
 									

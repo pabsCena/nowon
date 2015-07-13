@@ -39,14 +39,19 @@ function deleteEvent(){
 				autoClose: true,
 				closeTime: 2000,
 				type:'success',
+				onShow:function(){
+				
+					$( "body" ).addClass("loading");
+					loopLi();				
+					getEventsFromCalendarId();
+
+				},
+				
 				onClose:function(){
-				
-				$( "body" ).addClass("loading");
-				loopLi();
-				
-				if($(".eventListDiv a:last-child").attr("id") != eventId){
+
+				if($(".eventListDiv  a:first-child").attr("id")!=undefined){
 			
-					showNextEventFromList(calendarId, eventId);
+					showNextEventFromList(calendarId);
 			
 		
 				}else{
@@ -56,8 +61,6 @@ function deleteEvent(){
 			
 				}
 					
-				getEventsFromCalendarId();
-				
 				}
 			});
 			
@@ -82,13 +85,15 @@ function deleteEvent(){
 
 function showNextEventFromList(calendarId, currentEventId){
 
-	eventId	=	$(".eventListDiv").find("#"+currentEventId+"").next().attr("id");
+	eventId	=	$(".eventListDiv a:first-child").attr("id");
+	
+	var nemiInterfaceView = $(".nemiEventInterfaceView");
 
 	showEventInterfaceView();
 	
 	localizeEvent(calendarId, eventId);
 	
-	showEventFromEventList();
+	 showElements(nemiInterfaceView);
 
 
 }

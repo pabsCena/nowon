@@ -29,11 +29,11 @@ function showElements(htmlDivSelected){
 				
 			case "description":
 			
-				for(var i=0; i<description.length; i++){
+				for(var j=0; j<description.length; j++){
 				
-					if(description[i]!=null){
+					if(description[j]!=null){
 					
-						showDescription(htmlDivSelected, description[i])
+						showDescription(htmlDivSelected, description[j])
 					
 					}
 				}
@@ -102,16 +102,10 @@ function showLocation(htmlDivSelected, element){
 
 function showText(htmlDivSelected, element){
 
-	var aux = element.split("\n"); 
-
 	$( htmlDivSelected ).append(
-       	$("<div class='eventTextInterfaceView'>"));
+       	$("<div class='eventTextInterfaceView'>").append(
+       			$("<p>").text(element)));
        	
-       	for(var i=0; i<aux.length; i++){
-       	
-       		$( htmlDivSelected ).append(
-       			$("<p>").text(aux[i]));
-       	}
 }
 
 function showImage(htmlDivSelected, element){
@@ -125,7 +119,7 @@ function showImage(htmlDivSelected, element){
 	$.loadImage(element)
 		.done(function(image) {
 				
-			  $( ".eventImageInterfaceView" ).append(
+			  $( ".eventImageInterfaceView" ).attr("data-width", image.width).attr("data-height", image.height).append(
 				$("<img>").attr("src", element))
 		
 		  })

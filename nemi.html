@@ -51,7 +51,7 @@
 	
 	</style>
 </head>
-<body class="wysihtml5-supported">
+<body>
 
 <div class="col-lg-12 container-fluid nemiLoginInterfaceDiv">
 	<div class="row">
@@ -157,7 +157,7 @@
 						<div class="col-lg-6">
 							<button class="btn btn-warning" id="editEventBtn">
 								Edit Event
-								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 							</button>
 						</div>
 						<div class="col-lg-6">
@@ -211,16 +211,36 @@
 						
 					<div class="row">
 						<div class="col-lg-12 editingNemiEventParameterListDiv">
-							
+							<h4>Description</h4>
 							<div class="row">
 								<div class="col-lg-12 descriptionEventParameterDiv">
-									<h4>Description</h4>
-									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
-									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
-									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
-									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
-									<div class="elementDescriptionLayer" data-modified="false"><span class="glyphicon glyphicon-plus newDescriptionElement"></span></div>
-							
+								
+									<div class="elementDescriptionLayer" data-modified="false">
+										<span class="glyphicon glyphicon-plus newDescriptionElement"></span>
+										<span class='glyphicon glyphicon-pencil editElementDescription'></span>
+										<span class='glyphicon glyphicon-remove deleteElementDescription'></span>
+									</div>
+									<div class="elementDescriptionLayer" data-modified="false">
+										<span class="glyphicon glyphicon-plus newDescriptionElement"></span>
+										<span class='glyphicon glyphicon-pencil editElementDescription'></span>
+										<span class='glyphicon glyphicon-remove deleteElementDescription'></span>
+									</div>
+									<div class="elementDescriptionLayer" data-modified="false">
+										<span class="glyphicon glyphicon-plus newDescriptionElement"></span>
+										<span class='glyphicon glyphicon-pencil editElementDescription'></span>
+										<span class='glyphicon glyphicon-remove deleteElementDescription'></span>
+									</div>
+									<div class="elementDescriptionLayer" data-modified="false">
+										<span class="glyphicon glyphicon-plus newDescriptionElement"></span>
+										<span class='glyphicon glyphicon-pencil editElementDescription'></span>
+										<span class='glyphicon glyphicon-remove deleteElementDescription'></span>
+									</div>
+									<div class="elementDescriptionLayer" data-modified="false">
+										<span class="glyphicon glyphicon-plus newDescriptionElement"></span>
+										<span class='glyphicon glyphicon-pencil editElementDescription'></span>
+										<span class='glyphicon glyphicon-remove deleteElementDescription'></span>
+									</div>
+						
 								<ul id="demo_ul">
 									<li class="demo_li"><div id="eventTextMenuOption"><i class="fa fa-home"></i></div><div>Text<span class="glyphicon glyphicon-font popMenuIcon"></span></div></li>
 									<li class="demo_li"><div id="eventImageMenuOption"><i class="fa fa-home"></i></div><div>Image<span class="glyphicon glyphicon-picture popMenuIcon"></span></div></li>
@@ -228,7 +248,7 @@
 									<li class="demo_li"><div id="eventPhoneMenuOption"><i class="fa fa-home"></i></div><div>Number<span class="glyphicon glyphicon-earphone popMenuIcon" ></span></div></li>
 									<li class="demo_li"><div id="eventUrlMenuOption"><i class="fa fa-home"></i></div><div>Url<span class="glyphicon glyphicon-link popMenuIcon"></span></div></li>
 								</ul>
-								<button type="button" id="addLayerBtn"><span class="glyphicon glyphicon-plus"> New Element</span></button>
+									<button type="button" id="addLayerBtn"><span class="glyphicon glyphicon-plus"> New Element</span></button>
 								</div>
 							</div>
 						</div>
@@ -269,33 +289,20 @@
 						<div class="col-lg-12 eventParameterEditorDiv">
 					
 							<div class="col-lg-12" id="textParameterEditorDiv">
-								
-									<div id="wysihtml-toolbar" style="display: none;">
-										<header>
-											<ul class="commands">
-												<li class="command glyphicon glyphicon-bold" data-wysihtml5-command="bold"  title="Make text bold (CTRL + B)" unselectable="on"></li>
-												<li class="command glyphicon glyphicon-italic" data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" unselectable="on"></li>
-												<li class="command" data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" unselectable="on"> · List</li>
-												<li class="command" data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" unselectable="on"> 1 List</li>
-												<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" unselectable="on">H1</li>
-												<li class="command" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" unselectable="on">H2</li>
-												<li class="command glyphicon glyphicon-indent-left" data-wysihtml5-command="insertBlockQuote" title="Insert Block quote" unselectable="on"></li>
-												<li class="command glyphicon glyphicon-minus"  title="Insert line" unselectable="on">Line</li>
-											</ul>
-										</header>	
-									</div>
- 									<div id="wysihtml-div" class="textStringParameterDiv" data-required="true" placeholder="Enter your text ..."></div>
-							
-							</div>	
-
+								<form onsubmit="return false">						
+									<input type='text' class="textStringParameterDiv" data-required="true" placeholder="Enter your text ...">
+								</form>
+							</div>
 							<div class="col-lg-12" id="imageParameterEditorDiv">
 								<form onsubmit="return false">
 									<h5>Text of image</h5>
 									<input type='text' id="imageTextBtnStringParameter" class='form-control' placeholder="Text here">
+						
 								</form>
 								<form onsubmit="return false">
 									<h5>Insert image link</h5>
 									<input type='text' id="imageStringParameter" class='form-control' data-required="true" data-valid-url="false" placeholder="Text here">
+									<button id="imagePreviewBtn">Load</button>
 								</form>
 								<div id="imageDivPreview"></div>
 							</div>
@@ -330,8 +337,8 @@
 								</form>
 								<form class="phoneBtnTypeParameter" onsubmit="return false">	
 									<h5>Type</h5>
-									<input type="checkbox"  id="phoneTelephoneTypeParameter" name="telTypePhoneParameter" value="telephone" checked>Telephone<br>
-									<input type="checkbox"  id="phoneMobileTypeParameter" name="mobTypePhoneParameter" value="mobile">Mobile<br>
+									<input type="radio"  id="phoneTelephoneTypeParameter" name="telTypePhoneParameter" value="telephone" checked>Telephone<br>
+									<input type="radio"  id="phoneMobileTypeParameter" name="mobTypePhoneParameter" value="mobile">Mobile<br>
 								</form>
 							</div>
 						
@@ -346,12 +353,12 @@
 								</form>
 								<form class="urlBtnTypeParameter" onsubmit="return false">	
 									<h5>Type</h5>
-									<input type="checkbox" id="urlTypeBtn" name="urlTypeBtn" value="url" checked>Url<br>
-									<input type="checkbox" id="imageUrlTypeBtn" name="imageUrlTypeBtn" value="image">Image<br>
-									<input type="checkbox" id="musicUrlTypeBtn" name="musicUrlTypeBtn" value="music">Music<br>
-									<input type="checkbox" id="pdfUrlTypeBtn" name="pdfUrlTypeBtn" value="pdf">Pdf<br>
-									<input type="checkbox" id="youtubeUrlTypeBtn" name="youtubeUrlTypeBtn" value="youtube">Youtube<br>
-									<input type="checkbox" id="facebookUrlTypeBtn" name="facebookUrlTypeBtn" value="facebook">Facebook<br>
+									<input type="radio" id="urlTypeBtn" name="urlTypeBtn" value="url" checked>Url<br>
+									<input type="radio" id="imageUrlTypeBtn" name="imageUrlTypeBtn" value="image">Image<br>
+									<input type="radio" id="musicUrlTypeBtn" name="musicUrlTypeBtn" value="music">Music<br>
+									<input type="radio" id="pdfUrlTypeBtn" name="pdfUrlTypeBtn" value="pdf">Pdf<br>
+									<input type="radio" id="youtubeUrlTypeBtn" name="youtubeUrlTypeBtn" value="youtube">Youtube<br>
+									<input type="radio" id="facebookUrlTypeBtn" name="facebookUrlTypeBtn" value="facebook">Facebook<br>
 								</form>		
 							</div>
 						
@@ -390,8 +397,6 @@
 
 <!-- Scripts Section -->
 
-<script src="lib/dist/wysihtml-toolbar.min.js"></script>
-<script src="lib/parser_rules/advanced.js"></script>
 <script src="js/login.js"></script>
 <script src="js/showCalendars.js"></script>
 <script src="js/sessionStorage.js"></script>
@@ -423,8 +428,7 @@
 <script src="js/getEventTitleDateLocation.js"></script>
 <script src="js/getEventDescription.js"></script>
 <script src="js/editEventBtnInteraction.js"></script>
-
-
+<script src="js/editDescriptionElement.js"></script>
 
 
 </body>

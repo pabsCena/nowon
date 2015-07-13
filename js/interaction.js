@@ -127,7 +127,9 @@ $(function() {
 		$("#addLayerBtn").fadeOut("fast", function(){
 		
 			$("<div class='elementDescriptionLayer ui-sortable-handle'>").attr("data-modified", false).append(
-				$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>")).insertBefore($(this)); 
+				$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>"),
+					$("<span class='glyphicon glyphicon-pencil editElementDescription'></span>"),
+						$("<span class='glyphicon glyphicon-remove deleteElementDescription'></span>")).insertBefore($(this)); 
 		});
      
 	});
@@ -148,15 +150,5 @@ function missingEmptyLayer (){
 	}
    
 };
-
-
-$( document ).ready(function() {
-
-	var editor = new wysihtml5.Editor('wysihtml-div', { // id of textarea element
-	  toolbar:      'wysihtml-toolbar', // id of toolbar element
-	  parserRules:  wysihtml5ParserRules // defined in parser rules set 
-	});  
-   
-});
 
 

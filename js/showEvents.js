@@ -10,11 +10,11 @@
 	});
 
 function showIncomingEvents(){
-		
+
 	var now = new Date();
 	var aux = now.toISOString();
 	var today = aux.slice(0,10);
-	
+		
 	var calendarId = $(".form-control.calendarList").find(':selected').attr('id');
 	var calendars = getCalendarsSessionStorage();
 	var counter = 0;
@@ -64,11 +64,17 @@ function showEvents(events){
 }
 
 function insertEvent(event, eventId, pageNumber, date){
+
+	if(event.summary==undefined){
+	
+		event.summary	=	"Untitled event";
+		
+	}
 	
 	$(".eventListDiv").append(
        		$("<a class='list-group-item' id='"+eventId+"' data-page-number='"+pageNumber+"'>").append(
        			$("<h4 class='list-group-item-heading'>").text(event.summary)));
-					$("<p class='list-group-item-text'>").text("Date: "+date+"").insertAfter($('.list-group-item-heading:last'));
+					$("<p class='list-group-item-text'>").text(date).insertAfter($('.list-group-item-heading:last'));
 		
 	if(pageNumber==1){
 		$(".list-group-item").addClass('current');
@@ -77,14 +83,30 @@ function insertEvent(event, eventId, pageNumber, date){
 
 
 function checkDate(event){
-	var date, newDate;
+	var date, newDate, time;
 	
 	if(event.date.start!=null){
+	
        	date = event.date.start.substring(0,10).split('-');
-		newDate = date[2] + '-' + date[1] + '-' + date[0];				
+       	
+       	if(event.date.start.length>11){
+       			
+       		time = event.date.start.substring(11,16);	
+       	
+       		newDate = date[2] + '-' + date[1] + '-' + date[0] + " at " + time;				
+
+       	
+       	}else{
+       	
+       		newDate = date[2] + '-' + date[1] + '-' + date[0] ;				
+       	
+       	}
+       	
 	}else{
+	
 		newDate = "not definded";
-	}	
+	}
+		
 	return newDate;
 }
 

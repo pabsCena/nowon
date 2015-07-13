@@ -124,7 +124,7 @@ $(function(){
 
 function showEventParameterDivSelected(parameterName){
 
-	$(".createElementBtnDiv, .WYSIWYGInterface").show();
+	$(".createElementBtnDiv").show();
 	
 	switch(parameterName){
 	
@@ -150,7 +150,7 @@ function showEventParameterDivSelected(parameterName){
 		
 		
 	}
-}
+} 
 
  
 

@@ -5,9 +5,14 @@ $(function() {
 
 	 e.preventDefault();
 	 
-	 	$( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn );
+	 	$( ".nemiInterfaceBodyDiv" ).fadeOut(500, showEditModeAfterNewEventBtn);
 				
-		setParametersToEditMode();
+		setTimeout(function() {
+			
+			setParametersToEditMode();
+
+		 }, 500 );		
+				
 		
 		$( "#doneBtn" ).text("Modify Event");
 				
@@ -104,11 +109,12 @@ function setDescriptionInEditingDiv(descriptionObject){
 
 	for(var i=0; i<descriptionObject.length; i++){
 		
-		if(!missingEmptyLayer()){
+		if(!missingEmptyLayer()){ 
 		
-			$("<div class='elementDescriptionLayer ui-sortable-handle'>").attr("data-modified", false).append(
-				
-				$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>")).insertAfter($('.descriptionEventParameterDiv div.ui-sortable-handle').last());
+			$("<div class='elementDescriptionLayer ui-sortable-handle'>").attr("data-modified", false).append(		
+				$("<span class='glyphicon glyphicon-plus newDescriptionElement'></span>"),
+					$("<span class='glyphicon glyphicon-pencil editElementDescription'></span>"),
+						$("<span class='glyphicon glyphicon-remove deleteElementDescription'></span>")).insertAfter($('.descriptionEventParameterDiv div.ui-sortable-handle').last());
 			
 			if(i==descriptionObject.length-1){
 			
@@ -122,11 +128,11 @@ function setDescriptionInEditingDiv(descriptionObject){
 		
 			firstdescriptionLayer	=	$('.descriptionEventParameterDiv .elementDescriptionLayer').first();
 
-				$(firstdescriptionLayer).attr("data-modified", "true").attr("data-identifier", descriptionObject[i].identifier).append(
-
-					$("<span class='glyphicon glyphicon-minus deleteElementDescription'></span>"), $("<p class='editedLayerText'>"));
+				$(firstdescriptionLayer).attr("data-modified", "true").attr("data-identifier", descriptionObject[i].identifier);
 	
-						$(firstdescriptionLayer).removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
+					$(firstdescriptionLayer).removeClass("elementDescriptionLayer").addClass("elementDescriptionLayerEdited").removeAttr("id").children(".newDescriptionElement").hide();
+					
+						$(firstdescriptionLayer).children(".editElementDescription, .deleteElementDescription").show();
 						
 						showDescription( firstdescriptionLayer, descriptionObject[i]);
 		}	

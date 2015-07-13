@@ -10,7 +10,9 @@ $(document).on('click','.deleteElementDescription', function(e) {
 	
 	$(this).parent().children(".newDescriptionElement").show();
 	
-	$(this).parent().removeClass("elementDescriptionLayerEdited").addClass("elementDescriptionLayer").attr("data-modified","false").removeAttr("data-identifier").children().not('.newDescriptionElement').remove();
+	$(this).parent().children(".editElementDescription, .deleteElementDescription").hide();
+	
+	$(this).parent().removeClass("elementDescriptionLayerEdited").addClass("elementDescriptionLayer").attr("data-modified","false").removeAttr("data-identifier").children().not('.newDescriptionElement, .editElementDescription, .deleteElementDescription').remove();
     
     if($("#addLayerBtn").is(":visible")){
     

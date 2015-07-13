@@ -1,7 +1,14 @@
 
-$('#imageStringParameter').bind('change paste', function(){
+$("#imageStringParameter").bind('change paste keyup', function(){
 
-	var urlImagen 	=	$(this).val();
+	$(this).attr("data-valid-url", "false");
+
+});
+
+
+$('#imagePreviewBtn').on('click', function(){
+
+	var urlImagen 	=	$("#imageStringParameter").val();
 	
 	$( "#imageDivPreview").empty();
 	
@@ -10,11 +17,10 @@ $('#imageStringParameter').bind('change paste', function(){
 		$.loadImage(urlImagen)
 			.done(function(image) {
 			
-			
 			$( "#imageStringParameter" ).attr("data-valid-url", "true");
 		
-			  $('#imageDivPreview').append(
-				$("<img>").attr("src", urlImagen).attr("data-width", image.width).attr("data-height", image.height).attr("width", 200).attr("height", 200)
+			  $('#imageDivPreview').attr("data-width", image.width).attr("data-height", image.height).append(
+				$("<img>").attr("src", urlImagen).attr("width", 200).attr("height", 200)
 			  )
 			})
 			.fail(function(image) {
@@ -35,7 +41,8 @@ $('#imageStringParameter').bind('change paste', function(){
 			});
 	
 	}else{
-	
+		
+		$( "#imageStringParameter" ).attr("data-valid-url", "false");
 		$("#imageDivPreview").empty();
 	}
 	
@@ -49,7 +56,7 @@ function imageParameterEditor(descriptionObject, descriptionsArray){
 	var imageUrl		=	$( '#imageStringParameter').val();
 	
 		showImage(htmlDivSelected, imageUrl);
-		
+				
 		$("#imageDivPreview").empty();
 	
 	var imageObject 	=	getImageParameters(descriptionObject);
@@ -91,8 +98,8 @@ function getImageParameters(descriptionObject){
 				if(val.value){
 					
 					imageParameters.url		=	val.value;
-					imageParameters.width	=	$('.descriptionEventParameterDiv #creating').children("img").attr("data-width");
-					imageParameters.height	=	$('.descriptionEventParameterDiv #creating').children("img").attr("data-height");
+					imageParameters.width	=	$('#imageDivPreview').attr("data-width");
+					imageParameters.height	=	$('#imageDivPreview').attr("data-height");
 
 				}
 				

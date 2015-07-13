@@ -39,8 +39,7 @@ function getEventInformation(eventObject){
 function createEvent(){
 
 	var calendarId 	= 	$(".form-control").find(':selected').attr('id');
-	var eventObject	=	getEventSessionStorage();
-		
+	var eventObject	=	getEventSessionStorage();		
 	
 	if(eventObject.date.start.length>10){
 	
@@ -50,14 +49,14 @@ function createEvent(){
 			
 			"start": {
 			
-					"dateTime": eventObject.date.start
-				
+					"dateTime": eventObject.date.start,
+									
 				},
 			
 			"end":{
 		
-				"dateTime": eventObject.date.end
-		
+				"dateTime": eventObject.date.end,
+				
 			},
 			
 			"location": eventObject.location,
@@ -74,14 +73,14 @@ function createEvent(){
 			
 			"start": {
 			
-				"date": eventObject.date.start
-			
+				"date": eventObject.date.start,
+								
 				},
 		
 			"end":{
 	
-				"date": eventObject.date.end
-	
+				"date": eventObject.date.end,
+				
 			},
 			
 			"location": eventObject.location,

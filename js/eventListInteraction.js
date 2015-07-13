@@ -1,8 +1,6 @@
 //Script that controls the interaction with the elements of the events list
 
-$('.eventListDiv').on('click','a.list-group-item', function(e){
-
- e.preventDefault();
+$('.eventListDiv').on('click','a.list-group-item', function(){
 	
 	if($(this).attr('id')!=undefined){
 		
