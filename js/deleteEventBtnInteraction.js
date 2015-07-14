@@ -37,30 +37,34 @@ function deleteEvent(){
 			
 				$.alert('Event deleted', {
 				autoClose: true,
-				closeTime: 2000,
+				closeTime: 1000,
 				type:'success',
 				onShow:function(){
+										
+					if($(".eventListDiv  a:first-child").attr("id")!=undefined && $(".eventListDiv  a:first-child").attr("id")!=eventId){
+			
+						showNextEventFromList(calendarId, $(".eventListDiv a:first-child").attr("id"));
+			 
+					}else if($(".eventListDiv  a:first-child").attr("id")==eventId && $(".eventListDiv  a:first-child").next().attr("id")!=undefined){
+
+						showNextEventFromList(calendarId, $(".eventListDiv a:first-child").next().attr("id"));
+						
+					}else{
+					
+						$( ".nemiEventInterfaceDiv").hide();
+						$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 500);
+			
+						
+					}
+
+				},
+				
+				onClose:function(){	
 				
 					$( "body" ).addClass("loading");
 					loopLi();				
 					getEventsFromCalendarId();
-
-				},
-				
-				onClose:function(){
-
-				if($(".eventListDiv  a:first-child").attr("id")!=undefined){
-			
-					showNextEventFromList(calendarId);
-			
-		
-				}else{
-						
-					$( ".nemiEventInterfaceDiv").hide();
-					$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 500);
-			
-				}
-					
+	
 				}
 			});
 			
@@ -84,14 +88,12 @@ function deleteEvent(){
 }
 
 function showNextEventFromList(calendarId, currentEventId){
-
-	eventId	=	$(".eventListDiv a:first-child").attr("id");
 	
 	var nemiInterfaceView = $(".nemiEventInterfaceView");
 
 	showEventInterfaceView();
 	
-	localizeEvent(calendarId, eventId);
+	localizeEvent(calendarId, currentEventId);
 	
 	 showElements(nemiInterfaceView);
 

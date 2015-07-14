@@ -5,7 +5,6 @@ var loaded = false;
 function getEventsFromCalendarId(){
 
 		var calendarObjectList = null;
-		//calendarObjectList	=	getCalendarsSessionStorage();		
 
 		setTimeout(function(){
 		

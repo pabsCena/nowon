@@ -1,36 +1,42 @@
 
 
-	$( "#emailTextBtnStringParameter" ).keyup(function(e) {
-	
-	 e.preventDefault();
-	
-		if($('.descriptionEventParameterDiv #creating').children(".eventEmailButtonInterfaceView").find("button").length){
-		 
-			$('.descriptionEventParameterDiv #creating').children(".eventEmailButtonInterfaceView").find("button").text($(this).val());
-			
-		}else{
+$( "#emailTextBtnStringParameter" ).keyup(function(e) {
+
+ e.preventDefault();
+
+	if($('.descriptionEventParameterDiv #creating, #editing').children(".eventEmailButtonInterfaceView").find("button").length){
+	 
+		$('.descriptionEventParameterDiv #creating, #editing').children(".eventEmailButtonInterfaceView").find("button").text($(this).val());
 		
-			var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
-					
-				showEmail(layerToEdit, $(this).val());	
-		}
-	
-		}).keydown(function( event ) {
-	  
-		  if ( event.which == 13 ) {
-			event.preventDefault();
-		  }
-		  	  
-	});
+	}else{
+	 
+		var layerToEdit	=	$('.descriptionEventParameterDiv #creating, #editing');
+				
+			showEmail(layerToEdit, $(this).val());	
+	}
 
-
+	}).keydown(function( event ) {
+  
+	  if ( event.which == 13 ) {
+		event.preventDefault();
+	  }
+		  
+});
  
  
 function emailParameterEditor(descriptionObject, descriptionsArray){
 
 	var emailObject 	=	getEmailParameters(descriptionObject);
 	
-	storeEmailParameters(emailObject, descriptionsArray);
+	if($('.descriptionEventParameterDiv #creating').length){
+	
+		storeNewEmailParameters(emailObject, descriptionsArray);
+		
+	}else{
+		
+		storeEditedEmailParameters(emailObject, descriptionsArray);
+
+	}
 	
 };
 
@@ -102,7 +108,7 @@ function getEmailParameters(descriptionObject){
  
 }
 
-function storeEmailParameters(emailObject, descriptionsArray){
+function storeNewEmailParameters(emailObject, descriptionsArray){
 
 	var length					=	descriptionsArray.length;
 
@@ -110,4 +116,18 @@ function storeEmailParameters(emailObject, descriptionsArray){
 	
 	setEventDescriptionSessionStorage(descriptionsArray);
 	
+}
+
+function storeEditedEmailParameters(emailObject, descriptionsArray){
+	
+	for (var i=0; i<descriptionsArray.length; i++){
+
+		if(emailObject.identifier==descriptionsArray[i].identifier){
+	
+			descriptionsArray[i]	=	emailObject;
+	
+		}
+	}
+	
+	setEventDescriptionSessionStorage(descriptionsArray);
 }

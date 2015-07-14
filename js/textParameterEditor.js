@@ -2,14 +2,26 @@
 function textParameterEditor(descriptionObject, descriptionsArray){
 	
 	var textObject 	=	getTextParameters(descriptionObject);
+	var layerToEdit;
 	
-	var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
+	if($('.descriptionEventParameterDiv #creating').length){
 	
-	storeTextParameters(textObject, descriptionsArray);
+		layerToEdit = 	$('.descriptionEventParameterDiv #creating');
+		
+		storeNewTextParameters(textObject, descriptionsArray);
+
+	}else{
+		
+		layerToEdit	=	$('.descriptionEventParameterDiv #editing');
+		
+		$('.descriptionEventParameterDiv #editing').children(".eventTextInterfaceView").remove();
+		
+		storeEditedTextParameters(textObject, descriptionsArray);
+	 
+	}
 	
 	showText(layerToEdit, textObject.parameters.text);
-
-}
+} 
 
 
 //Recoge todo lo escrito y lo escribe en la SS
@@ -27,7 +39,7 @@ function getTextParameters(descriptionObject){
 	
 }
 
-function storeTextParameters(textObject, descriptionsArray){
+function storeNewTextParameters(textObject, descriptionsArray){
 
 	var length					=	descriptionsArray.length;
 
@@ -35,4 +47,19 @@ function storeTextParameters(textObject, descriptionsArray){
 	
 	setEventDescriptionSessionStorage(descriptionsArray);
 	
+}
+
+function storeEditedTextParameters(textObject, descriptionsArray){
+
+	for (var i=0; i<descriptionsArray.length; i++){
+	
+		if(textObject.identifier==descriptionsArray[i].identifier){
+		
+			descriptionsArray[i]	=	textObject;
+		
+		}
+	}
+	
+	setEventDescriptionSessionStorage(descriptionsArray);
+
 }

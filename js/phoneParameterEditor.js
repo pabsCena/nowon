@@ -4,13 +4,13 @@ $( "#phoneTextBtnStringParameter" ).keyup(function(e) {
 
  	 e.preventDefault();
 	
-		if($('.descriptionEventParameterDiv #creating').children(".eventPhoneButtonInterfaceView").find("button").length){
+		if($('.descriptionEventParameterDiv #creating, #editing').children(".eventPhoneButtonInterfaceView").find("button").length){
 		
-			$('.descriptionEventParameterDiv #creating').children(".eventPhoneButtonInterfaceView").find("button").text($(this).val());
+			$('.descriptionEventParameterDiv #creating, #editing').children(".eventPhoneButtonInterfaceView").find("button").text($(this).val());
 			
 		}else{
 		
-			var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
+			var layerToEdit	=	$('.descriptionEventParameterDiv #creating, #editing');
 					
 			showPhone(layerToEdit, $(this).val());	
 		}
@@ -23,13 +23,21 @@ $( "#phoneTextBtnStringParameter" ).keyup(function(e) {
 		  	  
 	}); 
 
-
+ 
 function phoneParameterEditor(descriptionObject, descriptionsArray){
 
 	var phoneObject 	=	getPhoneParameters(descriptionObject);
 	
-	storePhoneParameters(phoneObject, descriptionsArray);
+	if($('.descriptionEventParameterDiv #creating').length){
+	
+		storeNewPhoneParameters(phoneObject, descriptionsArray);
+		
+	}else{
+		
+		storeEditedPhoneParameters(phoneObject, descriptionsArray);
 
+	}
+	
 };
 
 function getPhoneParameters(descriptionObject){
@@ -94,7 +102,7 @@ function getPhoneParameters(descriptionObject){
 
 }
 
-function storePhoneParameters(phoneObject, descriptionsArray){
+function storeNewPhoneParameters(phoneObject, descriptionsArray){
 
 	var length					=	descriptionsArray.length;
 
@@ -104,4 +112,17 @@ function storePhoneParameters(phoneObject, descriptionsArray){
 
 }
 
+function storeEditedPhoneParameters(phoneObject, descriptionsArray){
+	
+	for (var i=0; i<descriptionsArray.length; i++){
+
+		if(phoneObject.identifier==descriptionsArray[i].identifier){
+	
+			descriptionsArray[i]	=	phoneObject;
+	
+		}
+	}
+	
+	setEventDescriptionSessionStorage(descriptionsArray);
+}
  

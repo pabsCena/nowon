@@ -16,7 +16,7 @@ $('#imagePreviewBtn').on('click', function(){
 
 		$.loadImage(urlImagen)
 			.done(function(image) {
-			
+			 
 			$( "#imageStringParameter" ).attr("data-valid-url", "true");
 		
 			  $('#imageDivPreview').attr("data-width", image.width).attr("data-height", image.height).append(
@@ -51,18 +51,35 @@ $('#imagePreviewBtn').on('click', function(){
  
 function imageParameterEditor(descriptionObject, descriptionsArray){
 
-	var htmlDivSelected	=	$('.descriptionEventParameterDiv #creating');
+	var htmlDivSelected;
+	
+	var imageObject 	=	getImageParameters(descriptionObject);
 	
 	var imageUrl		=	$( '#imageStringParameter').val();
 	
+	if($('.descriptionEventParameterDiv #creating').length){
+	
+		htmlDivSelected = 	$('.descriptionEventParameterDiv #creating');
+		
+		storeNewImageParameters(imageObject, descriptionsArray);
+
+	}else{
+		
+		htmlDivSelected	=	$('.descriptionEventParameterDiv #editing');
+		
+		
+		$('.descriptionEventParameterDiv .elementDescriptionLayerEdited#editing').children().not('.newDescriptionElement, .editElementDescription, .deleteElementDescription').remove();
+
+		$('.descriptionEventParameterDiv #editing').children(".eventTextInterfaceView").remove();
+		
+		storeEditedImageParameters(imageObject, descriptionsArray);
+	 
+	}
+	 
 		showImage(htmlDivSelected, imageUrl);
 				
 		$("#imageDivPreview").empty();
-	
-	var imageObject 	=	getImageParameters(descriptionObject);
-
-	storeImageParameters(imageObject, descriptionsArray);
-		
+	 
 };  
 	
 	
@@ -115,10 +132,9 @@ function getImageParameters(descriptionObject){
 
 	return descriptionObject;
 
-
 }
 
-function storeImageParameters(imageObject, descriptionsArray){
+function storeNewImageParameters(imageObject, descriptionsArray){
 
 	var length					=	descriptionsArray.length;
 
@@ -127,42 +143,57 @@ function storeImageParameters(imageObject, descriptionsArray){
 	setEventDescriptionSessionStorage(descriptionsArray);
 }
 
+function storeEditedImageParameters(imageObject, descriptionsArray){
+
+	for (var i=0; i<descriptionsArray.length; i++){
+
+		if(imageObject.identifier==descriptionsArray[i].identifier){
 	
-	$.loadImage = function(url) {
-	  // Define a "worker" function that should eventually resolve or reject the deferred object.
-	  var loadImage = function(deferred) {
-		var image = new Image();
-	 
-		// Set up event handlers to know when the image has loaded
-		// or fails to load due to an error or abort.
-		image.onload = loaded;
-		image.onerror = errored; // URL returns 404, etc
-		image.onabort = errored; // IE may call this if user clicks "Stop"
-	 
-		// Setting the src property begins loading the image.
-		image.src = url;
-	 
-		function loaded() {
-		  unbindEvents();
-		  // Calling resolve means the image loaded sucessfully and is ready to use.
-		  deferred.resolve(image);
+			descriptionsArray[i]	=	imageObject;
+	
 		}
-		function errored() {
-		  unbindEvents();
-		  // Calling reject means we failed to load the image (e.g. 404, server offline, etc).
-		  deferred.reject(image);
-		}
-		function unbindEvents() {
-		  // Ensures the event callbacks only get called once.
-		  image.onload = null;
-		  image.onerror = null;
-		  image.onabort = null;
-		}
-	  };
-   
-	  // Create the deferred object that will contain the loaded image.
-	  // We don't want callers to have access to the resolve() and reject() methods, 
-	  // so convert to "read-only" by calling `promise()`.
-	  return $.Deferred(loadImage).promise();
-	};
+	}
+	
+	setEventDescriptionSessionStorage(descriptionsArray);
+
+}
+
+
+$.loadImage = function(url) {
+  // Define a "worker" function that should eventually resolve or reject the deferred object.
+  var loadImage = function(deferred) {
+	var image = new Image();
+ 
+	// Set up event handlers to know when the image has loaded
+	// or fails to load due to an error or abort.
+	image.onload = loaded;
+	image.onerror = errored; // URL returns 404, etc
+	image.onabort = errored; // IE may call this if user clicks "Stop"
+ 
+	// Setting the src property begins loading the image.
+	image.src = url;
+ 
+	function loaded() {
+	  unbindEvents();
+	  // Calling resolve means the image loaded sucessfully and is ready to use.
+	  deferred.resolve(image);
+	}
+	function errored() {
+	  unbindEvents();
+	  // Calling reject means we failed to load the image (e.g. 404, server offline, etc).
+	  deferred.reject(image);
+	}
+	function unbindEvents() {
+	  // Ensures the event callbacks only get called once.
+	  image.onload = null;
+	  image.onerror = null;
+	  image.onabort = null;
+	}
+  };
+
+  // Create the deferred object that will contain the loaded image.
+  // We don't want callers to have access to the resolve() and reject() methods, 
+  // so convert to "read-only" by calling `promise()`.
+  return $.Deferred(loadImage).promise();
+};
 

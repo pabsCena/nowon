@@ -277,7 +277,7 @@ function generateImageParameters(parametersString, usageString){
 	
 	var imageParametersObject	=	new ImageParametersObject();
 	
-	imageParametersObject.image		=	usageString;
+	imageParametersObject.usage		=	usageString;
 	imageParametersObject.url 		=	parametersString[0];
 	imageParametersObject.width		=	parametersString[1];
 	imageParametersObject.height	=	parametersString[2];	

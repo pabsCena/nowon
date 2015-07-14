@@ -8,7 +8,7 @@
 	e.preventDefault();
 		
 		if(requiredParametersFilled()){
-	
+						
 			identifyParameter();
 	
 			if(!missingEmptyLayer()){
@@ -34,7 +34,7 @@
  	 
  	 e.preventDefault();
 
- 	 	$('.descriptionEventParameterDiv .elementDescriptionLayer').removeAttr("id").children().not('.newDescriptionElement').remove();
+ 	 	$('.descriptionEventParameterDiv .elementDescriptionLayer').removeAttr("id").children().not('.newDescriptionElement, .editElementDescription, .deleteElementDescription').remove();
  	 	
  	 	var parameters	= $(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
  	 	
@@ -69,7 +69,16 @@ function getElementParameters(parameterType){
 	
 	var eventDescriptionArray	=	getEventDescriptionSessionStorage();
 	
-	var identifier = getIdentifier();
+	var identifier; 
+	
+	if($('.descriptionEventParameterDiv .elementDescriptionLayerEdited#editing').attr("id")=="editing"){
+	
+		identifier = $('.descriptionEventParameterDiv .elementDescriptionLayerEdited#editing').attr("data-identifier");
+	
+	}else{
+
+		identifier	=	getIdentifier();
+	}
 		
 	var emptyParameters	=	$(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
 
@@ -122,8 +131,13 @@ function getElementParameters(parameterType){
 }
 
 function sendTagDescription(identifier){ 
+
+
+	if($('.descriptionEventParameterDiv #editing').length){
 		
-	if($('.descriptionEventParameterDiv #creating').length){
+		$('.descriptionEventParameterDiv #editing').removeAttr("id");		
+	
+	}else if($('.descriptionEventParameterDiv #creating').length){
 	
 		$('.descriptionEventParameterDiv #creating').attr("data-modified", "true").attr("data-identifier", identifier);
 		

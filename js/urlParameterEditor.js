@@ -3,13 +3,13 @@ $( "#urlTextBtnStringParameter" ).keyup(function(e) {
 
 	 e.preventDefault();
 		
-		if($('.descriptionEventParameterDiv #creating').children(".eventUrlButtonInterfaceView").find("button").length){
+		if($('.descriptionEventParameterDiv #creating, #editing').children(".eventUrlButtonInterfaceView").find("button").length){
 		
-			$('.descriptionEventParameterDiv #creating').children(".eventUrlButtonInterfaceView").find("button").text($(this).val());
+			$('.descriptionEventParameterDiv #creating, #editing').children(".eventUrlButtonInterfaceView").find("button").text($(this).val());
 			
 		}else{
 		
-			var layerToEdit	=	$('.descriptionEventParameterDiv #creating');
+			var layerToEdit	=	$('.descriptionEventParameterDiv #creating, #editing');
 					
 			showUrl(layerToEdit, $(this).val());		
 		}
@@ -27,7 +27,15 @@ function urlParameterEditor(descriptionObject, descriptionsArray){
 
 	var urlObject 	=	getUrlParameters(descriptionObject);
 	
-	storePhoneParameters(urlObject, descriptionsArray);
+	if($('.descriptionEventParameterDiv #creating').length){
+	
+		storeNewUrlParameters(urlObject, descriptionsArray);
+		
+	}else{
+		
+		storeEditedUrlParameters(urlObject, descriptionsArray);
+
+	}
 
 };
 
@@ -137,11 +145,25 @@ function getUrlParameters(descriptionObject){
 
 }
 
-function storeUrlParameters(urlObject, descriptionsArray){
+function storeNewUrlParameters(urlObject, descriptionsArray){
 
 	var length					=	descriptionsArray.length;
 
 	descriptionsArray[length]	=	urlObject;
+	
+	setEventDescriptionSessionStorage(descriptionsArray);
+}
+
+function storeEditedUrlParameters(urlObject, descriptionsArray){
+	
+	for (var i=0; i<descriptionsArray.length; i++){
+
+		if(urlObject.identifier==descriptionsArray[i].identifier){
+	
+			descriptionsArray[i]	=	urlObject;
+	
+		}
+	}
 	
 	setEventDescriptionSessionStorage(descriptionsArray);
 }
