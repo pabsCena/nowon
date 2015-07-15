@@ -60,26 +60,23 @@ function splitDescription(description){
 		var eachLine 	= 	description.split('\n');
 		var array		=	[];
 		var aux			=	[];
-		var aux2;
-		var counter;
+		var aux2		=	[];
+		var counter			=	0;
+		var increaseCounter =	0;
 
 		for(var i = 0; i<eachLine.length; i++) {
 		
 			if(eachLine[i].substring(0,2) != "![" && eachLine[i].substring(0,1) != "["){
 				
-				if(eachLine[i]==0){
-					
-					eachLine[i]	=	"\n";
+				aux[increaseCounter] 	=	eachLine[i];
 				
-				}
-				
-				aux[i] 	=	eachLine[i];
+				increaseCounter++;
 				
 				if(i==eachLine.length-1){
 				
 					for(var j=0; j<aux.length; j++){
 					
-						if(aux2==undefined){
+						if(aux2==0){
 						
 							aux2 = aux[j];
 						
@@ -91,9 +88,15 @@ function splitDescription(description){
 						
 					}
 					
-					array[i]	= 	generateDescriptionElement(aux2);
+					array[counter]	= 	generateDescriptionElement(aux2);
+					
+					counter++;
+					
+					increaseCounter	=	0;
 					
 					aux = [];
+					
+					aux2 = [];
 				
 				}
 			
@@ -103,7 +106,7 @@ function splitDescription(description){
 								
 					for(var j=0; j<aux.length; j++){
 						
-						if(aux2==undefined){
+						if(aux2==0){
 						
 							aux2 = aux[j];
 						
@@ -115,16 +118,32 @@ function splitDescription(description){
 												
 					}
 					
-					array[i-1]	= 	generateDescriptionElement(aux2);
+					array[counter]	= 	generateDescriptionElement(aux2);
 					
+					counter++;
+										
 					aux = [];
 					
-					array[i]	= 	generateDescriptionElement(eachLine[i]);
+					aux2 = [];
+					
+					array[counter]	= 	generateDescriptionElement(eachLine[i]);
+					
+					counter++;
+					
+					increaseCounter	=	0;
 										
 					}else{
+					
+						aux = [];
+						
+						aux2 = [];
 				
-						array[i]	= 	generateDescriptionElement(eachLine[i]);
+						array[counter]	= 	generateDescriptionElement(eachLine[i]);
 				
+						counter++;
+						
+						increaseCounter	=	0;
+
 					}
 			}
 		}

@@ -56,7 +56,11 @@ function emptyValues(parameters){
 				$(val)[0].checked	=	false;
 				
 				break;
-		
+			
+			case "textarea":
+			
+				$(val)[0].value =	"";
+				
 			default:
 				
 				$("#imageDivPreview").empty();

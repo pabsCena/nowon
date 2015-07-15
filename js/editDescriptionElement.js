@@ -151,7 +151,7 @@ function setParametersIntoEmailEditMode(element, parameters){
 			
 				if(element.parameters.title!=undefined){
 				
-					$("#emailTitleStringParameter").val(element.parameters.title);
+					$("#emailTitleStringParameter").val(extractText( element.parameters.title ));
 				 
 				}
 			
@@ -161,7 +161,7 @@ function setParametersIntoEmailEditMode(element, parameters){
 				
 				if(element.parameters.body!=undefined){
 				
-					$("#emailBodyStringParameter").val(element.parameters.body);
+					$("#emailBodyStringParameter").val(extractText( element.parameters.body ));
 				
 				}
 		
@@ -194,7 +194,7 @@ function setParametersIntoPhoneEditMode(element, parameters){
 				
 				if(element.parameters.number!=undefined){
 				
-					$("#phoneStringParameter").val(element.parameters.number);
+					$("#phoneStringParameter").val(extractText( element.parameters.number ));
 				
 				}
 				
@@ -290,11 +290,24 @@ function setParametersIntoUrlEditMode(element, parameters){
 						break;	
 				}
 				
-				break;
+				break; 
 						
 			default:
 			
 				break;
 		}
 	}
+}
+
+function extractText( str ){
+  
+  var ret = "";
+
+  if ( /"/.test( str ) ){
+    ret = str.match( /"(.*?)"/ )[1];
+  } else {
+    ret = str;
+  }
+
+  return ret;
 }

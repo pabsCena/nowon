@@ -116,11 +116,6 @@ function setDescriptionInEditingDiv(descriptionObject){
 					$("<span class='glyphicon glyphicon-pencil editElementDescription'></span>"),
 						$("<span class='glyphicon glyphicon-remove deleteElementDescription'></span>")).insertAfter($('.descriptionEventParameterDiv div.ui-sortable-handle').last());
 			
-			if(i==descriptionObject.length-1){
-			
-				$("#addLayerBtn").fadeIn();
-				
-			}
 		
 		}
 		
@@ -135,7 +130,14 @@ function setDescriptionInEditingDiv(descriptionObject){
 						$(firstdescriptionLayer).children(".editElementDescription, .deleteElementDescription").show();
 						
 						showDescription( firstdescriptionLayer, descriptionObject[i]);
-		}	
+		}
+		
+			if(i==descriptionObject.length-1){
+			
+				$("#addLayerBtn").fadeIn();
+				
+			}
+			
 	
 	}
 
