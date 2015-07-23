@@ -85,8 +85,11 @@ function getPhoneParameters(descriptionObject){
 				if(val.checked){
 					
 					phoneParameters.type		=	val.value;
+					
+					$("#phoneMobileTypeParameter").prop("checked", "false");
 
-				}
+				} 
+				
 				
 				break;
 							

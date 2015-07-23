@@ -8,6 +8,14 @@
 		showIncomingEvents();			
 
 	});
+	
+	$( "#showIncomingEventsList" ).on( "click", function (e) {
+	
+		e.preventDefault();
+	
+		showIncomingEvents();			
+
+	});
 
 function showIncomingEvents(){
 

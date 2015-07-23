@@ -39,7 +39,8 @@ function getEvents(calendarId){
 	gapi.client.load('calendar', 'v3').then(function() {	
 					
 		var request = gapi.client.calendar.events.list({
-			'calendarId' : calendarId
+			'calendarId' : calendarId,
+			'maxResults' : 2500
 			});	
 	
 		request.then(function(eventList) {

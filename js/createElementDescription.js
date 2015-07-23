@@ -38,6 +38,8 @@
  	 	
  	 	var parameters	= $(".eventParameterEditorDiv").children().find("form").children().not(":hidden");
  	 	
+ 	 	$('.descriptionEventParameterDiv .elementDescriptionLayer, .elementDescriptionLayerEdited').removeAttr("id");
+ 	 	
  	 	$("#imageDivPreview").empty();
 	
  	 	emptyValues(parameters);

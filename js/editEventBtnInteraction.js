@@ -132,7 +132,7 @@ function setDescriptionInEditingDiv(descriptionObject){
 						showDescription( firstdescriptionLayer, descriptionObject[i]);
 		}
 		
-			if(i==descriptionObject.length-1){
+			if(i==4){
 			
 				$("#addLayerBtn").fadeIn();
 				

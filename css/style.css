@@ -5,7 +5,51 @@
 
 .nemiLoginInterfaceDiv{}
 
-.nemiLoginInterfaceView{}
+.nemiLoginInterfaceView{
+	
+	background-color: #E0E0E0;
+    padding: 3em;
+    margin-top: 5%;
+    border-radius: 6px;
+    border: 1px solid #9C9292;
+}
+
+	.NemiLogo{
+		width: 100%;
+	
+	}
+	
+	.loginTextStringDiv{
+		
+		text-align: center;
+		margin-top: 1em;
+   	 	margin-bottom: 5em;
+		color:rgb(58, 29, 29);
+	}
+	
+    #loginBtn {
+      display: inline-block;
+      width: 65%;
+    }
+    
+    #loginBtn:hover {
+      cursor: pointer;
+    }
+		span.label {
+		  font-weight: bold;
+		  font-size: larger;
+		  width: 35%;
+		  color: rgb(58, 29, 29);
+		}
+		span.icon {
+		  background:  url('../images/Google_signin_medium.png') no-repeat;
+		  display: inline-block;
+		  vertical-align: middle;
+		  height: 84px;
+		  width: 100%;
+		}
+
+
 
 
 /*NEMI EVENT MANAGEMENT INTERFACE*/
@@ -15,14 +59,20 @@
 }
 
 .nemiInterfaceHeaderDiv{
-
+	padding: 1em;
 }
 
 	/*Nemi interface Header Div*/
 
 	.logOutBtnDiv{
 
-
+		
+	}
+	
+	.logOutBtn{
+	
+		float:right;
+		
 	}
 
 	.nemiTitleInterfaceDiv{
@@ -41,11 +91,15 @@
 /*Nemi Calendars Event List Div*/
 
 .nemiCalendarsEventsListDiv{
-	
+	background-color: #E0E0E0;
+	border-radius: 9px;
+	height: 41em;
+	border: 1px solid #9C9292;
 }
 
 	.calendarListDiv{
 	
+		padding: 1em;
 	}
 
 	.nemiCalendarsEventsListOptionsDiv{}
@@ -56,9 +110,23 @@
 
 
 	.nemiEventsListDiv{}
+	
+		.eventListDiv{}
+	
+		#showIncomingEventsList{
+			text-decoration: none;
+   			cursor: pointer;
+   			color:black;
+			
+		}
+		
+		#showIncomingEventsList:visited{
+			text-decoration: none;
+		}
 
 		a.list-group-item{
 			display: none;
+			cursor: pointer;
 		}
 
 		a.list-group-item.current{
@@ -70,9 +138,17 @@
 		}
 	
 		.rightArrow, .leftArrow{
-				font-size: 4em;
+				font-size: 3em;
 				position: relative;
-				top: 2em;
+				top: 3em;
+   				cursor: pointer;
+   				color:#3C454D;
+			}
+			
+			
+			.rightArrow, .leftArrow:hover{
+			
+				text-decoration: none;
 			}
 		
 			.rightArrow{
@@ -91,6 +167,10 @@
 .nemiEventInterfaceDiv{
 	display:none;
 	float: right;
+	background-color: #E0E0E0;
+	border-radius: 9px;
+	height: 41em;
+	border: 1px solid #9C9292;
 }
 
 		.nemiEventInterfaceView{
@@ -106,6 +186,10 @@
 .nemiEditingEventInterfaceDiv{
 	float: right;
 	display: none;
+	background-color: #E0E0E0;
+	border-radius: 9px;
+	height: 41em;
+	border: 1px solid #9C9292;
 	
 }
 		.editingNemiEventTitleDateInterfaceView{
@@ -143,6 +227,9 @@
 				
 						.elementDescriptionLayer{
 							margin: 0.3em;
+							height: 3em;
+							border: 1px solid;
+   							border-radius: 4px;
 
 						}
 
@@ -168,6 +255,9 @@
 						
 						.elementDescriptionLayerEdited{
 							margin: 0.3em;
+							height:3em;
+							border: 1px;
+    						border-radius: 4px;
 
 						}		
 						
@@ -235,6 +325,10 @@
 .nemiEventParameterEditorDiv{
 	display:none;
 	float: left;
+	background-color: #E0E0E0;
+	border-radius: 9px;
+	height: 41em;
+	border: 1px solid #9C9292;
 }
 
 	.eventParameterEditorDiv{

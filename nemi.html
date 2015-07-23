@@ -3,9 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>NEMI</title>
-	
-	<!--<link rel="shortcut icon" href="images/favicon.ico" />-->
-
+	 	
 	<!--Bootstrap CDN library-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	
@@ -42,29 +40,29 @@
 
 	<!--Script Google maps api library-->
 	<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-	
-	<style>
-		div {
-				background-color: lightSteelBlue;
-				border: 1px solid white;
-		}
-	
-	</style>
 </head>
 <body>
 
 <div class="col-lg-12 container-fluid nemiLoginInterfaceDiv">
 	<div class="row">
-		<div class="col-lg-4 nemiLoginInterfaceView">
+		<div class="col-lg-4 col-lg-offset-4 nemiLoginInterfaceView">
 			<div class="row">
 				<div class="nowonLogoDiv">
-					<!--<img src="images/nowonTitle.png" class="nowonLogo" alt="nowon title">-->
+					<img src="images/batman_logo.png" class="NemiLogo" alt="Nemi logo">
 				</div>
 			</div>
 			<div class="row">
-				<div class="loginBtnDiv">		
-					<button class="btn btn-success" id="loginBtn">LOGIN</button>
-				</div>	
+				<div class="col-lg-12 loginTextStringDiv">
+					<h3>Batman's event editor</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 loginBtnDiv">
+					<span class="label">Log in with:</span>
+					<div id="loginBtn">
+						<span class="icon"></span>
+					</div>
+				</div>
 			</div>			
 		</div>
 	</div>
@@ -75,6 +73,7 @@
 	<div class="row">
 		<div class="col-lg-12 nemiInterfaceHeaderDiv">
 			<div class="row">
+			<div id="name"></div>
 				<div class="col-lg-12 logOutBtnDiv">
 					<button class="btn btn-success logOutBtn">LOGOUT</button>
 				</div>
@@ -98,6 +97,7 @@
 				<div class="col-lg-6 col-lg-offset-3 nemiCalendarsEventsListDiv">
 					<div class="row">
 						<div class="col-lg-12 calendarListDiv">
+							<h2>Calendars</h2>
 							<select class="form-control calendarList"></select>
 						</div>
 					</div>
@@ -105,11 +105,11 @@
 						<div class="col-lg-12 nemiCalendarsEventsListOptionsDiv">
 							<div class="row">
 						
-								<div class="col-lg-6">
+								<div class="col-lg-2">
 									<button class="btn btn-success" id="newEventBtn">New Event</button>
 								</div>
 							
-								<div class="col-lg-6">
+								<div class="col-lg-3">
 									<button class="btn btn-success dropdown-toggle" type="button" id="searchEventBtn" data-toggle="dropdown" aria-expanded="false">
 										Search Event
 										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -130,6 +130,7 @@
 				
 					<div class="row">
 						<div class="col-lg-12 nemiEventsListDiv">
+							<a id="showIncomingEventsList"><h3>Incoming events</h3></a>
 							<div class="row">
 								<div class="col-lg-1">
 									<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-left leftArrow" aria-hidden="true"></span></a>

@@ -5,8 +5,8 @@ $(document).on('click','.editElementDescription', function(e) {
 	var identifier 				=	$(this).parent().attr("data-identifier");
 	var descriptionObject		=	getEventDescriptionSessionStorage();
 
-	$('.descriptionEventParameterDiv .elementDescriptionLayerEdited').removeAttr("id");
-	
+	$('.descriptionEventParameterDiv  .elementDescriptionLayer, .elementDescriptionLayerEdited').removeAttr("id");
+				
 	$(this).parent().attr("id", "editing");
 	
 	if($('.eventParameterEditorDiv').attr("id")==="activated"){
@@ -17,7 +17,7 @@ $(document).on('click','.editElementDescription', function(e) {
 		
 		}	
 
-	$('.eventParameterEditorDiv').attr("id", "activated");		
+	$('.eventParameterEditorDiv').attr("id", "editing");
 	
 	for(var i=0; i<descriptionObject.length; i++){
 

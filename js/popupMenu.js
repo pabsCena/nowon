@@ -63,7 +63,7 @@
             $(document).on('click', ".newDescriptionElement" , function(e){
                 e.preventDefault();
                 
-                $('.descriptionEventParameterDiv .elementDescriptionLayer').removeAttr("id");
+                $('.descriptionEventParameterDiv .elementDescriptionLayer, .elementDescriptionLayerEdited').removeAttr("id");
                 $(this).append(tar_body);
                 $(this).parent().attr("id", "creating");
                 tar_body.fadeIn('slow');
@@ -105,15 +105,15 @@ $(function(){
 	
 	 e.preventDefault();
 
-		if($('.eventParameterEditorDiv').attr("id")==="activated"){
+		if($('.eventParameterEditorDiv').attr("id")==="creating"){
 		
 				var element		=	$('.eventParameterEditorDiv').children().not(":hidden");
 				$(element).hide().find("input:text").val("");
 				$(element).find("input:radio:checked").prop('checked', false);
 			
-			}	
+			}	 
 	
-		$('.eventParameterEditorDiv').attr("id", "activated");
+		$('.eventParameterEditorDiv').attr("id", "creating");
 					
 	
 		showEventParameterDivSelected($(this).children().attr("id"));
@@ -124,7 +124,7 @@ $(function(){
 
 function showEventParameterDivSelected(parameterName){
 
-	$(".createElementBtnDiv").show();
+	$(".eventParameterEditorDiv, .createElementBtnDiv").show();
 	
 	switch(parameterName){
 	
@@ -139,11 +139,26 @@ function showEventParameterDivSelected(parameterName){
 			break;
 		case "eventPhoneMenuOption":
 			$('#phoneParameterEditorDiv').fadeIn("fast");
-			$("#phoneTelephoneTypeParameter").prop("checked", "true");
+			
+			if($("#phoneMobileTypeParameter").prop("checked")==false){
+			
+				$("#phoneTelephoneTypeParameter").prop("checked", "true");
+			}
+			
 			break;
 		case "eventUrlMenuOption":
 			$('#urlParameterEditorDiv').fadeIn("fast");
-			$("#urlTypeBtn").prop("checked", "true");
+			
+			if($('.eventParameterEditorDiv').attr("id")!="editing"){
+			
+				if($(".urlBtnTypeParameter").children("input:checked").prop("name")!="urlTypeBtn"){
+				
+					$(".urlBtnTypeParameter").children("input:checked").prop("checked", false);
+					$("#urlTypeBtn").prop("checked", true);
+
+				}
+			}
+
 			break;
 		default:
 			break;

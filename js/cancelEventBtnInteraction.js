@@ -23,12 +23,12 @@ function showEditModeAfterCancelEventBtn(){
 
 	setTimeout(function() {
 		
-		$( ".nemiEventParameterEditorDiv, .nemiEditingEventInterfaceDiv " ).hide();
+		$( ".nemiEventParameterEditorDiv, .nemiEditingEventInterfaceDiv , .eventParameterEditorDiv, .createElementBtnDiv" ).hide();
 		
 		if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3")){
 						
-			$( ".nemiEventInterfaceDiv").removeClass("col-lg-4").addClass("col-lg-6");			
-			$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 100, callback);
+			$(".nemiEventInterfaceDiv").removeClass("col-lg-4").addClass("col-lg-6");			
+			$(".nemiCalendarsEventsListDiv").addClass("col-lg-offset-3", 100, callback);
 			
 		}
 		
