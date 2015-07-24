@@ -8,20 +8,21 @@ $("#imageStringParameter").bind('change paste keyup', function(){
 
 $('#imagePreviewBtn').on('click', function(){
 
-	var urlImagen 	=	$("#imageStringParameter").val();
+	var urlImage 	=	$("#imageStringParameter").val();
 	
 	$( "#imageDivPreview").empty();
 	
-	if(urlImagen){
+	if(urlImage){
 
-		$.loadImage(urlImagen)
+		$.loadImage(urlImage)
 			.done(function(image) {
 			 
 			$( "#imageStringParameter" ).attr("data-valid-url", "true");
+			
+			var imageDiv = $( "#imageDivPreview");
+				
+			resizeImage( imageDiv, image, urlImage, image.width,  image.height, 300, 300);				
 		
-			  $('#imageDivPreview').attr("data-width", image.width).attr("data-height", image.height).append(
-				$("<img>").attr("src", urlImagen).attr("width", 200).attr("height", 200)
-			  )
 			})
 			.fail(function(image) {
 			 
@@ -33,7 +34,7 @@ $('#imagePreviewBtn').on('click', function(){
 					onShow:function(){
 				
 						$( "#imageStringParameter" ).attr("data-valid-url", "false").focus();
-						$( "#imageDivPreview") .empty();
+						$( "#imageDivPreview").empty();
 					
 					}
 				});
@@ -155,6 +156,34 @@ function storeEditedImageParameters(imageObject, descriptionsArray){
 	}
 	
 	setEventDescriptionSessionStorage(descriptionsArray);
+
+}
+
+function resizeImage(imageDiv, image, urlImage, imageWidth, imageHeight, maximun, minimun){
+	
+	var maxWidth = maximun; // Max width for the image
+	var maxHeight = minimun;    // Max height for the image
+	var ratio = 0;  // Used for aspect ratio
+	var width = imageWidth;    // Current image width
+	var height = imageHeight;  // Current image height
+
+	// Check if the current width is larger than the max
+	if(width > maxWidth){
+		ratio = maxWidth / width;   // get ratio for scaling image
+		height = height * ratio;    // Reset height to match scaled image
+		width = width * ratio;    // Reset width to match scaled image
+	}
+
+	// Check if current height is larger than max
+	if(height > maxHeight){
+		ratio = maxHeight / height; // get ratio for scaling image
+		width = width * ratio;    // Reset width to match scaled image
+		height = height * ratio;    // Reset height to match scaled image
+	}
+	
+    $(imageDiv).attr("data-width", image.width).attr("data-height", image.height).append(
+		$("<img id='imagePreview'>").attr("src", urlImage).attr("width", width).attr("height", height)
+	); 
 
 }
 

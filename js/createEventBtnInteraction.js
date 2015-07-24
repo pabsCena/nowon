@@ -234,7 +234,7 @@ function showModeAfterCreateNewEvent(){
 			
 			getEventsFromCalendarId();
 			
-			$('.nemiCalendarsEventsListDiv').toggle("blind", "slow");
+			$('.nemiCalendarsEventsListDiv').fadeIn();
 		 	
 		 	emptyEventEditingDivs();
 

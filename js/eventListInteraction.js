@@ -29,9 +29,14 @@ function showEventInterfaceView(){
  
 		//$( ".nemiEventInterfaceDiv" ).height(getHeight());
 
-		$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-offset-3", "1000", callback);
+		//$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-offset-3", "1000", callback);
 	
-		function callback() {
+	$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-offset-3", "1000");
+			$( ".nemiEventInterfaceDiv" ).addClass( "col-lg-5", "100");
+				$( ".nemiEventInterfaceDiv" ).fadeIn("slow");
+
+	
+		/*function callback() {
 	
 			$( ".nemiEventInterfaceDiv" ).addClass( "col-lg-6", "100", callback2);
 		
@@ -41,7 +46,7 @@ function showEventInterfaceView(){
 				}
 	  
 			}
-		}
+		*/}
 }
 
 function localizeEvent(calendarId, eventId){

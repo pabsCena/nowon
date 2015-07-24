@@ -33,7 +33,7 @@ function deleteEvent(){
 		
 		request.then(function(resp) {
 		
-			if(resp.statusText=='No Content') {
+			if(resp.statusText=='OK') {
 			
 				$.alert('Event deleted', {
 				autoClose: true,

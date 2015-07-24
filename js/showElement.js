@@ -119,13 +119,14 @@ function showImage(htmlDivSelected, element){
 	$.loadImage(element)
 		.done(function(image) {
 				
-			  $( ".eventImageInterfaceView" ).attr("data-width", image.width).attr("data-height", image.height).append(
-				$("<img>").attr("src", element))
-		
-		  })
+			var imageDiv = 	 $( ".eventImageInterfaceView" );
+			
+			resizeImage( imageDiv, image, element, image.width,  image.height, 200, 200);				
+		 
+		  }) 
             
 		.fail(function(image) {
-		  
+	 	  
 		  alert("Failed to load image");
 		
 		});
