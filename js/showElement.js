@@ -96,7 +96,7 @@ function showLocation(htmlDivSelected, element){
 	
 	$( htmlDivSelected ).append(
        	$("<div id='eventLocationInterfaceView'>").append(
-       		$("<p>").text("In " + element)));
+       		$("<p>").text("Location: " + element)));
        		 
 } 
 
@@ -119,7 +119,7 @@ function showImage(htmlDivSelected, element){
 	$.loadImage(element)
 		.done(function(image) {
 				
-			var imageDiv = 	 $( ".eventImageInterfaceView" );
+			var imageDiv = 	$( ".eventImageInterfaceView:not([data-width])" );
 			
 			resizeImage( imageDiv, image, element, image.width,  image.height, 200, 200);				
 		 
@@ -133,26 +133,29 @@ function showImage(htmlDivSelected, element){
 	} 
 	
 }
-
+ 
 function showEmail(htmlDivSelected, element){
 
 	$( htmlDivSelected ).append(
        	$("<div class='eventEmailButtonInterfaceView'>").append(
-       		$("<button class='btn btn-primary'>").text(element)));
+       		$("<button class='btn btn-primary emailButtonInterface'>").text(element).append(
+       			$("<span class='glyphicon glyphicon-envelope emailButtonInterfaceIcon'></span>"))));
 }
 
 function showPhone(htmlDivSelected, element){ 
 	
 	$( htmlDivSelected ).append(
-       	$("<div class='eventPhoneButtonInterfaceView'>").append(
-       		$("<button class='btn btn-primary'>").text(element)));
+       	$("<div class='eventPhoneButtonInterfaceView phoneButtonInterface'>").append(
+       		$("<button class='btn btn-primary phoneButtonInterface'>").text(element).append(
+       			$("<span class='glyphicon glyphicon-phone-alt phoneButtonInterfaceIcon'></span>"))));
 	
 } 
 
 function showUrl(htmlDivSelected, element){
 
 	$( htmlDivSelected ).append(
-       	$("<div class='eventUrlButtonInterfaceView'>").append(
-       		$("<button class='btn btn-primary'>").text(element)));
+       	$("<div class='eventUrlButtonInterfaceView urlButtonInterface'>").append(
+       		$("<button class='btn btn-primary urlButtonInterface'>").text(element).append(
+       			$("<span class='glyphicon glyphicon-link urlButtonInterfaceIcon'></span>"))));
 }
 

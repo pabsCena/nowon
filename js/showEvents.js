@@ -40,9 +40,13 @@ function showIncomingEvents(){
 	}
 		
 	if(events.length!=0){
-		showEvents(events);	
+	
+		showEvents(events);
+			
 	}else{
+	
 		noEvents("No upcoming events :(");
+		$(".nemiEventInterfaceView").empty();
 	}
 }
 

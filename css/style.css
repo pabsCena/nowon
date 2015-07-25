@@ -68,8 +68,10 @@
 		
 	}
 
-	.nemiTitleInterfaceDiv{
-
+	.nemiTitle{
+		
+		width: 30%;
+		position: fixed;
 
 	}
  
@@ -181,15 +183,21 @@
 	height: 41em;
 	border: 1px solid #9C9292;
 	right: 4em;
+	padding: 1em;
+	position: absolute;
+	
+	
 }
 
 		.nemiEventInterfaceView{
 		
-			border: 2px solid;
+			border: 1px solid;
 			width: 90%;
 			right: 5%;
 			left: 5%;
-			margin-top: 3em;
+			margin-top: 1em;
+			height: 26em;
+			overflow-y: scroll;
 		
 		}
 		
@@ -220,6 +228,7 @@
 	height: 44em;
 	border: 1px solid #9C9292;
 	right: 4em;
+	
 }
 		.editingNemiEventTitleDateInterfaceView{
 		
@@ -307,6 +316,7 @@
 							text-align: center;
 							line-height: 10px;
    							left: 2px;
+   							 margin-right: 1em;
 						}
 						
 						.elementDescriptionLayerEdited .editElementDescription:hover {
@@ -324,6 +334,7 @@
 							line-height: 10px;
 							right: 2px;
 							float: right;
+							margin-left: 1em;
 						}
 
 
@@ -345,14 +356,7 @@
 						#addLayerBtn{
 							display: none;
 						}
-						
-						
-						.eventTextInterfaceView{
-						
-							text-align: center;
-						}	
-		
-		
+							
 		
 		
 		.nemiEventInterfaceEditOptionsDiv{
@@ -396,6 +400,7 @@
 
 		#locationParameterEditorDiv, #textParameterEditorDiv, #imageParameterEditorDiv, #emailParameterEditorDiv, #phoneParameterEditorDiv, #urlParameterEditorDiv{
 			display: none;
+			margin-top: 2em;
 		}
 		
 		.textStringParameterDiv{
@@ -458,25 +463,53 @@ body.loading .modal {
 }
 
 
-/*WYISHTML
+/* Event interface divs */
 
-header {
-  display: block;
-  border-radius: 4px;
-  width: 100%;
-  background: #f6f6f6;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  border: 1px solid #ddd\9; 
-  background-image: linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
-  font-size: 0;
-  text-align: center;
-}
-*/
+	#eventSummaryInterfaceView{
+	
+		font-weight: bold;
+    	font-size: 20px;			
+	}
+
+	#eventDateInterfaceView{
+	
+		font-weight: bold;
+    	font-size: 20px;
+	}
+
+	.eventTextInterfaceView{
+
+		text-align: left;
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+	}	
+
+	.eventEmailButtonInterfaceView, .eventPhoneButtonInterfaceView, .eventUrlButtonInterfaceView{
+	
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+
+	}
+	
+		.emailButtonInterface, .phoneButtonInterface, .urlButtonInterface{
+		
+			
+		
+		}
+	
+		.emailButtonInterfaceIcon, .phoneButtonInterfaceIcon, .urlButtonInterfaceIcon{
+			 
+			float: left;
+   			margin-right: 0.7em;
+			 
+		}
+		
+		.imagePreview{
+		
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			
+		}
+		
+
 

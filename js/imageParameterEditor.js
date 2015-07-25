@@ -68,7 +68,6 @@ function imageParameterEditor(descriptionObject, descriptionsArray){
 		
 		htmlDivSelected	=	$('.descriptionEventParameterDiv #editing');
 		
-		
 		$('.descriptionEventParameterDiv .elementDescriptionLayerEdited#editing').children().not('.newDescriptionElement, .editElementDescription, .deleteElementDescription').remove();
 
 		$('.descriptionEventParameterDiv #editing').children(".eventTextInterfaceView").remove();
@@ -88,7 +87,7 @@ function getImageParameters(descriptionObject){
 
 	var imageParameters =	new ImageParametersObject();
 	
-	var parameters	= $("#imageParameterEditorDiv form").children("input").not("button");
+	var parameters	= $("#imageParameterEditorDiv form").find("input");
 	
 	imageParameters.image = "image";
 	
@@ -182,7 +181,7 @@ function resizeImage(imageDiv, image, urlImage, imageWidth, imageHeight, maximun
 	}
 	
     $(imageDiv).attr("data-width", image.width).attr("data-height", image.height).append(
-		$("<img id='imagePreview'>").attr("src", urlImage).attr("width", width).attr("height", height)
+		$("<img class='imagePreview'>").attr("src", urlImage).attr("width", width).attr("height", height)
 	); 
 
 }
