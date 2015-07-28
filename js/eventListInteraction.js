@@ -31,22 +31,11 @@ function showEventInterfaceView(){
 
 		//$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-offset-3", "1000", callback);
 	
-	$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-offset-3", "1000");
-			$( ".nemiEventInterfaceDiv" ).addClass( "col-lg-5", "100");
+	$( ".nemiCalendarsEventsListDiv").removeClass("col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 ", "1000");
+			$( ".nemiEventInterfaceDiv" ).addClass( "col-lg-5 col-md-5 col-sm-5 col-xs-5", "100");
 				$( ".nemiEventInterfaceDiv" ).fadeIn("slow");
 
-	
-		/*function callback() {
-	
-			$( ".nemiEventInterfaceDiv" ).addClass( "col-lg-6", "100", callback2);
-		
-				function callback2() {
-			
-					$( ".nemiEventInterfaceDiv" ).fadeIn();
-				}
-	  
-			}
-		*/}
+	}
 }
 
 function localizeEvent(calendarId, eventId){

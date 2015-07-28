@@ -1,4 +1,4 @@
-//Script that generates the pop up menu for elements of the description
+//Script that generates the pop up menu for the description elements
 
  $(function(){
  
@@ -52,11 +52,6 @@
                 'border-radius': settings.borderRadius
             });
             
-            /*tar_a.css({
-                'text-decoration': 'none',
-                'color': '#fff'
-            });
-            */
             
             //when one label is clicked
             

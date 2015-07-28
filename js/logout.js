@@ -1,4 +1,5 @@
-//Script that logs out of the google user account 
+//Script that logs out of the google user account and relocate to the main site 
+
 $(function() {
 
 	$('.logOutBtn').on('click', function(e){
@@ -12,6 +13,6 @@ $(function() {
 function signOut(){
 	
 	deleteSessionStorage();
-	document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://www.stud.hig.no/~141625/Nemi/nemi.html";
+	document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://www.playlevel.com/caltool/editor/nemi.html";
 
 }

@@ -1,4 +1,4 @@
-
+//Script that manages the email parameters and its storage in the SS
 
 $( "#emailTextBtnStringParameter" ).keyup(function(e) {
 
@@ -104,7 +104,6 @@ function getEmailParameters(descriptionObject){
 	descriptionObject.parameters	=	emailParameters;
 
 	return descriptionObject;
-
  
 }
 

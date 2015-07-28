@@ -1,3 +1,4 @@
+//Script that manages the storage of the title, date and location of an event, when an event wants to be created
 
 function getTitleDateLocation(eventObject, eventTitleDateLocation){
 

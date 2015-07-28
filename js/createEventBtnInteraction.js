@@ -1,3 +1,4 @@
+//Script that manages the creation of an event an its interface, once is created.
 
 $(function(){
 	
@@ -113,7 +114,7 @@ function createNewEvent(calendarId, resource){
 		
 		request.then(function(resp) {
 		
-			if(resp.statusText=='OK') {
+			if(resp.status=='200') {
 			
 				$.alert('Event created', {
 				
@@ -165,7 +166,7 @@ function modifyEvent(calendarId, eventId, resource){
 		
 		request.then(function(resp) {
 		
-			if(resp.statusText=='OK') {
+			if(resp.status=='200') {
 			
 				$.alert('Event modified', {
 				
@@ -211,9 +212,9 @@ function showModeAfterCreateNewEvent(){
 		$(".nemiEditingEventInterfaceDiv").toggle("slide", "easeOutCubic", 500, function(){
 		
 		
-		if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3")){
+		if($('.nemiCalendarsEventsListDiv').not("col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3")){
 				
-			$(".nemiCalendarsEventsListDiv").addClass("col-lg-offset-3", callback);
+			$(".nemiCalendarsEventsListDiv").addClass("col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3", callback);
 	
 		}else{
 	

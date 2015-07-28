@@ -1,3 +1,5 @@
+//Script that empties all the input or check boxes
+
 function emptyEventEditingDivs(){
 
 	$(".eventParameterEditorDiv").children().not(":hidden").fadeOut( 100, function() {

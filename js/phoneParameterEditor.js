@@ -1,4 +1,4 @@
-
+//Script that manages all the phone parameters and stores into the SS
 
 $( "#phoneTextBtnStringParameter" ).keyup(function(e) {
 

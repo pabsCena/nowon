@@ -1,6 +1,5 @@
 //Script that manages the creation of elements of the description
 
-
  $(function(){
  
    $( '#createElementBtn' ).click(function(e) {

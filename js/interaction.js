@@ -1,8 +1,5 @@
 //Script that manages all the interaction with the buttons and divs in the app
  
- //Event date and time interaction
-	
-
 $(function(){
 
 	 $('#eventDateDiv .time').timepicker({

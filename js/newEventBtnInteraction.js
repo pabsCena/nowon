@@ -1,4 +1,4 @@
-//Script that manages the interaction with the new event button
+//Script that manages the interaction and visual interface when the new event button is pressed
 
 $(function() {
 

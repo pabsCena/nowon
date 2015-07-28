@@ -1,4 +1,4 @@
-
+//Script that generates de markup language of each element and stores it into the SS
 
 function getDescription(eventObject, eventDescription){
 

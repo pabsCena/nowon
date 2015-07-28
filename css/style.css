@@ -16,7 +16,6 @@
 
 	.NemiLogo{
 		width: 100%;
-	
 	}
 	
 	.loginTextStringDiv{
@@ -208,7 +207,8 @@
 				position: absolute;
     			bottom: 0;	
     			margin-bottom: 3em;
-    			left: 6em;
+    			left: 4em;
+    			width: 80%;
 			}
 			
 			#editEventBtn, #deleteEventBtn{
@@ -217,8 +217,61 @@
     			font-size: larger;
    				bottom: 0px;
 			}
+	
+	
+/* Event interface divs */
+
+	#eventSummaryInterfaceView{
+	
+		font-weight: bold;
+    	font-size: 20px;			
+	}
+
+	#eventDateInterfaceView{
+	
+		font-weight: bold;
+    	font-size: 20px;
+	}
+
+	.eventTextInterfaceView{
+
+		text-align: left;
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+	}	
+
+	.eventEmailButtonInterfaceView, .eventPhoneButtonInterfaceView, .eventUrlButtonInterfaceView{
+	
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+
+	}
+	
+		.emailButtonInterface, .phoneButtonInterface, .urlButtonInterface{
+		
+			
+		
+		}
+	
+		.emailButtonInterfaceIcon, .phoneButtonInterfaceIcon, .urlButtonInterfaceIcon{
+			 
+			float: left;
+   			margin-right: 0.7em;
+			 
+		}
+		
+		.imagePreview{
+		
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			
+		}
+				
 		
 /*---END---*/		
+
+/*NEMI EDITING EVENT INTERFACE (RIGHT SIDE OF THE EVENT EDITOR)*/
+
 
 .nemiEditingEventInterfaceDiv{
 	float: right;
@@ -378,7 +431,7 @@
 
 		
 
-/*Nemi Event Parameter Editor Div*/
+/*Nemi Event Parameter Editor (LEFT SIDE OF THE EVENT EDITOR)*/
 
 .nemiEventParameterEditorDiv{
 	display:none;
@@ -421,7 +474,7 @@
 		
 		#createElementBtn, #cancelCreationElementBtn{
 		
-			width: 21%;
+			width: 26%;
     		font-size: larger;
     		position: relative;
    			float: right;
@@ -431,8 +484,6 @@
 		
 		
 		
-		
-
 
 /*Loading gif Div*/
 
@@ -461,55 +512,4 @@ body.loading {
 body.loading .modal {
     display: block;
 }
-
-
-/* Event interface divs */
-
-	#eventSummaryInterfaceView{
-	
-		font-weight: bold;
-    	font-size: 20px;			
-	}
-
-	#eventDateInterfaceView{
-	
-		font-weight: bold;
-    	font-size: 20px;
-	}
-
-	.eventTextInterfaceView{
-
-		text-align: left;
-		margin-top: 0.3em;
-		margin-bottom: 0.3em;
-	}	
-
-	.eventEmailButtonInterfaceView, .eventPhoneButtonInterfaceView, .eventUrlButtonInterfaceView{
-	
-		margin-top: 0.3em;
-		margin-bottom: 0.3em;
-
-	}
-	
-		.emailButtonInterface, .phoneButtonInterface, .urlButtonInterface{
-		
-			
-		
-		}
-	
-		.emailButtonInterfaceIcon, .phoneButtonInterfaceIcon, .urlButtonInterfaceIcon{
-			 
-			float: left;
-   			margin-right: 0.7em;
-			 
-		}
-		
-		.imagePreview{
-		
-			margin-top: 0.3em;
-			margin-bottom: 0.3em;
-			
-		}
-		
-
 

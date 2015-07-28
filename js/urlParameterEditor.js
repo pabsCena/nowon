@@ -1,3 +1,4 @@
+//Script that manages the url element of the description section, and stores into the SS
 
 $( "#urlTextBtnStringParameter" ).keyup(function(e) {
 

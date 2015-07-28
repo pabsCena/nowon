@@ -43,21 +43,32 @@
 </head>
 <body>
 
-<div class="col-lg-12 container-fluid nemiLoginInterfaceDiv">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container-fluid nemiLoginInterfaceDiv">
 	<div class="row">
-		<div class="col-lg-4 col-lg-offset-4 nemiLoginInterfaceView">
+		<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 nemiLoginInterfaceView">
 			<div class="row">
 				<div class="nowonLogoDiv">
+				
+				
+				<!--LOGO IMAGE ON THE LOGIN SECTION  -->
+				
 					<img src="images/batman_logo.png" class="NemiLogo" alt="Nemi logo">
+					
+					
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12 loginTextStringDiv">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 loginTextStringDiv">
+				
+				<!--NAME OF THE CALENDAR TO EDIT  -->
+				
 					<h3>Batman's event editor</h3>
+					
+					
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12 loginBtnDiv">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 loginBtnDiv">
 					<span class="label">Log in with:</span>
 					<button type="button" class="btn btn-primary" id="loginBtn">Google</button>
 				</div>
@@ -65,49 +76,49 @@
 		</div>
 	</div>
 </div>
-
-<div class="col-lg-12 container-fluid nemiInterfaceDiv">
-
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container-fluid nemiInterfaceDiv">
 	<div class="row">
-		<div class="col-lg-12 nemiInterfaceHeaderDiv">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiInterfaceHeaderDiv">
 			<div class="row">
 			<div id="name"></div>
-				<div class="col-lg-12 logOutBtnDiv">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 logOutBtnDiv">
 					<button class="btn btn-success logOutBtn">LOGOUT</button>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12 nemiTitleInterfaceDiv">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiTitleInterfaceDiv">
+				
+				<!--LOGO IMAGE ON THE EVENET EDITOR SECTION-->
+					
 					<img src="images/batman_title.png" class="nemiTitle" alt="nowon title">
+				
+				
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="row">
-
-		<div class="col-lg-12 nemiInterfaceBodyDiv">
-	
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiInterfaceBodyDiv">
 			<div class="row">
 		
 			<!--Start of nemiCalendarsEventsListOptionsDiv-->
 		
-				<div class="col-lg-5 col-lg-offset-3 nemiCalendarsEventsListDiv">
+				<div class="col-lg-5 col-lg-offset-3 col-md-5 col-md-offset-3 col-sm-5 col-sm-offset-3 col-xs-5 col-xs-offset-3 nemiCalendarsEventsListDiv">
 					<div class="row">
-						<div class="col-lg-12 calendarListDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 calendarListDiv">
 							<h2>Calendars</h2>
 							<select class="form-control calendarList"></select>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-12 nemiCalendarsEventsListOptionsDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiCalendarsEventsListOptionsDiv">
 							<div class="row">
 						
-								<div class="col-lg-3">
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
 									<button class="btn btn-success" id="newEventBtn">New Event</button>
 								</div>
 							
-								<div class="col-lg-3">
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 									<button class="btn btn-success dropdown-toggle" type="button" id="searchEventBtn" data-toggle="dropdown" aria-expanded="false">
 										Search Event
 										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -117,7 +128,7 @@
 										<li><a class="searchByDateOption">By date</a></li>
 										<li><a class="searchByTitleOption">By event title</a></li>
 									</ul>			
-									<div class="col-lg-12 input-group searchEventInputBoxDiv">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 input-group searchEventInputBoxDiv">
 										<input type="text" id="searchEventDateInputBox" placeholder="Press here"/>
 										<input type="text" id="searchEventTitleInputBox" placeholder="Title of the event..."/>
 									</div>											
@@ -125,16 +136,15 @@
 							</div>		
 						</div>
 					</div>
-				
 					<div class="row">
-						<div class="col-lg-12 nemiEventsListDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiEventsListDiv">
 							<a id="showIncomingEventsList"><h3>Incoming events</h3></a>
 							<div class="row">
-								<div class="col-lg-1">
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 									<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-left leftArrow" aria-hidden="true"></span></a>
 								</div>
-								<div class="col-lg-10 list-group eventListDiv"></div>
-								<div class="col-lg-1">
+								<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 list-group eventListDiv"></div>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 									<a class="nemiEventListNavBtn"><span class="glyphicon glyphicon-chevron-right rightArrow" aria-hidden="true"></span></a>
 								</div>
 							</div>
@@ -149,18 +159,17 @@
 				<div class="nemiEventInterfaceDiv">
 				<h1 style="text-align: center">Event Interface</h1>
 					<div class="row">
-						<div class="col-lg-12 nemiEventInterfaceView">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiEventInterfaceView">
 						</div>
 					</div>
-					
 					<div class="row editEventBtnsDiv">
-						<div class="col-lg-6">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 							<button class="btn btn-warning" id="editEventBtn">
 								Edit Event
 								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 							</button>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 							<button class="btn btn-danger" id="deleteEventBtn">
 								Delete Event
 								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -173,12 +182,12 @@
 		
 			<!--Start of editing nemiEventInterfaceDiv-->
 
-				<div class="col-lg-5 nemiEditingEventInterfaceDiv">
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 nemiEditingEventInterfaceDiv">
 					<h1 style="text-align: center">Event</h1>
 					<div class="row">
-						<div class="col-lg-12 editingNemiEventTitleDateInterfaceView">			
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 editingNemiEventTitleDateInterfaceView">			
 							<div class="row">
-								<div class="col-lg-12" id="eventTitleDiv">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="eventTitleDiv">
 									<form onsubmit="return false">
 										<h4>Title</h4>
 										<input type='text' id="eventTitleInputBox" class='form-control' data-required="true" placeholder="Title here">
@@ -187,7 +196,7 @@
 							</div>
 			
 							<div class="row">
-								<div class="col-lg-12" id="eventDateDiv">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="eventDateDiv">
 									<form onsubmit="return false">
 										<h4>Date</h4>
 										<input type='text' class="date start form-control" id="eventStartDateInputBox" data-required="true" placeholder="Start Date"/>
@@ -199,7 +208,7 @@
 								</div> 
 							</div>
 							<div class="row">
-								<div class="col-lg-12" id="eventLocationDiv">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="eventLocationDiv">
 									<form onsubmit="return false">
 										<h4>Location</h4>
 										<input id="geocompleteInputBox" class='form-control' type="text" placeholder="Type in an address" autocomplete="off">
@@ -207,13 +216,12 @@
 								</div>
 							</div>	
 						</div>
-					</div>
-						
+					</div>		
 					<div class="row">
-						<div class="col-lg-12 editingNemiEventParameterListDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 editingNemiEventParameterListDiv">
 							<h4>Description</h4>
 							<div class="row">
-								<div class="col-lg-11 descriptionEventParameterDiv">
+								<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 descriptionEventParameterDiv">
 								
 									<div class="elementDescriptionLayer" data-modified="false">
 										<span class="glyphicon glyphicon-plus newDescriptionElement"></span>
@@ -253,45 +261,39 @@
 							</div>
 						</div>
 					</div>		
-						
 					<div class="row">
-						<div class="col-lg-12 nemiEventInterfaceEditOptionsDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nemiEventInterfaceEditOptionsDiv">
 							
 							<div class="row createEventBtnsDiv">
-								<div class="col-lg-6">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 									<button class="btn btn-success" id="doneBtn">
 										
 									</button>
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 									<button class="btn btn-danger" id="cancelBtn">
 										Cancel
 									</button>
 								</div>
 							</div>	
 						</div>
-						
-						
-						</div>
-					
-					
+					</div>
 				</div>
 	
 			<!--End of editing nemiEventInterfaceDiv-->	
 		
-	
 			<!--Start of nemiEventParameterEditorDiv-->	
 
-				<div class="col-lg-5 nemiEventParameterEditorDiv">
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 nemiEventParameterEditorDiv">
 				<h1 style="text-align: center">Editor</h1>
 					<div class="row">
-						<div class="col-lg-12 eventParameterEditorDiv">
-							<div class="col-lg-12" id="textParameterEditorDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 eventParameterEditorDiv">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="textParameterEditorDiv">
 								<form onsubmit="return false">						
 									<textarea class="textStringParameterDiv" data-required="true" placeholder="Enter your text ..."></textarea>
 								</form>
 							</div>
-							<div class="col-lg-12" id="imageParameterEditorDiv">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="imageParameterEditorDiv">
 								<form onsubmit="return false">
 									<h5>Text of image (optional)</h5>
 									<input type='text' id="imageTextBtnStringParameter" class='form-control' placeholder="Text here">
@@ -307,8 +309,7 @@
 								</form>
 								<div id="imageDivPreview"></div>
 							</div>
-						
-							<div class="col-lg-12" id="emailParameterEditorDiv">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="emailParameterEditorDiv">
 								<form onsubmit="return false">
 									<h5>Text of button</h5>
 									<input type='text' id="emailTextBtnStringParameter" class='form-control' data-required="true" placeholder="Text here">
@@ -327,7 +328,7 @@
 								</form>
 							</div>
 						
-							<div class="col-lg-12" id="phoneParameterEditorDiv">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="phoneParameterEditorDiv">
 								<form onsubmit="return false">
 									<h5>Text of button</h5>
 									<input type='text' id="phoneTextBtnStringParameter" class='form-control' data-required="true" placeholder="Text here">
@@ -343,7 +344,7 @@
 								</form>
 							</div>
 						
-							<div class="col-lg-12" id="urlParameterEditorDiv">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="urlParameterEditorDiv">
 								<form onsubmit="return false">
 									<h5>Text of button</h5>
 									<input type='text' id="urlTextBtnStringParameter" class='form-control' data-required="true" placeholder="Text here">
@@ -362,14 +363,10 @@
 									<input type="radio" id="facebookUrlTypeBtn" name="facebookUrlTypeBtn" value="facebook">Facebook<br>
 								</form>		
 							</div>
-						
 						</div>
-			
 					</div>
-				
-					<div class="row">
-				
-						<div class="col-lg-12 createElementBtnDiv">
+					<div class="row">			
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 createElementBtnDiv">
 							<button class="btn btn-success" id="createElementBtn"><span class="glyphicon glyphicon-eye-open"></span>
 									OK
 							</button>
@@ -377,24 +374,17 @@
 									CANCEL
 							</button>
 						</div>
-					
 					</div>
-				
 				</div>
 			
 			<!--End of nemiEventParameterEditorDiv-->	
 		
 			</div>
-			
 		</div>
-	
 	</div> 
-
 </div>
 
 <div class="modal"></div>
-
-
 
 <!-- Scripts Section -->
 

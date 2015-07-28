@@ -1,3 +1,4 @@
+//Script that manages the text description of the event
 
 function textParameterEditor(descriptionObject, descriptionsArray){
 	

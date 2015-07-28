@@ -1,4 +1,4 @@
-//Script that shows the elements of an event
+//Script that shows an element of an event. All of them are included.
 
 function showElements(htmlDivSelected){
 	

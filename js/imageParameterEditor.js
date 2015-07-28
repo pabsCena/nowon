@@ -1,3 +1,4 @@
+//Script that manages the image parameters and the view of it on the screen
 
 $("#imageStringParameter").bind('change paste keyup', function(){
 

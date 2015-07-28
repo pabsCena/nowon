@@ -1,4 +1,4 @@
-//Script that deletes a specific event
+//Script that deletes a specific event, previously selected in the calendar list
 
 $(function() {
 
@@ -33,7 +33,7 @@ function deleteEvent(){
 		
 		request.then(function(resp) {
 		
-			if(resp.statusText=='OK') {
+			if(resp.status=='204') {
 			
 				$.alert('Event deleted', {
 				autoClose: true,
@@ -52,7 +52,7 @@ function deleteEvent(){
 					}else{
 					
 						$( ".nemiEventInterfaceDiv").hide();
-						$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3", 500);
+						$('.nemiCalendarsEventsListDiv').addClass("col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3", 500);
 			
 						
 					}

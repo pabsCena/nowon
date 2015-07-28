@@ -1,3 +1,5 @@
+//Script that manages the edition of an element of the description. It takes the information from the SS 
+// and then is added into the input boxes
 
 $(document).on('click','.editElementDescription', function(e) {
 

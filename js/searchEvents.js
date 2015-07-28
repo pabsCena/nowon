@@ -1,4 +1,4 @@
-//Script that searches for specific events according to it's date or title
+//Script that searches for specific events according to it's date or title, and retrieve from the SS
 
 $(document).ready(function() {
 	$('#searchEventBtn').click(function(e) {

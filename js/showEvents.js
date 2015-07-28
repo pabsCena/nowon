@@ -1,6 +1,5 @@
 //Script that shows the events related to the calendar selected
 
-
 	$( ".form-control.calendarList" ).change(function (e) {
 	
 		e.preventDefault();

@@ -1,4 +1,5 @@
-//Script that deletes an element of the description
+//Script that deletes an element of the description list. Basically removes it from the Session Storage
+// and then from the event list
 
 $(document).on('click','.deleteElementDescription', function(e) {
 

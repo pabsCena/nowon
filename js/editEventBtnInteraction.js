@@ -1,3 +1,5 @@
+//Script that manages the information of an event that wants to be edited and its shown on
+// the event editor
 
 $(function() {
 

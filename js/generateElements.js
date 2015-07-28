@@ -1,6 +1,5 @@
 //Script that localise the event in the Session Storage and generate the elements that composes it
 
-
 function generateElementsOfEvent(eventIdentified){
  	
 	var event 				=	new EventObject();

@@ -1,4 +1,4 @@
-//Script that contains all the objects used in Nemi
+//Script that contains all the objects used
 
 function calendarObject(id, name){
 	this.id 	= 	id;
